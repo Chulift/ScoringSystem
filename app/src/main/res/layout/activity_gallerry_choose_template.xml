@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EEEEEE">
+
+    <TextView
+        android:id="@+id/header_txtView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="เลือกเทมเพลท"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txt1"
+        android:textColor="@color/black"
+        android:text="สร้างชุดข้อสอบ"
+        android:layout_margin="5dp"
+        android:layout_above="@+id/editExamTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <EditText
+        android:id="@+id/editExamTxt"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_above="@+id/btm_bar"
+        android:layout_alignEnd="@+id/listView1"
+        android:layout_alignStart="@+id/listView1"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@color/colorWhite"
+        android:hint="ชื่อชุดข้อสอบ" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/image_gallery"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:layout_above="@+id/txt1"
+        android:layout_below="@+id/header_txtView"
+        android:layout_centerHorizontal="true"
+
+        android:background="@color/white"
+        android:scrollbars="vertical" />
+
+    <LinearLayout
+        android:id="@+id/btm_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+
+        <ImageButton
+            android:id="@+id/back_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#EEEEEE"
+            android:src="@mipmap/back_button"
+            android:text="ย้อนกลับ" />
+
+        <Button
+            android:id="@+id/confirm_btn"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/buttonshape"
+
+            android:shadowColor="#A8A8A8"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="5"
+            android:text="สร้างชุดข้อสอบ"
+            android:textColor="#000000"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+</RelativeLayout>

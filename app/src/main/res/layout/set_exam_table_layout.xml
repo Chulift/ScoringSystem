@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="horizontal"
+    >
+
+    <TextView
+        android:paddingBottom="15dp"
+        android:paddingTop="15dp"
+        android:id="@+id/sequence_exam_set"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.1"
+        android:text="#"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/name_exam_set"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.4"
+        android:text="ชื่อชุดข้อสอบ"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:textAlignment="center"
+        android:id="@+id/num_score_exam_set"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.2"
+        android:text="จำนวนข้อ"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/template_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.4"
+        android:paddingLeft="6dp"
+        android:text="เทมเพลท"
+        android:textColor="@color/black" />
+</LinearLayout>

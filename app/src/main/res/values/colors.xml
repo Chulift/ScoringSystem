@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#505c76</color>
+    <color name="colorPrimaryDark">#1f2d8c</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="colorHuman">#e69679</color>
+    <color name="colorWhite">#FFFFFF</color>
+
+
+    <color name="indianred">#DC8C8C</color>
+    <color name="primary">#E43F3F</color>
+    <color name="primary_dark">#E12929</color>
+    <color name="primary_darker">#CC1D1D</color>
+    <color name="accent">#FFFFFF</color>
+
+    <color name="black">#000000</color>
+    <color name="jet">#222222</color>
+    <color name="oil">#333333</color>
+    <color name="monsoon">#777777</color>
+    <color name="jumbo">#888888</color>
+    <color name="aluminum">#999999</color>
+    <color name="base">#AAAAAA</color>
+    <color name="iron">#CCCCCC</color>
+    <color name="white">#FFFFFF</color>
+    <color name="blue">#72AEEA</color>
+    <color name="indigo">#96E5CD</color>
+    <color name="red">#FF0000</color>
+    <color name="black_overlay">#66000000</color>
+    <color name="green">#00FF00</color>
+    <color name="grass">#7FD76B</color>
+
+</resources>

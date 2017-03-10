@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.chulift.demoapplication">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher_web"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme.NoActionBar">
+        <activity android:name=".Login.LoginActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Template.CaptureTemplateActivity" />
+        <activity android:name=".Template.CropTemplateActivity" />
+        <activity android:name=".Template.FillFormActivity" />
+        <activity android:name=".Login.SignupActivity" />
+        <activity android:name=".MenusActivity" />
+        <activity android:name=".ExamSet.ManageExamSetActivity" />
+        <activity android:name=".Template.ShowTemplateListActivity" />
+        <activity android:name=".Template.CropIDActivity" />
+        <activity android:name=".Template.FinishTemplateActivity" />
+        <activity android:name=".Template.CropDetailActivity" />
+        <activity android:name=".AboutUsActivity" />
+        <activity android:name=".Template.EditTemplateActivity" />
+        <activity android:name=".Answer.ChooseAnswerMethodActivity" />
+        <activity android:name=".ExamSet.CUExamSetActivity" />
+        <activity android:name=".Answer.SelectAnswerActivity" />
+        <activity android:name=".Answer.ShowSelectedAnswerActivity" />
+        <activity android:name=".AnswerSheet.AnswerSheetListActivity" />
+        <activity android:name=".ExamSet.ScoringActivity" />
+        <activity android:name=".AnswerSheet.CaptureAnswerSheetActivity" />
+        <activity android:name=".Answer.ChooseTemplateActivity" />
+        <activity android:name=".Answer.CaptureAnswerActivity"></activity>
+    </application>
+
+</manifest>

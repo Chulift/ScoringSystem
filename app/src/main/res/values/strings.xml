@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Scoring System</string>
+    <string name="add_template">เพิ่มเทมเพลท</string>
+    <string name="template">จัดการเทมเพลท</string>
+    <string name="back">ย้อนกลับ</string>
+    <string name="capture">ถ่ายเทมเพลทข้อสอบ</string>
+    <string name="next">ถัดไป</string>
+    <string name="crop">ยืนยันการเลือก</string>
+    <string name="recrop">เลือกใหม่</string>
+    <string name="ok">กลับหน้าแรก</string>
+    <string name="add_exam">เพิ่มกระดาษคำตอบ</string>
+    <string name="capture_exam">ถ่ายกระดาษคำตอบ</string>
+    <string name="upload_exam">อัพโหลดกระดาษคำตอบ</string>
+    <string name="grading_exam">จัดการกระดาษคำตอบ</string>
+    <string name="group_exam">เลือกกลุ่ม</string>
+    <string name="home">กลับสู่หนัาหลัก</string>
+    <string name="tab">\u0009</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>
