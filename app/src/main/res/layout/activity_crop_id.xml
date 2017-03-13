@@ -82,7 +82,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/ll1"
+        android:id="@+id/btm_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -117,10 +117,10 @@
 
     <com.example.chulift.demoapplication.DrawRect.SimpleDrawingView
         android:id="@+id/imageView"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@id/ll1"
-        android:layout_below="@id/linearLayout2"
-        android:layout_centerHorizontal="true"
-        android:adjustViewBounds="true" />
+        android:layout_above="@id/btm_bar"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/linearLayout2"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>

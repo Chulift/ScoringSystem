@@ -43,6 +43,7 @@ public class ConnectServer {
             OkHttpClient client = new OkHttpClient();
             response = client.newCall(request).execute();
             resp = response.code();
+            Log.e("body",response.body().string());
         } catch (UnknownHostException | UnsupportedEncodingException e) {
             Log.e(TAG, "Error: " + e.getLocalizedMessage());
         } catch (Exception e) {
@@ -53,7 +54,7 @@ public class ConnectServer {
             return resp;
         }
     }
-    public static void connectHttp2(Context context, String url, RequestBody req) {
+    public static void connectHttp2(String url, RequestBody req) {
         String result;
 
         try {

@@ -22,6 +22,7 @@ import android.widget.Toast;
 
 import com.example.chulift.demoapplication.Class.Utilities;
 import com.example.chulift.demoapplication.Config.Config;
+import com.example.chulift.demoapplication.Login.LoginActivity;
 import com.example.chulift.demoapplication.R;
 import com.example.chulift.demoapplication.httpConnect.ConnectServer;
 
@@ -145,9 +146,10 @@ public class FillFormActivity extends AppCompatActivity {
             intent.putExtra("idStartYRate", idStartYRate);
             intent.putExtra("idWidthRate", idWidthRate);
             intent.putExtra("idHeightRate", idHeightRate);
+            startActivity(intent);
+            finish();
         }
-        startActivity(intent);
-        finish();
+
     }
 
     private void setBitmap() {
@@ -248,8 +250,8 @@ public class FillFormActivity extends AppCompatActivity {
                     .addFormDataPart("num_column", columnPicker.getValue() + "")
                     .addFormDataPart("num_section", sectionPicker.getValue() + "")
                     .addFormDataPart("num_choice", choicePicker.getValue() + "")
-                    .addFormDataPart("user_id_user", "admin")
-                    .addFormDataPart("inputTemplateName", inputTemplateName.getText().toString().trim())
+                    .addFormDataPart("user_id_user", LoginActivity.getUser().getEmail())
+                    .addFormDataPart("input_template_name", inputTemplateName.getText().toString().trim())
                     .addFormDataPart("template_name", sourceFile.getName())
                     .addFormDataPart("templateStartXRate", templateStartXRate + "")
                     .addFormDataPart("templateStartYRate", templateStartYRate + "")
@@ -265,6 +267,8 @@ public class FillFormActivity extends AppCompatActivity {
                     .addFormDataPart("detailHeightRate", detailHeightRate + "")
                     .addFormDataPart("template_path", path)
                     .addFormDataPart("uploaded_file", sourceFile.getName(), RequestBody.create(MEDIA_TYPE_JPG, sourceFile)).build();
+
+
             resp = ConnectServer.connectHttp(url, req);
             if (resp == 200) {
                 runOnUiThread(new Runnable() {

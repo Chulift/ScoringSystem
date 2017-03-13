@@ -103,6 +103,7 @@ public class FinishTemplateActivity extends AppCompatActivity {
                 try {
                     result = new JSONObject(response.body().string());
                 } catch (Exception e) {
+                    Log.d("resultResponse",response.body().string());
                     Log.e(TAG, "Json Error: " + e.getLocalizedMessage());
                     return null;
                 }

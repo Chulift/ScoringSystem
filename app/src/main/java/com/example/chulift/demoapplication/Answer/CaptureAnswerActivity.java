@@ -9,6 +9,7 @@ import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.chulift.demoapplication.Class.ExamStorage;
@@ -23,6 +24,9 @@ import com.google.gson.Gson;
 import java.io.File;
 import java.io.IOException;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.OkHttpClient;
@@ -40,11 +44,13 @@ public class CaptureAnswerActivity extends AppCompatActivity {
     private int id_answer;
     private Bitmap photo;
     private Bitmap resultBitmap;
+    @BindView(R.id.imageView3)ImageView imageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_capture_answer);
+        ButterKnife.bind(this);
         String jsonMyObject;
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
@@ -75,19 +81,30 @@ public class CaptureAnswerActivity extends AppCompatActivity {
 
             @Override
             protected void onPostExecute(Bitmap bitmap) {
-                //imageView.setImageBitmap(temp2);
+                imageView.setImageBitmap(bitmap);
                 resultBitmap = bitmap;
+                dump(bitmap);
+                try {
+                    imagePath = Utilities.getRealPathFromURI(getApplicationContext(), imageUri);
+                    Log.e("onResult", "Got path:" + imagePath);
+                } catch (Exception e) {
+                    Log.e("onResult", "Can't get Path.");
+                }
+                upload();
             }
         }.execute();
     }
 
-    void dump() {
-        File file = Utilities.saveImageFromBitmap(resultBitmap);
+    void dump(Bitmap bitmap) {
+        File file = Utilities.saveImageFromBitmap(bitmap);
+        Uri resultImg;
         if (file != null) {
-            Uri resultImg = Uri.fromFile(file);
+            resultImg = Uri.fromFile(file);
             imageUri = resultImg;
+            imagePath = file.getAbsolutePath();
         } else {
-            Toast.makeText(this, "No Image", Toast.LENGTH_LONG).show();
+            //Toast.makeText(this, "No Image", Toast.LENGTH_LONG).show();
+            Log.e("dump","no image");
         }
     }
 
@@ -95,14 +112,8 @@ public class CaptureAnswerActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_ACTION_CAMERA && resultCode == RESULT_OK) {
             setBitmap();
-            dump();
-            try {
-                imagePath = Utilities.getRealPathFromURI(this, imageUri);
-                Log.e("onResult", "Got path:" + imagePath);
-            } catch (Exception e) {
-                Log.e("onResult", "Can't get Path.");
-            }
-            upload();
+
+
         }
         Intent intent;
         if (id_answer != 0) {
@@ -113,7 +124,7 @@ public class CaptureAnswerActivity extends AppCompatActivity {
             intent = new Intent(this, ChooseAnswerMethodActivity.class);
         }
         intent.putExtra("examStorage", new Gson().toJson(examStorage));
-        startActivity(intent);
+        //startActivity(intent);
     }
 
 
@@ -145,7 +156,7 @@ public class CaptureAnswerActivity extends AppCompatActivity {
                     .addFormDataPart("uploaded_file", sourceFile.getName(), RequestBody.create(MEDIA_TYPE_JPG, sourceFile)).build();
             Log.i("before start", "prepare");
 
-            ConnectServer.connectHttp2(this,url, req);
+            ConnectServer.connectHttp2(url, req);
 
 //            id_answer = Integer.parseInt(response);
             //resp = response.code();
@@ -170,7 +181,7 @@ public class CaptureAnswerActivity extends AppCompatActivity {
                 final int finalResp = resp;
                 runOnUiThread(new Runnable() {
                     public void run() {
-                        Toast.makeText(getApplicationContext(), "ไม่สามารถอัพโหลดข้อมูลได้ กรุณาตรวจสอบการเชื่อมต่ออินเทอร์เน็ต" + finalResp, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "ไม่สามารถอัพโหลดข้อมูลได้ กรุณาตรวจสอบการเชื่อมต่ออินเทอร์เน็ต " + finalResp, Toast.LENGTH_SHORT).show();
                     }
                 });
             }
@@ -180,6 +191,11 @@ public class CaptureAnswerActivity extends AppCompatActivity {
 
     public void run() {
 
+    }
+    @OnClick(R.id.button)void back(){
+        Intent intent = new Intent(this,ChooseAnswerMethodActivity.class);
+        intent.putExtra("examStorage",new Gson().toJson(examStorage));
+        startActivity(intent);
     }
 
 

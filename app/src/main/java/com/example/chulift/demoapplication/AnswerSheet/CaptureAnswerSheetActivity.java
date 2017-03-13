@@ -25,6 +25,7 @@ import java.io.File;
 import java.io.IOException;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
@@ -46,7 +47,7 @@ public class CaptureAnswerSheetActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_capture_answer_sheet);
-
+        ButterKnife.bind(this);
         String jsonMyObject = null;
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
@@ -65,13 +66,7 @@ public class CaptureAnswerSheetActivity extends Activity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_ACTION_CAMERA && resultCode == RESULT_OK) {
             setBitmap();
-            try {
-                imagePath = Utilities.getRealPathFromURI(this, imageUri);
-                Log.e("onResult", "Got path:" + imagePath);
-            } catch (Exception e) {
-                Log.e("onResult", "Can't get Path.");
-            }
-            upload();
+
 
         }
         Intent intent = new Intent(CaptureAnswerSheetActivity.this, AnswerSheetListActivity.class);
@@ -100,11 +95,31 @@ public class CaptureAnswerSheetActivity extends Activity {
             @Override
             protected void onPostExecute(Bitmap bitmap) {
                 imgView.setImageBitmap(bitmap);
+                dump(bitmap);
+                try {
+                    imagePath = Utilities.getRealPathFromURI(getApplicationContext(), imageUri);
+                    Log.e("onResult", "Got path:" + imagePath);
+                } catch (Exception e) {
+                    Log.e("onResult", "Can't get Path.");
+                }
+                upload();
                 //imageView.setImageBitmap(temp2);
                 //resultBitmap = temp2;
                 //resultBitmap = bitmap;
             }
         }.execute();
+    }
+    void dump(Bitmap bitmap) {
+        File file = Utilities.saveImageFromBitmap(bitmap);
+        Uri resultImg;
+        if (file != null) {
+            resultImg = Uri.fromFile(file);
+            imageUri = resultImg;
+            imagePath = file.getAbsolutePath();
+        } else {
+            //Toast.makeText(this, "No Image", Toast.LENGTH_LONG).show();
+            Log.e("dump","no image");
+        }
     }
 
 

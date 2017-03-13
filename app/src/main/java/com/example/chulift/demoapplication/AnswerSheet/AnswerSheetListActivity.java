@@ -30,7 +30,7 @@ public class AnswerSheetListActivity extends AppCompatActivity {
     ListView lstView1;
     private ArrayList arrayList;
     private String resp;
-    private ExamStorage examStorage;
+    public static  ExamStorage examStorage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +43,7 @@ public class AnswerSheetListActivity extends AppCompatActivity {
             jsonMyObject = extras.getString("examStorage");
             examStorage = new Gson().fromJson(jsonMyObject, ExamStorage.class);
         }
+        else Log.e("Error bundle","Extras = null");
         ButterKnife.bind(this);
         init();
         Utilities.setToolbar(this);

@@ -67,39 +67,45 @@
             android:textSize="16sp" />
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/imageView"
+
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_above="@id/btm_bar"
+            android:layout_below="@+id/linearLayout2"
+
+            app:srcCompat="@android:color/background_light" />
+
+    <LinearLayout
+        android:weightSum="3"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/btm_bar"
         android:layout_width="match_parent"
-        android:layout_height="350dp"
-        android:layout_above="@+id/nextBtn"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@id/linearLayout2"
-        app:srcCompat="@android:color/background_light" />
+        android:layout_height="wrap_content" >
+        <Button
+            android:layout_weight="1"
+            android:id="@+id/back_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/back" />
 
-    <Button
-        android:id="@+id/nextBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:text="@string/next" />
+        <Button
+            android:layout_weight="1"
+            android:id="@+id/captureTemplateBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/capture" />
+        <Button
+            android:layout_weight="1"
+            android:id="@+id/nextBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/next" />
 
-    <Button
-        android:id="@+id/back_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:text="@string/back" />
 
-    <Button
-        android:id="@+id/captureTemplateBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:text="@string/capture" />
+    </LinearLayout>
 </RelativeLayout>
