@@ -1,6 +1,7 @@
 package com.example.chulift.demoapplication.AnswerSheet;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
@@ -40,7 +41,8 @@ public class CaptureAnswerSheetActivity extends Activity {
     private String imagePath = null;
     private Uri imageUri = null;
     private ExamStorage examStorage;
-    @BindView(R.id.imageViewAnswer)ImageView imgView;
+    @BindView(R.id.imageViewAnswer)
+    ImageView imgView;
 
     //private Bitmap resultBitmap;
     @Override
@@ -67,15 +69,13 @@ public class CaptureAnswerSheetActivity extends Activity {
         if (requestCode == REQUEST_ACTION_CAMERA && resultCode == RESULT_OK) {
             setBitmap();
 
-
         }
-        Intent intent = new Intent(CaptureAnswerSheetActivity.this, AnswerSheetListActivity.class);
-        intent.putExtra("examStorage", new Gson().toJson(examStorage));
-        startActivity(intent);
-        finish();
+
+
     }
 
     private void setBitmap() {
+
         new AsyncTask<Void, Void, Bitmap>() {
             @Override
             protected Bitmap doInBackground(Void... voids) {
@@ -106,9 +106,11 @@ public class CaptureAnswerSheetActivity extends Activity {
                 //imageView.setImageBitmap(temp2);
                 //resultBitmap = temp2;
                 //resultBitmap = bitmap;
+
             }
         }.execute();
     }
+
     void dump(Bitmap bitmap) {
         File file = Utilities.saveImageFromBitmap(bitmap);
         Uri resultImg;
@@ -118,7 +120,7 @@ public class CaptureAnswerSheetActivity extends Activity {
             imagePath = file.getAbsolutePath();
         } else {
             //Toast.makeText(this, "No Image", Toast.LENGTH_LONG).show();
-            Log.e("dump","no image");
+            Log.e("dump", "no image");
         }
     }
 
@@ -160,6 +162,7 @@ public class CaptureAnswerSheetActivity extends Activity {
                     }
                 });
             }
+
         }
         return resp;
     }
@@ -167,7 +170,11 @@ public class CaptureAnswerSheetActivity extends Activity {
 
     void upload() {
         if (imagePath != null) {
-
+            final ProgressDialog progressDialog = new ProgressDialog(CaptureAnswerSheetActivity.this, R.style.AppTheme_Dark_Dialog);
+            progressDialog.setIndeterminate(false);
+            progressDialog.setCancelable(false);
+            progressDialog.setMessage("wait..");
+            progressDialog.show();
             new AsyncTask<Void, Void, Integer>() {
                 @Override
                 protected Integer doInBackground(Void... voids) {
@@ -178,6 +185,12 @@ public class CaptureAnswerSheetActivity extends Activity {
                 @Override
                 protected void onPostExecute(Integer integer) {
                     Log.e("response", "" + integer);
+
+                    progressDialog.dismiss();
+                    Intent intent = new Intent(CaptureAnswerSheetActivity.this, AnswerSheetListActivity.class);
+                    intent.putExtra("examStorage", new Gson().toJson(examStorage));
+                    startActivity(intent);
+                    finish();
                 }
             }.execute();
         }

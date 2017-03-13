@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.example.chulift.demoapplication.Class.ExamStorage;
 import com.example.chulift.demoapplication.Class.Utilities;
 import com.example.chulift.demoapplication.Config.Config;
+import com.example.chulift.demoapplication.ExamSet.ManageExamSetActivity;
 import com.example.chulift.demoapplication.Image.ImagePossessing;
 import com.example.chulift.demoapplication.Login.LoginActivity;
 import com.example.chulift.demoapplication.R;
@@ -121,9 +122,9 @@ public class CaptureAnswerActivity extends AppCompatActivity {
             intent.putExtra("previousPage", "CaptureAnswerActivity");
         } else {
             //Toast.makeText(this,"สร้างเฉลยผิดพลาด",Toast.LENGTH_SHORT).show();
-            intent = new Intent(this, ChooseAnswerMethodActivity.class);
+            //intent = new Intent(this, ChooseAnswerMethodActivity.class);
         }
-        intent.putExtra("examStorage", new Gson().toJson(examStorage));
+        //intent.putExtra("examStorage", new Gson().toJson(examStorage));
         //startActivity(intent);
     }
 
@@ -156,7 +157,7 @@ public class CaptureAnswerActivity extends AppCompatActivity {
                     .addFormDataPart("uploaded_file", sourceFile.getName(), RequestBody.create(MEDIA_TYPE_JPG, sourceFile)).build();
             Log.i("before start", "prepare");
 
-            ConnectServer.connectHttp2(url, req);
+            resp = ConnectServer.connectHttp(url, req);
 
 //            id_answer = Integer.parseInt(response);
             //resp = response.code();
@@ -193,7 +194,7 @@ public class CaptureAnswerActivity extends AppCompatActivity {
 
     }
     @OnClick(R.id.button)void back(){
-        Intent intent = new Intent(this,ChooseAnswerMethodActivity.class);
+        Intent intent = new Intent(this,ManageExamSetActivity.class);
         intent.putExtra("examStorage",new Gson().toJson(examStorage));
         startActivity(intent);
     }

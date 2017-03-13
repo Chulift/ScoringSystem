@@ -174,10 +174,19 @@ public class SelectAnswerActivity extends AppCompatActivity {
                     JSONArray jsonArray = new JSONArray(resp);
                     JSONObject jsonObject = jsonArray.getJSONObject(0);
                     answer = new Answer(jsonObject);
-                    array_a = new Gson().fromJson(answer.getAnswer(), int[].class);
-                    if (numOfanswer > array_a.length) array_a = new int[numOfanswer];
+                    Log.e("answer",answer.getAnswer());
+
                 } catch (Exception e) {
                     Log.e("Create answer", "Create answer fail.");
+                }
+                try
+                {
+                    array_a = new Gson().fromJson(answer.getAnswer(),int[].class);
+                    Log.e("array_a",array_a+"");
+                    if (numOfanswer > array_a.length) array_a = new int[numOfanswer];
+                }catch (Exception e)
+                {
+                    Log.e("Error",e.toString());
                 }
                 listView1 = (ListView) findViewById(R.id.listView5);
                 ArrayList<Integer> arrayList1 = new ArrayList<Integer>();

@@ -56,7 +56,7 @@ public class ConnectServer {
     }
     public static void connectHttp2(String url, RequestBody req) {
         String result;
-
+        final int[] resp = {0};
         try {
             //final MediaType MEDIA_TYPE_PNG = MediaType.parse("image/png");
 
@@ -88,7 +88,7 @@ public class ConnectServer {
                             stringResponse[i] += responseHeaders.name(i) + ": " + responseHeaders.value(i);
                             Log.i("responseString", stringResponse[i]);
                         }
-
+                        resp[0] = response.code();
                         Log.i("response", response.body().string());
 
                     }
