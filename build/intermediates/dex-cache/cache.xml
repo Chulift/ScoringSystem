@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="C:\Users\chulift\Documents\ScoringSystem\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="c82741bc129dd5f99f11a4ab8666ae24262053b6">
+        <dex dex="C:\Users\chulift\Documents\ScoringSystem\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_c9ea9a1ab61573035a8af20544b2b022a92805fd\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\chulift\Documents\ScoringSystem\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="460177ae823a243f16b7a968b29a353ed404c76c">
+        <dex dex="C:\Users\chulift\Documents\ScoringSystem\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_43c4e9402333f79c4059f289def6d00aea5acbbc\classes.dex" />
+    </item>
+
+</items>
