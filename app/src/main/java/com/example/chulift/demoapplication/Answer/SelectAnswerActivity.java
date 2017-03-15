@@ -66,7 +66,7 @@ public class SelectAnswerActivity extends AppCompatActivity {
         if (extras != null) {
             jsonMyObject = extras.getString("examStorage");
             examStorage = new Gson().fromJson(jsonMyObject, ExamStorage.class);
-            previousPage = extras.getString("previousPage");
+            //previousPage = extras.getString("previousPage");
 
             if (examStorage.getId_answer().equals("null"))
                 idAnswer = 0;
@@ -100,6 +100,13 @@ public class SelectAnswerActivity extends AppCompatActivity {
         }
         ButterKnife.bind(this);
         Utilities.setToolbar(this);
+    }
+
+    @OnClick(R.id.capture_answer_btn)
+    void capture() {
+        Intent intent = new Intent(SelectAnswerActivity.this, CaptureAnswerActivity.class);
+        intent.putExtra("examStorage", new Gson().toJson(examStorage));
+        startActivity(intent);
     }
 
     @OnClick(R.id.confirm_btn)
@@ -174,19 +181,17 @@ public class SelectAnswerActivity extends AppCompatActivity {
                     JSONArray jsonArray = new JSONArray(resp);
                     JSONObject jsonObject = jsonArray.getJSONObject(0);
                     answer = new Answer(jsonObject);
-                    Log.e("answer",answer.getAnswer());
+                    Log.e("answer", answer.getAnswer());
 
                 } catch (Exception e) {
                     Log.e("Create answer", "Create answer fail.");
                 }
-                try
-                {
-                    array_a = new Gson().fromJson(answer.getAnswer(),int[].class);
-                    Log.e("array_a",array_a+"");
+                try {
+                    array_a = new Gson().fromJson(answer.getAnswer(), int[].class);
+                    Log.e("array_a", array_a + "");
                     if (numOfanswer > array_a.length) array_a = new int[numOfanswer];
-                }catch (Exception e)
-                {
-                    Log.e("Error",e.toString());
+                } catch (Exception e) {
+                    Log.e("Error", e.toString());
                 }
                 listView1 = (ListView) findViewById(R.id.listView5);
                 ArrayList<Integer> arrayList1 = new ArrayList<Integer>();
@@ -276,12 +281,8 @@ public class SelectAnswerActivity extends AppCompatActivity {
 
     @OnClick(R.id.back_btn)
     void back() {
-        Log.d("class", previousPage + "");
         Intent intent;
-        if (previousPage.equals("ChooseAnswerMethodActivity"))
-            intent = new Intent(SelectAnswerActivity.this, ChooseAnswerMethodActivity.class);
-        else
-            intent = new Intent(SelectAnswerActivity.this, ManageExamSetActivity.class);
+        intent = new Intent(SelectAnswerActivity.this, ManageExamSetActivity.class);
         intent.putExtra("examStorage", new Gson().toJson(examStorage));
         startActivity(intent);
         finish();

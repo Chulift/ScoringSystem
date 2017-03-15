@@ -297,12 +297,7 @@ public class Adapter extends BaseAdapter {
                         Intent intent = null;
                         switch (item.getItemId()) {
                             case R.id.popup_menu_add_answer_to_exam:
-                                if (examStorage.getId_answer() == "null") {
-                                    intent = new Intent(context, ChooseAnswerMethodActivity.class);
-                                } else {
                                     intent = new Intent(context, SelectAnswerActivity.class);
-                                }
-                                intent.putExtra("previousPage", "ManageExamSetActivity");
                                 break;
                             case R.id.popup_menu_check_exam:
                                 intent = new Intent(context, AnswerSheetListActivity.class);
