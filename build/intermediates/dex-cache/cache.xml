@@ -3,12 +3,12 @@
 
     <item
         is-multidex="true"
-        jar="C:\Users\chulift\Documents\ScoringSystem\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jar="C:\Users\chulift\.android\build-cache\de6cdb381b73c83960488f5af5d9e46299541eb5\output\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="c82741bc129dd5f99f11a4ab8666ae24262053b6">
-        <dex dex="C:\Users\chulift\Documents\ScoringSystem\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_c9ea9a1ab61573035a8af20544b2b022a92805fd\classes.dex" />
+        sha1="30a4938ea5235ccf532b3e9f04200e68547e36ad">
+        <dex dex="C:\Users\chulift\Documents\ScoringSystem\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_9f2ab886839fad8c70918d7ca533bda32a305663\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -18,6 +18,123 @@
         revision="25.0.0"
         sha1="460177ae823a243f16b7a968b29a353ed404c76c">
         <dex dex="C:\Users\chulift\Documents\ScoringSystem\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_43c4e9402333f79c4059f289def6d00aea5acbbc\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\chulift\.android\build-cache\e0153bf917c262e4283a532f97e7c747a3b711a7\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="e820b7be8c035dd522da4bc822e8a76c8e27921a">
+        <dex dex="C:\Users\chulift\Documents\ScoringSystem\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_f007e4ce5004eae136cccf4f9909b35e0362e3c6\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\chulift\.android\build-cache\3b5c4f57c00578d2fcfc3d9bcd53949c87b3cb67\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="ea6a989b83d19b1b461281e0475a6cd6514897f8">
+        <dex dex="C:\Users\chulift\Documents\ScoringSystem\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_f115dfcdbb35b6f61b70bf7a9c20623e1bb124e0\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\chulift\.android\build-cache\2e19d364ecf847574ac053f49c246af8cc961c5c\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="810f41e5b7fd99f196ebeabe865ba2c54e7e76dc">
+        <dex dex="C:\Users\chulift\Documents\ScoringSystem\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_ad28de941c8e2d305060d50c64cd3a4687a95235\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\chulift\Documents\ScoringSystem\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="c82741bc129dd5f99f11a4ab8666ae24262053b6">
+        <dex dex="C:\Users\chulift\Documents\ScoringSystem\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_c9ea9a1ab61573035a8af20544b2b022a92805fd\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\chulift\.android\build-cache\89dba0f8a0f3bf3b380d53609414fd5db4fa0865\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="fa0446a14ed5dd3725047d6399ffea771a564b30">
+        <dex dex="C:\Users\chulift\Documents\ScoringSystem\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_1d2ca2e6e674c55ba325a8c99897ebec78cc81ec\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\chulift\.android\build-cache\6d973ea3d2da1d2df7d9ab08fe63d727f4186f1f\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="e51c2f662bb72419632af5192553c37e33890a99">
+        <dex dex="C:\Users\chulift\Documents\ScoringSystem\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_39bb14144c3187364647df43af1855c8504b82c0\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\chulift\.android\build-cache\b2724cdafdb1581ee6dc0bad492a0b04089f208e\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="ee394a892dd21c03a528139c1e8d4e0e1264ac84">
+        <dex dex="C:\Users\chulift\Documents\ScoringSystem\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_b98f0a41cbf3bcab1882a516729185dd0f6863c4\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\chulift\.android\build-cache\5fc647191838aa67fa1408770e0dda6fc7c347ef\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="152de8da301561dcb0946471697a420d8f7a68c5">
+        <dex dex="C:\Users\chulift\Documents\ScoringSystem\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_3e365c77e072470878291081615886953bdfc964\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\chulift\.android\build-cache\973232744827ad2a5f4ddbfd276e63358b9ddd29\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="C:\Users\chulift\Documents\ScoringSystem\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_91a8d886e2bcf051da7a5f37d66b2b99728e0a14\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\chulift\.android\build-cache\f32632b425b3f3cd2bba82656e42cae2197a7c45\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="8fe8a8f77d651982ce5e18f6187dc4daf914ac57">
+        <dex dex="C:\Users\chulift\Documents\ScoringSystem\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_4bc75232931e8279e539963166e6b0065a541551\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\chulift\.android\build-cache\9862345c7c8f213cc7a0e1355080acf045c8583e\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="67eb33110dbacb46a48175b08ae0c96761d2c17d">
+        <dex dex="C:\Users\chulift\Documents\ScoringSystem\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_56f13a6e48883a747bcbaf85659d64bf993748fe\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\chulift\.android\build-cache\2e979addbab030ab73a49ee61e32af70d667bcb5\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="702d339bc0a81d21354cd7e2cf2b67225fa4a16c">
+        <dex dex="C:\Users\chulift\Documents\ScoringSystem\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_308e954b9d29cd77704581b9059fcd83fa0fada6\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\chulift\.android\build-cache\4af419c7939079d0ee328543a6bd61cee08c59d8\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="cb454b52545859ed2f24a6c01366805b0fa04b22">
+        <dex dex="C:\Users\chulift\Documents\ScoringSystem\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_48896442cc8358f243bed07e1b8a3afb6f39ad21\classes.dex" />
     </item>
 
 </items>

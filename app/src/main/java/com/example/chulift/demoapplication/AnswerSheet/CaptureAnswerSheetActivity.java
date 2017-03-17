@@ -170,11 +170,15 @@ public class CaptureAnswerSheetActivity extends Activity {
 
     void upload() {
         if (imagePath != null) {
-            final ProgressDialog progressDialog = new ProgressDialog(CaptureAnswerSheetActivity.this, R.style.AppTheme_Dark_Dialog);
+            Intent intent = new Intent(CaptureAnswerSheetActivity.this, AnswerSheetListActivity.class);
+            intent.putExtra("examStorage", new Gson().toJson(examStorage));
+            startActivity(intent);
+            finish();
+            /*final ProgressDialog progressDialog = new ProgressDialog(CaptureAnswerSheetActivity.this, R.style.AppTheme_Dark_Dialog);
             progressDialog.setIndeterminate(false);
             progressDialog.setCancelable(false);
             progressDialog.setMessage("wait..");
-            progressDialog.show();
+            progressDialog.show();*/
             new AsyncTask<Void, Void, Integer>() {
                 @Override
                 protected Integer doInBackground(Void... voids) {
@@ -186,11 +190,11 @@ public class CaptureAnswerSheetActivity extends Activity {
                 protected void onPostExecute(Integer integer) {
                     Log.e("response", "" + integer);
 
-                    progressDialog.dismiss();
+                    /*progressDialog.dismiss();
                     Intent intent = new Intent(CaptureAnswerSheetActivity.this, AnswerSheetListActivity.class);
                     intent.putExtra("examStorage", new Gson().toJson(examStorage));
                     startActivity(intent);
-                    finish();
+                    finish();*/
                 }
             }.execute();
         }

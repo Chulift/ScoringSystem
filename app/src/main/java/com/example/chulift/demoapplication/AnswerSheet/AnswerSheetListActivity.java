@@ -67,6 +67,7 @@ public class AnswerSheetListActivity extends AppCompatActivity {
                 Log.e("POST", s.size() + "");
                 try {
                     lstView1.setAdapter(new Adapter(AnswerSheetListActivity.this, s, "AnswerSheetListActivity"));
+
                 } catch (Exception e) {
                     Log.e("Error", e.toString());
                 }
