@@ -27,6 +27,7 @@ import java.io.IOException;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
@@ -68,10 +69,7 @@ public class CaptureAnswerSheetActivity extends Activity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_ACTION_CAMERA && resultCode == RESULT_OK) {
             setBitmap();
-
         }
-
-
     }
 
     private void setBitmap() {
@@ -94,7 +92,7 @@ public class CaptureAnswerSheetActivity extends Activity {
 
             @Override
             protected void onPostExecute(Bitmap bitmap) {
-                imgView.setImageBitmap(bitmap);
+                //imgView.setImageBitmap(bitmap);
                 dump(bitmap);
                 try {
                     imagePath = Utilities.getRealPathFromURI(getApplicationContext(), imageUri);
@@ -109,6 +107,10 @@ public class CaptureAnswerSheetActivity extends Activity {
 
             }
         }.execute();
+        Intent intent = new Intent(CaptureAnswerSheetActivity.this, AnswerSheetListActivity.class);
+        intent.putExtra("examStorage", new Gson().toJson(examStorage));
+        startActivity(intent);
+        finish();
     }
 
     void dump(Bitmap bitmap) {
@@ -170,10 +172,10 @@ public class CaptureAnswerSheetActivity extends Activity {
 
     void upload() {
         if (imagePath != null) {
-            Intent intent = new Intent(CaptureAnswerSheetActivity.this, AnswerSheetListActivity.class);
+            /*Intent intent = new Intent(CaptureAnswerSheetActivity.this, AnswerSheetListActivity.class);
             intent.putExtra("examStorage", new Gson().toJson(examStorage));
             startActivity(intent);
-            finish();
+            finish();*/
             /*final ProgressDialog progressDialog = new ProgressDialog(CaptureAnswerSheetActivity.this, R.style.AppTheme_Dark_Dialog);
             progressDialog.setIndeterminate(false);
             progressDialog.setCancelable(false);
@@ -189,7 +191,7 @@ public class CaptureAnswerSheetActivity extends Activity {
                 @Override
                 protected void onPostExecute(Integer integer) {
                     Log.e("response", "" + integer);
-
+                    //answerSheetListActivity.updateData();
                     /*progressDialog.dismiss();
                     Intent intent = new Intent(CaptureAnswerSheetActivity.this, AnswerSheetListActivity.class);
                     intent.putExtra("examStorage", new Gson().toJson(examStorage));
@@ -199,4 +201,6 @@ public class CaptureAnswerSheetActivity extends Activity {
             }.execute();
         }
     }
+
+
 }

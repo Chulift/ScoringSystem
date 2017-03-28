@@ -1,5 +1,6 @@
 package com.example.chulift.demoapplication.AnswerSheet;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -25,13 +26,14 @@ import butterknife.OnClick;
 
 public class AnswerSheetListActivity extends AppCompatActivity {
 
-    private final String url = Config.serverURL + "getAnswerSheet.php";
-    @BindView(R.id.listView1)
-    ListView lstView1;
-    private ArrayList arrayList;
-    private String resp;
-    public static  ExamStorage examStorage;
+    private static final String url = Config.serverURL + "getAnswerSheet.php";
 
+    private ListView answerSheetListView;
+    private static ArrayList arrayList;
+    private String resp;
+    private  ProgressDialog progressDialog;
+    public static  ExamStorage examStorage;
+    private Adapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,11 +47,18 @@ public class AnswerSheetListActivity extends AppCompatActivity {
         }
         else Log.e("Error bundle","Extras = null");
         ButterKnife.bind(this);
+        answerSheetListView = (ListView) findViewById(R.id.listView1);
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progressDialog.setIndeterminate(true);
         init();
+
         Utilities.setToolbar(this);
     }
-
+    public static void updateData(){
+    }
     private void init() {
+        progressDialog.show();
         Log.e("init", "init");
         new AsyncTask<Void, Void, ArrayList>() {
 
@@ -66,7 +75,9 @@ public class AnswerSheetListActivity extends AppCompatActivity {
             protected void onPostExecute(ArrayList s) {
                 Log.e("POST", s.size() + "");
                 try {
-                    lstView1.setAdapter(new Adapter(AnswerSheetListActivity.this, s, "AnswerSheetListActivity"));
+                    adapter = new Adapter(AnswerSheetListActivity.this, s, "AnswerSheetListActivity");
+                    answerSheetListView.setAdapter(adapter);
+                    progressDialog.dismiss();
 
                 } catch (Exception e) {
                     Log.e("Error", e.toString());
@@ -74,8 +85,6 @@ public class AnswerSheetListActivity extends AppCompatActivity {
             }
 
         }.execute();
-
-
     }
 
     @OnClick(R.id.back_btn)
@@ -93,5 +102,11 @@ public class AnswerSheetListActivity extends AppCompatActivity {
         startActivity(intent);
 
         finish();
+    }
+
+    @OnClick(R.id.test_camera)void testCamera() {
+        Intent intent = new Intent(AnswerSheetListActivity.this,TestCameraActivity.class);
+        intent.putExtra("examStorage",new Gson().toJson(examStorage));
+        startActivity(intent);
     }
 }

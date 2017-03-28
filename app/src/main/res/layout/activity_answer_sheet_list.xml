@@ -127,5 +127,29 @@
                 android:textAlignment="center"
                 android:textColor="@color/black" />
         </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/test_camera"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:background="#EEEEEE"
+                android:src="@mipmap/camera_icon" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ทดสอบกล้อง"
+                android:textAlignment="center"
+                android:textColor="@color/black" />
+        </LinearLayout>
     </LinearLayout>
 </RelativeLayout>

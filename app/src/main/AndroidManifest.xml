@@ -40,7 +40,8 @@
         <activity android:name=".ExamSet.ScoringActivity" />
         <activity android:name=".AnswerSheet.CaptureAnswerSheetActivity" />
         <activity android:name=".Answer.ChooseTemplateActivity" />
-        <activity android:name=".Answer.CaptureAnswerActivity"></activity>
+        <activity android:name=".Answer.CaptureAnswerActivity" />
+        <activity android:name=".AnswerSheet.TestCameraActivity"></activity>
     </application>
 
 </manifest>
