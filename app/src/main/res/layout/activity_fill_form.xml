@@ -134,7 +134,37 @@
                                 android:hint="ชื่อเทมเพลท"
                                 android:inputType="text" />
                         </android.support.design.widget.TextInputLayout>
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="85dp"
+                            android:orientation="horizontal">
 
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:orientation="horizontal">
+
+
+                                <NumberPicker
+                                    android:id="@+id/num_student_code_picker"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:scaleX="0.80"
+                                    android:scaleY="0.80" />
+
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/txt_num_student_code"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentStart="true"
+                                android:layout_centerVertical="true"
+                                android:padding="10dp"
+                                android:text="จำนวนตัวเลขรหัสประจำตัว"
+                                android:textSize="16sp" />
+                        </RelativeLayout>
                         <RelativeLayout
                             android:layout_width="wrap_content"
                             android:layout_height="85dp"
