@@ -18,7 +18,7 @@ import android.widget.NumberPicker;
 import android.widget.Toast;
 
 import com.example.chulift.demoapplication.Config.Config;
-import com.example.chulift.demoapplication.Template.FillFormActivity;
+import com.example.chulift.demoapplication.Config.NumberPickerConfig;
 import com.example.chulift.demoapplication.Template.ShowTemplateListActivity;
 import com.example.chulift.demoapplication.Class.Template;
 import com.example.chulift.demoapplication.R;
@@ -53,7 +53,7 @@ public class EditTemplateFragment extends Fragment {
         if (getArguments() != null) {
             param = getArguments().getInt(ARG_SECTION_NUMBER);
             String jsonObject = getArguments().getString(ARG_TEMPLATE);
-            template = new Gson().fromJson(jsonObject,Template.class);
+            template = new Gson().fromJson(jsonObject, Template.class);
         }
     }
 
@@ -68,7 +68,7 @@ public class EditTemplateFragment extends Fragment {
         EditTemplateFragment fragment = new EditTemplateFragment();
         Bundle args = new Bundle();
         args.putInt(ARG_SECTION_NUMBER, sectionNumber);
-        args.putString(ARG_TEMPLATE,new Gson().toJson(template));
+        args.putString(ARG_TEMPLATE, new Gson().toJson(template));
         fragment.setArguments(args);
         return fragment;
     }
@@ -81,6 +81,8 @@ public class EditTemplateFragment extends Fragment {
     NumberPicker columnPicker;
     @BindView(R.id.input_name)
     EditText inputTemplateName;
+    @BindView(R.id.num_student_code_picker)
+    NumberPicker studentCodePicker;
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
@@ -90,17 +92,20 @@ public class EditTemplateFragment extends Fragment {
     }
 
     private void init() {
-        choicePicker.setMaxValue(FillFormActivity.MAX_CHOICE);
-        choicePicker.setMinValue(FillFormActivity.MIN_CHOICE);
-        sectionPicker.setMaxValue(FillFormActivity.MAX_SECTION);
-        sectionPicker.setMinValue(FillFormActivity.MIN_SECTION);
-        columnPicker.setMinValue(FillFormActivity.MIN_COLUMN);
-        columnPicker.setMaxValue(FillFormActivity.MAX_COLUMN);
+        choicePicker.setMaxValue(NumberPickerConfig.MAX_CHOICE);
+        choicePicker.setMinValue(NumberPickerConfig.MIN_CHOICE);
+        sectionPicker.setMaxValue(NumberPickerConfig.MAX_SECTION);
+        sectionPicker.setMinValue(NumberPickerConfig.MIN_SECTION);
+        columnPicker.setMinValue(NumberPickerConfig.MIN_COLUMN);
+        columnPicker.setMaxValue(NumberPickerConfig.MAX_COLUMN);
+        studentCodePicker.setMinValue(NumberPickerConfig.MIN_STUDENT_CODE);
+        studentCodePicker.setMaxValue(NumberPickerConfig.MAX_STUDENT_CODE);
 
         inputTemplateName.setText(template.getUser_input_template_name());
         columnPicker.setValue(Integer.parseInt(template.getNumberOfCol()));
         choicePicker.setValue(Integer.parseInt(template.getNumberOfChoice()));
         sectionPicker.setValue(Integer.parseInt(template.getAnswerPerCol()));
+        studentCodePicker.setValue(Integer.parseInt(template.getNumberOfStudentCode()));
     }
 
     @OnClick(R.id.delete_button)
@@ -159,6 +164,7 @@ public class EditTemplateFragment extends Fragment {
                     .addFormDataPart("num_column", columnPicker.getValue() + "")
                     .addFormDataPart("num_section", sectionPicker.getValue() + "")
                     .addFormDataPart("num_choice", choicePicker.getValue() + "")
+                    .addFormDataPart("num_student_code",String.valueOf(studentCodePicker.getValue()))
                     .build();
 
             int resp = ConnectServer.connectHttp(url, req);
@@ -169,9 +175,11 @@ public class EditTemplateFragment extends Fragment {
             } else
                 Toast.makeText(getActivity(), "ไม่สามารถแก้ไขข้อมูลได้ กรุณาตรวจสอบการเชื่อมต่ออินเทอร์เน็ต", Toast.LENGTH_SHORT).show();
             progressDialog.dismiss();
+            //Update values of current template
             template.setAnswerPerCol(sectionPicker.getValue() + "");
             template.setNumberOfChoice(choicePicker.getValue() + "");
             template.setNumberOfCol(columnPicker.getValue() + "");
+            template.setNumberOfStudentCode(String.valueOf(studentCodePicker.getValue()));
         }
     }
 
@@ -188,5 +196,6 @@ public class EditTemplateFragment extends Fragment {
         columnPicker.setValue(Integer.parseInt(template.getNumberOfCol()));
         choicePicker.setValue(Integer.parseInt(template.getNumberOfChoice()));
         sectionPicker.setValue(Integer.parseInt(template.getAnswerPerCol()));
+        studentCodePicker.setValue(Integer.parseInt(template.getNumberOfStudentCode()));
     }
 }

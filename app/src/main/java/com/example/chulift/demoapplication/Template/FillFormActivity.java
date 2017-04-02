@@ -22,6 +22,7 @@ import android.widget.Toast;
 
 import com.example.chulift.demoapplication.Class.Utilities;
 import com.example.chulift.demoapplication.Config.Config;
+import com.example.chulift.demoapplication.Config.NumberPickerConfig;
 import com.example.chulift.demoapplication.Login.LoginActivity;
 import com.example.chulift.demoapplication.R;
 import com.example.chulift.demoapplication.httpConnect.ConnectServer;
@@ -41,19 +42,15 @@ public class FillFormActivity extends AppCompatActivity {
     private Uri imageUri = null;
     private String imagePath = null;
     private Bitmap photo;
-    public static final int MAX_COLUMN = 8;
-    public static final int MAX_SECTION = 50;
-    public static final int MAX_CHOICE = 5;
-    public static final int MIN_COLUMN = 1;
-    public static final int MIN_SECTION = 1;
-    public static final int MIN_CHOICE = 1;
+
     private float templateStartXRate, templateStartYRate, templateWidthRate, templateHeightRate,
             idStartXRate, idStartYRate, idWidthRate, idHeightRate,
             detailStartXRate, detailStartYRate, detailWidthRate, detailHeightRate;
     private final String url = Config.serverURL + "uploadTemplate.php";
     private final String imgPath = Config.serverImagePathURL;
     private String templateName;
-
+    @BindView(R.id.num_student_code_picker)
+    NumberPicker studentCodePicker;
     @BindView(R.id.column_picker)
     NumberPicker columnPicker;
     @BindView(R.id.section_picker)
@@ -76,12 +73,15 @@ public class FillFormActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fill_form);
         ButterKnife.bind(this);
-        columnPicker.setMaxValue(MAX_COLUMN);
-        columnPicker.setMinValue(MIN_COLUMN);
-        sectionPicker.setMaxValue(MAX_SECTION);
-        sectionPicker.setMinValue(MIN_SECTION);
-        choicePicker.setMaxValue(MAX_CHOICE);
-        choicePicker.setMinValue(MIN_CHOICE);
+        columnPicker.setMaxValue(NumberPickerConfig.MAX_COLUMN);
+        columnPicker.setMinValue(NumberPickerConfig.MIN_COLUMN);
+        sectionPicker.setMaxValue(NumberPickerConfig.MAX_SECTION);
+        sectionPicker.setMinValue(NumberPickerConfig.MIN_SECTION);
+        choicePicker.setMaxValue(NumberPickerConfig.MAX_CHOICE);
+        choicePicker.setMinValue(NumberPickerConfig.MIN_CHOICE);
+        studentCodePicker.setMinValue(NumberPickerConfig.MIN_STUDENT_CODE);
+        studentCodePicker.setMaxValue(NumberPickerConfig.MAX_STUDENT_CODE);
+
         Bundle extras = getIntent().getExtras();
         if (columnPicker.getValue() == 0 || sectionPicker.getValue() == 0 || choicePicker.getValue() == 0)
             uploadBtn.setEnabled(false);
@@ -123,11 +123,17 @@ public class FillFormActivity extends AppCompatActivity {
                 checkInput();
             }
         });
+        studentCodePicker.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
+            @Override
+            public void onValueChange(NumberPicker numberPicker, int i, int i1) {
+                checkInput();
+            }
+        });
         Utilities.setToolbar(this);
     }
 
     private void checkInput() {
-        if (columnPicker.getValue() == 0 || sectionPicker.getValue() == 0 || choicePicker.getValue() == 0)
+        if (columnPicker.getValue() == 0 || sectionPicker.getValue() == 0 || choicePicker.getValue() == 0 || studentCodePicker.getValue() == 0)
             uploadBtn.setEnabled(false);
         else uploadBtn.setEnabled(true);
     }
@@ -247,6 +253,7 @@ public class FillFormActivity extends AppCompatActivity {
             final MediaType MEDIA_TYPE_JPG = MediaType.parse("image/jpg");
             RequestBody req = new MultipartBody.Builder()
                     .setType(MultipartBody.FORM)
+                    .addFormDataPart("num_student_code", String.valueOf(studentCodePicker.getValue()))
                     .addFormDataPart("num_column", columnPicker.getValue() + "")
                     .addFormDataPart("num_section", sectionPicker.getValue() + "")
                     .addFormDataPart("num_choice", choicePicker.getValue() + "")
