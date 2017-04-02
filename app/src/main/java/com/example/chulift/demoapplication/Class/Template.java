@@ -1,20 +1,18 @@
 package com.example.chulift.demoapplication.Class;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
-/**
- * Created by Tang on 11/23/2016.
- */
 
 public class Template {
     private String id_template, user_id_user, template_name, user_input_template_name, template_path, startXRate, startYRate, widthRate, heightRate, numberOfCol, answerPerCol;
     private String numberOfChoice, startXRateCode, startYRateCode, widthRateCode, heightRateCode, startXRateInfo, startYRateInfo, widthRateInfo;
-    private String heightRateInfo;
+    private String heightRateInfo,numberOfStudentCode;
     private Boolean dataIsset = false;
+
+    public String getNumberOfStudentCode() {
+        return numberOfStudentCode;
+    }
 
     public String getId_template() {
         return id_template;
@@ -108,6 +106,10 @@ public class Template {
         this.numberOfChoice = numberOfChoice;
     }
 
+    public void setNumberOfStudentCode(String numberOfStudentCode) {
+        this.numberOfStudentCode = numberOfStudentCode;
+    }
+
     public void setNumberOfCol(String numberOfCol) {
         this.numberOfCol = numberOfCol;
     }
@@ -127,6 +129,7 @@ public class Template {
                 numberOfCol = template.getString("numberOfCol");
                 answerPerCol = template.getString("answerPerCol");
                 numberOfChoice = template.getString("numberOfChoice");
+                numberOfStudentCode = template.getString("numberOfStudentCode");
 
                 startXRateCode = template.getString("startXRateCode");
                 startYRateCode = template.getString("startYRateCode");
