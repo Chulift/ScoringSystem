@@ -14,7 +14,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.PopupMenu;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.chulift.demoapplication.Adapter.Holder.AnswerSheetListHolder;
@@ -24,12 +23,11 @@ import com.example.chulift.demoapplication.Class.AnswerSheet;
 import com.example.chulift.demoapplication.Class.ExamStorage;
 import com.example.chulift.demoapplication.Class.Menu;
 import com.example.chulift.demoapplication.Config.Config;
-import com.example.chulift.demoapplication.ExamSet.CUExamSetActivity;
+import com.example.chulift.demoapplication.ExamStorage.CUExamStorageActivity;
 import com.example.chulift.demoapplication.AnswerSheet.AnswerSheetListActivity;
-import com.example.chulift.demoapplication.Answer.ChooseAnswerMethodActivity;
 import com.example.chulift.demoapplication.Answer.SelectAnswerActivity;
 
-import com.example.chulift.demoapplication.ExamSet.ManageExamSetActivity;
+import com.example.chulift.demoapplication.ExamStorage.ManageExamStorageActivity;
 import com.example.chulift.demoapplication.R;
 import com.example.chulift.demoapplication.httpConnect.ConnectServer;
 import com.google.gson.Gson;
@@ -74,7 +72,7 @@ public class Adapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         if (page == "MenusActivity") {
             return initMenu(position, convertView);
-        } else if (page == "ManageExamSetActivity") {
+        } else if (page == "ManageExamStorageActivity") {
             return initExamSet(position, convertView);
         } else if (page == "AnswerSheetListActivity") {
             return initAnswerSheetList(position, convertView);
@@ -255,7 +253,7 @@ public class Adapter extends BaseAdapter {
                             protected void onPostExecute(String s) {
                                 Toast.makeText(context, "ลบชุดข้อสอบเรียบร้อยแล้ว", Toast.LENGTH_SHORT).show();
                                 progressDialog.dismiss();
-                                context.startActivity(new Intent(context, ManageExamSetActivity.class));
+                                context.startActivity(new Intent(context, ManageExamStorageActivity.class));
                                 ((Activity) context).finish();
                             }
                         }.execute();
@@ -304,7 +302,7 @@ public class Adapter extends BaseAdapter {
                                 intent = new Intent(context, AnswerSheetListActivity.class);
                                 break;
                             case R.id.popup_menu_edit_set_exam:
-                                intent = new Intent(context, CUExamSetActivity.class);
+                                intent = new Intent(context, CUExamStorageActivity.class);
                                 //intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                                 break;
                             case R.id.popup_menu_delete_set_exam:

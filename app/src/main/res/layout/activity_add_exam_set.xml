@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="#EEEEEE"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#EEEEEE">
 
     <!-- Load the toolbar here -->
     <include
         android:id="@+id/toolbar"
         layout="@layout/toolbar_main"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content" />
 
     <!-- Rest of content for the activity -->
     <TextView
-        android:layout_below="@id/toolbar"
         android:id="@+id/header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar"
         android:gravity="center_horizontal"
         android:text="สร้างชุดข้อสอบ"
         android:textColor="@color/black"
@@ -28,10 +28,10 @@
         android:id="@+id/btm_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:padding="10dp"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:gravity="center_vertical"
+        android:padding="10dp">
 
 
         <LinearLayout
@@ -60,30 +60,32 @@
         </LinearLayout>
 
         <LinearLayout
-            android:orientation="vertical"
-
             android:id="@+id/confirm_btn"
-            android:gravity="center_horizontal"
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
             android:layout_marginBottom="0dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:layout_marginTop="0dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true">
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
             <ImageView
 
                 android:id="@+id/img"
-                android:src="@mipmap/apply"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:src="@mipmap/apply" />
+
             <TextView
-                android:textAlignment="center"
-                android:textColor="@color/black"
-                android:text="ยืนยัน"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:text="ยืนยัน"
+                android:textAlignment="center"
+                android:textColor="@color/black" />
         </LinearLayout>
     </RelativeLayout>
 
@@ -92,22 +94,22 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        android:background="@color/white"
-        android:scrollbars="vertical"
-        android:layout_weight="4.54"
-        android:layout_below="@+id/form_layout"
+        android:layout_above="@+id/btm_bar"
         android:layout_alignParentStart="true"
-        android:layout_above="@+id/btm_bar" />
+        android:layout_below="@+id/form_layout"
+        android:layout_weight="4.54"
+        android:background="@color/white"
+        android:scrollbars="vertical" />
 
     <LinearLayout
-        android:paddingRight="16dp"
-        android:paddingLeft="16dp"
         android:id="@+id/form_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:layout_alignParentStart="true"
         android:layout_below="@+id/header"
-        android:layout_alignParentStart="true">
+        android:orientation="vertical"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -120,34 +122,62 @@
                 android:text="ชื่อชุดข้อสอบ" />
 
             <EditText
-                android:layout_marginLeft="10dp"
+                android:id="@+id/name_exam_set"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/name_exam_set" />
+                android:layout_marginLeft="10dp" />
         </LinearLayout>
+
         <LinearLayout
+            android:weightSum="1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <TextView
+            <LinearLayout
+                android:layout_weight="0.5"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="จำนวนช้อ" />
+                android:layout_height="wrap_content">
 
-            <EditText
-                android:inputType="number"
-                android:layout_marginLeft="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/num_score_exam_set" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="จำนวนช้อ" />
+
+                <EditText
+                    android:id="@+id/num_score_exam_set"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:inputType="number" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_weight="0.5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_marginLeft="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="จำนวนตัวเลือก" />
+
+                <EditText
+                    android:id="@+id/num_choice_exam_set"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:inputType="number" />
+            </LinearLayout>
         </LinearLayout>
+
         <TextView
-            android:layout_margin="14dp"
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            android:text="เลือกเทมเพลท"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_margin="14dp"
+            android:text="เลือกเทมเพลท"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
     </LinearLayout>
 </RelativeLayout>

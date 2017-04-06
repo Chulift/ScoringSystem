@@ -16,7 +16,7 @@ import com.example.chulift.demoapplication.Adapter.SelectAnswerAdapter;
 import com.example.chulift.demoapplication.Class.Answer;
 import com.example.chulift.demoapplication.Class.Utilities;
 import com.example.chulift.demoapplication.Config.Config;
-import com.example.chulift.demoapplication.ExamSet.ManageExamSetActivity;
+import com.example.chulift.demoapplication.ExamStorage.ManageExamStorageActivity;
 import com.example.chulift.demoapplication.Login.LoginActivity;
 import com.example.chulift.demoapplication.R;
 import com.google.gson.Gson;
@@ -55,7 +55,6 @@ public class SelectAnswerActivity extends AppCompatActivity {
     Toolbar toolbar;
     private int idAnswer = 0;
     String resp;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -92,7 +91,7 @@ public class SelectAnswerActivity extends AppCompatActivity {
                 for (int i = 0; i < numOfanswer; i++) {
                     arrayList1.add(i, i);
                 }
-                listView1.setAdapter(new SelectAnswerAdapter(this, arrayList1));
+                listView1.setAdapter(new SelectAnswerAdapter(this, arrayList1,Integer.parseInt(examStorage.getNumChoice())));
 
             } catch (Exception e) {
                 Log.d("Create Answer", "Fail to create AnswerAdapter" + e.getMessage());
@@ -199,7 +198,7 @@ public class SelectAnswerActivity extends AppCompatActivity {
                     for (int i = 0; i < numOfanswer; i++) {
                         arrayList1.add(i, i);
                     }
-                    listView1.setAdapter(new SelectAnswerAdapter(SelectAnswerActivity.this, arrayList1));
+                    listView1.setAdapter(new SelectAnswerAdapter(SelectAnswerActivity.this, arrayList1,Integer.parseInt(examStorage.getNumChoice())));
 
                 } catch (Exception e) {
                     Log.d("Create Answer", "Fail to create AnswerAdapter" + e.getMessage());
@@ -269,7 +268,7 @@ public class SelectAnswerActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         // Do something after 5s = 10000ms
-                        Intent intent = new Intent(SelectAnswerActivity.this, ManageExamSetActivity.class);
+                        Intent intent = new Intent(SelectAnswerActivity.this, ManageExamStorageActivity.class);
                         startActivity(intent);
                         finish();
                     }
@@ -282,7 +281,7 @@ public class SelectAnswerActivity extends AppCompatActivity {
     @OnClick(R.id.back_btn)
     void back() {
         Intent intent;
-        intent = new Intent(SelectAnswerActivity.this, ManageExamSetActivity.class);
+        intent = new Intent(SelectAnswerActivity.this, ManageExamStorageActivity.class);
         intent.putExtra("examStorage", new Gson().toJson(examStorage));
         startActivity(intent);
         finish();

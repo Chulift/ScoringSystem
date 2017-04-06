@@ -32,7 +32,7 @@
         <Button
             android:background="@color/iron"
             android:id="@+id/button1"
-            android:layout_width="100px"
+            android:layout_width="40dp"
             android:layout_height="wrap_content"
             android:text=" " />
     </LinearLayout>
@@ -45,7 +45,7 @@
             <Button
                 android:background="@color/iron"
                 android:id="@+id/button2"
-                android:layout_width="100px"
+                android:layout_width="40dp"
                 android:layout_height="wrap_content"
                 android:text=" " />
         </LinearLayout>
@@ -58,7 +58,7 @@
             <Button
                 android:background="@color/iron"
                 android:id="@+id/button3"
-                android:layout_width="100px"
+                android:layout_width="40dp"
                 android:layout_height="wrap_content"
                 android:text=" " />
         </LinearLayout>
@@ -71,7 +71,7 @@
             <Button
                 android:background="@color/iron"
                 android:id="@+id/button4"
-                android:layout_width="100px"
+                android:layout_width="40dp"
                 android:layout_height="wrap_content"
                 android:text=" " />
         </LinearLayout>

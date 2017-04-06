@@ -15,7 +15,7 @@ import android.widget.Toast;
 import com.example.chulift.demoapplication.Adapter.Adapter;
 import com.example.chulift.demoapplication.Class.Menu;
 import com.example.chulift.demoapplication.Template.ShowTemplateListActivity;
-import com.example.chulift.demoapplication.ExamSet.ManageExamSetActivity;
+import com.example.chulift.demoapplication.ExamStorage.ManageExamStorageActivity;
 import com.example.chulift.demoapplication.Login.LoginActivity;
 
 import java.util.ArrayList;
@@ -68,7 +68,7 @@ public class MenusActivity extends AppCompatActivity {
 
                         break;
                     case 1:
-                        intent = new Intent(MenusActivity.this, ManageExamSetActivity.class);
+                        intent = new Intent(MenusActivity.this, ManageExamStorageActivity.class);
 
                         break;
                     case 2:

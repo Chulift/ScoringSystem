@@ -8,12 +8,14 @@ import org.json.JSONObject;
  */
 
 public class ExamStorage {
-    private String id_examStorage, numScore, id_answer;
+    private String id_examStorage, numScore, id_answer,storagePath,numChoice;
     private String id_template, exam_storage_name, user_email, user_input_template_name;
 
     public ExamStorage(JSONObject jsonObject) {
         if (jsonObject != null) {
             try {
+                numChoice = jsonObject.getString("num_choice");
+                storagePath = jsonObject.getString("storage_path");
                 id_answer = jsonObject.getString("id_answer");
                 user_input_template_name = jsonObject.getString("user_input_template_name");
                 id_examStorage = jsonObject.getString("id_examstorage");
@@ -26,6 +28,14 @@ public class ExamStorage {
                 e.printStackTrace();
             }
         }
+    }
+
+    public String getNumChoice() {
+        return numChoice;
+    }
+
+    public String getStoragePath() {
+        return storagePath;
     }
 
     public String getExam_storage_name() {

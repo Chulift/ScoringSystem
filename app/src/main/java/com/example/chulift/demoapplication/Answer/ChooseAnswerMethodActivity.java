@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.example.chulift.demoapplication.Class.ExamStorage;
 import com.example.chulift.demoapplication.Class.Utilities;
-import com.example.chulift.demoapplication.ExamSet.ManageExamSetActivity;
+import com.example.chulift.demoapplication.ExamStorage.ManageExamStorageActivity;
 import com.example.chulift.demoapplication.R;
 import com.google.gson.Gson;
 
@@ -61,7 +61,7 @@ public class ChooseAnswerMethodActivity extends AppCompatActivity {
 
     @OnClick(R.id.back_btn)
     void back() {
-        Intent intent = new Intent(ChooseAnswerMethodActivity.this, ManageExamSetActivity.class);
+        Intent intent = new Intent(ChooseAnswerMethodActivity.this, ManageExamStorageActivity.class);
         startActivity(intent);
         finish();
     }

@@ -1,4 +1,4 @@
-package com.example.chulift.demoapplication.ExamSet;
+package com.example.chulift.demoapplication.ExamStorage;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -21,7 +21,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class ManageExamSetActivity extends AppCompatActivity {
+public class ManageExamStorageActivity extends AppCompatActivity {
     private final String url = Config.serverURL + "getJSON.php";
     @BindView(R.id.listView1)
     ListView lstView1;
@@ -54,7 +54,7 @@ public class ManageExamSetActivity extends AppCompatActivity {
         arrayList = new ArrayList<>();
         arrayList = ConvertJSONString.getExamStorageArray(resp);
         try {
-            lstView1.setAdapter(new Adapter(ManageExamSetActivity.this, arrayList, "ManageExamSetActivity"));
+            lstView1.setAdapter(new Adapter(ManageExamStorageActivity.this, arrayList, "ManageExamStorageActivity"));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -62,7 +62,7 @@ public class ManageExamSetActivity extends AppCompatActivity {
 
     @OnClick(R.id.add_exam_btn)
     void addExamBtn() {
-        startActivity(new Intent(this, CUExamSetActivity.class));
+        startActivity(new Intent(this, CUExamStorageActivity.class));
         finish();
     }
 }

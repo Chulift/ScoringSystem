@@ -25,7 +25,7 @@
         <activity android:name=".Template.FillFormActivity" />
         <activity android:name=".Login.SignupActivity" />
         <activity android:name=".MenusActivity" />
-        <activity android:name=".ExamSet.ManageExamSetActivity" />
+        <activity android:name=".ExamStorage.ManageExamStorageActivity" />
         <activity android:name=".Template.ShowTemplateListActivity" />
         <activity android:name=".Template.CropIDActivity" />
         <activity android:name=".Template.FinishTemplateActivity" />
@@ -33,7 +33,7 @@
         <activity android:name=".AboutUsActivity" />
         <activity android:name=".Template.EditTemplateActivity" />
         <activity android:name=".Answer.ChooseAnswerMethodActivity" />
-        <activity android:name=".ExamSet.CUExamSetActivity" />
+        <activity android:name=".ExamStorage.CUExamStorageActivity" />
         <activity android:name=".Answer.SelectAnswerActivity" />
         <activity android:name=".Answer.ShowSelectedAnswerActivity" />
         <activity android:name=".AnswerSheet.AnswerSheetListActivity" />

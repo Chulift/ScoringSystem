@@ -13,7 +13,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.chulift.demoapplication.ExamSet.CUExamSetActivity;
+import com.example.chulift.demoapplication.Adapter.Holder.ViewHolder;
+import com.example.chulift.demoapplication.ExamStorage.CUExamStorageActivity;
 import com.example.chulift.demoapplication.Template.EditTemplateActivity;
 import com.example.chulift.demoapplication.Class.Template;
 import com.example.chulift.demoapplication.R;
@@ -29,7 +30,7 @@ import butterknife.ButterKnife;
  * Created by chulift on 2/9/2017.
  */
 
-public class RecycleAdapter extends RecyclerView.Adapter<RecycleAdapter.ViewHolder> {
+public class RecycleAdapter extends RecyclerView.Adapter<ViewHolder> {
     private ArrayList galleryList;
     private Context context;
     private String page;
@@ -48,51 +49,51 @@ public class RecycleAdapter extends RecyclerView.Adapter<RecycleAdapter.ViewHold
     }
 
     @Override
-    public RecycleAdapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+    public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.template_gallery_layout, viewGroup, false);
 
         return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(final RecycleAdapter.ViewHolder viewHolder, final int position) {
+    public void onBindViewHolder(final ViewHolder viewHolder, final int position) {
         final Template template = (Template) galleryList.get(position);
-        viewHolder.title.setText(template.getUser_input_template_name());
-        viewHolder.templateMaxChoice.setText("จำนวนตัวเลือก : " + ((Template) galleryList.get(position)).getNumberOfChoice());
+        viewHolder.getTitle().setText(template.getUser_input_template_name());
+        viewHolder.getTemplateMaxChoice().setText("จำนวนตัวเลือก : " + ((Template) galleryList.get(position)).getNumberOfChoice());
         final int max = Integer.parseInt(template.getAnswerPerCol()) * Integer.parseInt(template.getNumberOfCol());
         String maxScore = max + "(" + template.getAnswerPerCol() + "*" + template.getNumberOfCol() + ")";
-        viewHolder.templateMaxScore.setText("จำนวนข้อสูงสุด : " + maxScore);
+        viewHolder.getTemplateMaxScore().setText("จำนวนข้อสูงสุด : " + maxScore);
         String imgUrl = ((Template) galleryList.get(position)).getTemplate_path();
-        Picasso.with(context).load(imgUrl).into(viewHolder.img);
+        Picasso.with(context).load(imgUrl).into(viewHolder.getImg());
 
-        if (page == "CUExamSetActivity") {
-            //if (CUExamSetActivity.templateSet != null) {
-            if (CUExamSetActivity.IssetTemplate) {
-                if (CUExamSetActivity.IDTemplate != null) {
-                    //if (CUExamSetActivity.templateSet.getId_template().equals(template.getId_template())) {
-                    if (CUExamSetActivity.IDTemplate.equals(template.getId_template())) {
-                        CUExamSetActivity.templateSet = template;
-                        CUExamSetActivity.position = position;
-                        viewHolder.templateLayout.setBackgroundResource(R.drawable.border_indigo);
+        if (page == "CUExamStorageActivity") {
+            //if (CUExamStorageActivity.templateSet != null) {
+            if (CUExamStorageActivity.IssetTemplate) {
+                if (CUExamStorageActivity.IDTemplate != null) {
+                    //if (CUExamStorageActivity.templateSet.getId_template().equals(template.getId_template())) {
+                    if (CUExamStorageActivity.IDTemplate.equals(template.getId_template())) {
+                        CUExamStorageActivity.templateSet = template;
+                        CUExamStorageActivity.position = position;
+                        viewHolder.getTemplateLayout().setBackgroundResource(R.drawable.border_indigo);
                     } else {
-                        viewHolder.templateLayout.setBackgroundResource(R.drawable.border);
+                        viewHolder.getTemplateLayout().setBackgroundResource(R.drawable.border);
                     }
                 }
 
             }
         }
 
-        viewHolder.img.setOnClickListener(new View.OnClickListener() {
+        viewHolder.getTemplateLayout().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (page == "CUExamSetActivity") {
+                if (page == "CUExamStorageActivity") {
                     // v.setEnabled(false);
                     selectedRow = position;
                     Log.i("selectedRow", selectedRow + "");
-                    CUExamSetActivity.IssetTemplate = true;
-                    CUExamSetActivity.templateSet = template;
-                    CUExamSetActivity.IDTemplate = template.getId_template();
-                    //CUExamSetActivity.numScore.setText(max+"");
+                    CUExamStorageActivity.IssetTemplate = true;
+                    CUExamStorageActivity.templateSet = template;
+                    CUExamStorageActivity.IDTemplate = template.getId_template();
+                    //CUExamStorageActivity.numScore.setText(max+"");
                     Toast.makeText(context, "เลือก " + template.getUser_input_template_name() + "    " + position, Toast.LENGTH_SHORT).show();
 
                     notifyDataSetChanged();
@@ -113,21 +114,4 @@ public class RecycleAdapter extends RecyclerView.Adapter<RecycleAdapter.ViewHold
         return galleryList.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
-        @BindView(R.id.template_layout)
-        LinearLayout templateLayout;
-        @BindView(R.id.title)
-        TextView title;
-        @BindView(R.id.img)
-        ImageView img;
-        @BindView(R.id.template_max_score)
-        TextView templateMaxScore;
-        @BindView(R.id.template_max_choice)
-        TextView templateMaxChoice;
-
-        public ViewHolder(View view) {
-            super(view);
-            ButterKnife.bind(this, view);
-        }
-    }
 }

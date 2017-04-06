@@ -15,7 +15,7 @@ import android.widget.Toast;
 import com.example.chulift.demoapplication.Class.ExamStorage;
 import com.example.chulift.demoapplication.Class.Utilities;
 import com.example.chulift.demoapplication.Config.Config;
-import com.example.chulift.demoapplication.ExamSet.ManageExamSetActivity;
+import com.example.chulift.demoapplication.ExamStorage.ManageExamStorageActivity;
 import com.example.chulift.demoapplication.Image.ImagePossessing;
 import com.example.chulift.demoapplication.Login.LoginActivity;
 import com.example.chulift.demoapplication.R;
@@ -30,8 +30,6 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
 import okhttp3.RequestBody;
 
 public class CaptureAnswerActivity extends AppCompatActivity {
@@ -194,7 +192,7 @@ public class CaptureAnswerActivity extends AppCompatActivity {
 
     }
     @OnClick(R.id.button)void back(){
-        Intent intent = new Intent(this,ManageExamSetActivity.class);
+        Intent intent = new Intent(this,ManageExamStorageActivity.class);
         intent.putExtra("examStorage",new Gson().toJson(examStorage));
         startActivity(intent);
     }

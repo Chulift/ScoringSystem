@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#EEEEEE"
-    tools:context=".ExamSet.ManageExamSetActivity">
+    tools:context=".ExamStorage.ManageExamStorageActivity">
     <!-- Load the toolbar here -->
     <include
         android:id="@+id/toolbar"

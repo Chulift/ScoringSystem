@@ -1,4 +1,4 @@
-package com.example.chulift.demoapplication.ExamSet;
+package com.example.chulift.demoapplication.ExamStorage;
 
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -42,7 +42,7 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
-public class CUExamSetActivity extends AppCompatActivity {
+public class CUExamStorageActivity extends AppCompatActivity {
     private final String templateUrl = Config.serverURL + "getTemplate.php";
     private final String url = Config.serverURL + "CreateExamSet.php";
     public static Boolean IssetTemplate = false;
@@ -58,13 +58,18 @@ public class CUExamSetActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     private ArrayList arrayList;
     private String resp;
-    public static EditText numScore;
-    public static EditText editTxt;
+    @BindView(R.id.num_score_exam_set)
+    EditText numScore;
+    @BindView(R.id.name_exam_set)
+    EditText nameExamStorage;
+    @BindView(R.id.num_choice_exam_set)
+    EditText numChoice;
     @BindView(R.id.toolbar)
     Toolbar toolbar;
     @BindView(R.id.user)
     TextView user;
-    @BindView(R.id.header)TextView header;
+    @BindView(R.id.header)
+    TextView header;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,10 +92,8 @@ public class CUExamSetActivity extends AppCompatActivity {
             header.setText("แก้ไขชุดข้อสอบ");
             Log.i("editExamStorage", examStorage.getId_examStorage());
         }
-        editTxt = (EditText) findViewById(R.id.name_exam_set);
-        numScore = (EditText) findViewById(R.id.num_score_exam_set);
         numScore.setFilters(new InputFilter[]{new com.example.chulift.demoapplication.Class.InputFilter(Config.minKeyboardInput, Config.maxKeyboardInput)});
-
+        numChoice.setFilters(new InputFilter[]{new com.example.chulift.demoapplication.Class.InputFilter(Config.minChoiceOfTemplate, Config.maxChoiceOfTemplate)});
         init();
         Utilities.setToolbar(this);
     }
@@ -101,10 +104,11 @@ public class CUExamSetActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(layoutManager);
         if (mode == 1) {
-            editTxt.setText(examStorage.getExam_storage_name());
+            nameExamStorage.setText(examStorage.getExam_storage_name());
             Log.i("numS", examStorage.getNumScore());
             int n = Integer.parseInt(examStorage.getNumScore());
             numScore.setText("" + n, TextView.BufferType.EDITABLE);
+            numChoice.setText(examStorage.getNumChoice(), TextView.BufferType.EDITABLE);
             String postbody = "{\"num_score\":\"" + examStorage.getNumScore() + "\", \"template_name\":\"" + examStorage.getId_template() + "\"}";
             GetTemplateAsync getTemplateAsync = new GetTemplateAsync(templateUrl, postbody);
             getTemplateAsync.execute();
@@ -123,7 +127,7 @@ public class CUExamSetActivity extends AppCompatActivity {
                 protected void onPostExecute(ArrayList<Template> templates) {
                     try {
                         Log.i("array", "" + arrayList.size());
-                        adapter = new RecycleAdapter(CUExamSetActivity.this, arrayList, "CUExamSetActivity");
+                        adapter = new RecycleAdapter(CUExamStorageActivity.this, arrayList, "CUExamStorageActivity");
                         recyclerView.setAdapter(adapter);
                     } catch (Exception e) {
                         Toast.makeText(getApplicationContext(), "ผิดพลาด : ไม่สามารถโหลดข้อมูลเทมเพลทได้", Toast.LENGTH_LONG).show();
@@ -135,7 +139,7 @@ public class CUExamSetActivity extends AppCompatActivity {
 
     @OnClick(R.id.back_btn)
     void back() {
-        Intent mainMenusIntent = new Intent(this, ManageExamSetActivity.class);
+        Intent mainMenusIntent = new Intent(this, ManageExamStorageActivity.class);
         startActivity(mainMenusIntent);
         finish();
     }
@@ -147,25 +151,27 @@ public class CUExamSetActivity extends AppCompatActivity {
 
     @OnClick(R.id.confirm_btn)
     void createExam() {//answer_id_answer, user_email, answersheet_name
-        String temp = editTxt.getText().toString();
+        String temp = nameExamStorage.getText().toString();
         if (!temp.equals("")) {
             if (IssetTemplate && templateSet != null) {
                 if (mode == 1) {
                     String examStoragesID = examStorage.getId_examStorage();
                     String tempName = templateSet.getId_template();
                     String email = LoginActivity.getUser().getEmail();
-                    String editName = editTxt.getText().toString();
+                    String editName = nameExamStorage.getText().toString();
                     String scoreExamSet = numScore.getText().toString();
-                    String postbody = "{\"id_template\":\"" + tempName + "\", \"user_email\":\"" + email + "\", \"id_exam_storage\":\"" + examStoragesID + "\", \"num_score\":\"" + scoreExamSet + "\", \"exam_storage_name\":\"" + editName + "\", \"mode\":\"" + mode + "\"}";
+                    String choiceExamSet = numChoice.getText().toString();
+                    String postbody = "{\"id_template\":\"" + tempName + "\", \"user_email\":\"" + email + "\", \"num_choice\":\"" + choiceExamSet + "\", \"id_exam_storage\":\"" + examStoragesID + "\", \"num_score\":\"" + scoreExamSet + "\", \"exam_storage_name\":\"" + editName + "\", \"mode\":\"" + mode + "\"}";
 
                     SendDataAsync sendDataAsync = new SendDataAsync(url, postbody);
                     sendDataAsync.execute();
                 } else if (mode == 0) {
                     String tempName = templateSet.getId_template();
                     String email = LoginActivity.getUser().getEmail();
-                    String editName = editTxt.getText().toString();
+                    String editName = nameExamStorage.getText().toString();
                     String scoreExamSet = numScore.getText().toString();
-                    String postbody = "{\"id_template\":\"" + tempName + "\", \"user_email\":\"" + email + "\", \"num_score\":\"" + scoreExamSet + "\", \"exam_storage_name\":\"" + editName + "\", \"mode\":\"" + mode + "\"}";
+                    String choiceExamSet = numChoice.getText().toString();
+                    String postbody = "{\"id_template\":\"" + tempName + "\", \"user_email\":\"" + email + "\", \"num_choice\":\"" + choiceExamSet + "\", \"num_score\":\"" + scoreExamSet + "\", \"exam_storage_name\":\"" + editName + "\", \"mode\":\"" + mode + "\"}";
 
                     SendDataAsync sendDataAsync = new SendDataAsync(url, postbody);
                     sendDataAsync.execute();
@@ -245,7 +251,7 @@ public class CUExamSetActivity extends AppCompatActivity {
                     arrayList = new ArrayList<>();
                     arrayList = ConvertJSONString.getTemplateArray(resp);
                     Log.i("array", "" + arrayList.size());
-                    adapter = new RecycleAdapter(CUExamSetActivity.this, arrayList, "CUExamSetActivity");
+                    adapter = new RecycleAdapter(CUExamStorageActivity.this, arrayList, "CUExamStorageActivity");
                     recyclerView.setAdapter(adapter);
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -313,15 +319,15 @@ public class CUExamSetActivity extends AppCompatActivity {
         protected void onPostExecute(JSONObject jsonObject) {
             if (result.equals("1")) {
                 if (mode == 1)
-                    Toast.makeText(CUExamSetActivity.this, "Update success", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(CUExamStorageActivity.this, "Update success", Toast.LENGTH_SHORT).show();
                 else
-                    Toast.makeText(CUExamSetActivity.this, "Create success", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(CUExamStorageActivity.this, "Create success", Toast.LENGTH_SHORT).show();
                 final Handler handler = new Handler();
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
                         // Do something after 5s = 10000ms
-                        Intent intent = new Intent(CUExamSetActivity.this, ManageExamSetActivity.class);
+                        Intent intent = new Intent(CUExamStorageActivity.this, ManageExamStorageActivity.class);
                         startActivity(intent);
                         finish();
                     }
@@ -330,13 +336,13 @@ public class CUExamSetActivity extends AppCompatActivity {
                 try {
                     arrayList = ConvertJSONString.getTemplateArray(result);
                     Log.i("array", "" + arrayList.size());
-                    adapter = new RecycleAdapter(CUExamSetActivity.this, arrayList, "CUExamSetActivity");
+                    adapter = new RecycleAdapter(CUExamStorageActivity.this, arrayList, "CUExamStorageActivity");
                     recyclerView.setAdapter(adapter);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             } else
-                Toast.makeText(CUExamSetActivity.this, "Fail to create exam", Toast.LENGTH_SHORT).show();
+                Toast.makeText(CUExamStorageActivity.this, "Fail to create exam", Toast.LENGTH_SHORT).show();
         }
     }
 }

@@ -13,14 +13,13 @@ import com.example.chulift.demoapplication.Class.ExamStorage;
 import com.example.chulift.demoapplication.Class.ConvertJSONString;
 import com.example.chulift.demoapplication.Class.Utilities;
 import com.example.chulift.demoapplication.Config.Config;
-import com.example.chulift.demoapplication.ExamSet.ManageExamSetActivity;
+import com.example.chulift.demoapplication.ExamStorage.ManageExamStorageActivity;
 import com.example.chulift.demoapplication.R;
 import com.example.chulift.demoapplication.httpConnect.ConnectServer;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
 
-import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -89,7 +88,7 @@ public class AnswerSheetListActivity extends AppCompatActivity {
 
     @OnClick(R.id.back_btn)
     void back() {
-        Intent intent = new Intent(getApplicationContext(), ManageExamSetActivity.class);
+        Intent intent = new Intent(getApplicationContext(), ManageExamStorageActivity.class);
         startActivity(intent);
         finish();
     }

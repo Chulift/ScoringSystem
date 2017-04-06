@@ -139,7 +139,7 @@ public class CaptureAnswerSheetActivity extends Activity {
         if (!sourceFile.isFile()) {
             Log.e("CheckFile", "Source File not exist :" + imagePath);
         } else {
-            String path = imgPath + sourceFile.getName();
+            String path = imgPath + examStorage.getStoragePath() + sourceFile.getName();
             final MediaType MEDIA_TYPE_JPG = MediaType.parse("image/jpg");
             RequestBody req = new MultipartBody.Builder()
                     .setType(MultipartBody.FORM)

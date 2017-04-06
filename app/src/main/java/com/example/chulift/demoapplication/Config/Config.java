@@ -9,4 +9,6 @@ public class Config {
     public static String serverImagePathURL = serverURL + "uploadedimages/";
     public static int minKeyboardInput = 1;
     public static int maxKeyboardInput = 200;
+    public static int maxChoiceOfTemplate = 5;
+    public static int minChoiceOfTemplate = 3;
 }
