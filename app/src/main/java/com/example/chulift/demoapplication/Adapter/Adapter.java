@@ -34,10 +34,7 @@ import com.google.gson.Gson;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
-
-/**
- * Created by Chulift on 11/15/2016.
- */
+import java.util.Objects;
 
 public class Adapter extends BaseAdapter {
     Context context;
@@ -70,11 +67,11 @@ public class Adapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        if (page == "MenusActivity") {
+        if (Objects.equals(page, "MenusActivity")) {
             return initMenu(position, convertView);
-        } else if (page == "ManageExamStorageActivity") {
+        } else if (Objects.equals(page, "ManageExamStorageActivity")) {
             return initExamSet(position, convertView);
-        } else if (page == "AnswerSheetListActivity") {
+        } else if (Objects.equals(page, "AnswerSheetListActivity")) {
             return initAnswerSheetList(position, convertView);
         }
         return null;
@@ -113,10 +110,6 @@ public class Adapter extends BaseAdapter {
                                 break;
                             default:
                                 return false;
-                        }
-                        if (intent != null) {
-                            context.startActivity(intent);
-                            ((Activity) context).finish();
                         }
                         return true;
                     }
@@ -277,7 +270,7 @@ public class Adapter extends BaseAdapter {
         holder.getSequenceExamSet().setText((position + 1) + "");
         holder.getNameOfSetExam().setText("" + examStorage.getExam_storage_name());
         holder.getTemplateOfSetExam().setText(examStorage.getUser_input_template_name() + "");
-        holder.getNumScoreOfexamSet().setText(examStorage.getNumScore());
+        holder.getNumScoreOfExamSet().setText(examStorage.getNumScore());
         final View finalConvertView = convertView;
         convertView.setOnClickListener(new View.OnClickListener() {
 

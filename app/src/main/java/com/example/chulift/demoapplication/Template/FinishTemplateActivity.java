@@ -57,13 +57,13 @@ public class FinishTemplateActivity extends AppCompatActivity {
         if (extras != null) {
             String template_name = extras.getString("template_name");
             Log.i("name", template_name);
-            String postbody = "{\"" + "template_name\"" + ":\"" + template_name + "\"}";
+            String postBody = "{\"" + "template_name\"" + ":\"" + template_name + "\"}";
             progressDialog = new ProgressDialog(FinishTemplateActivity.this,
                     R.style.AppTheme_Dark_Dialog);
             progressDialog.setIndeterminate(true);
             progressDialog.setMessage("กรุณารอสักครู่...");
             progressDialog.show();
-            FinishTemplateActivity.AsyncTaskGetData taskGetUser = new FinishTemplateActivity.AsyncTaskGetData(url, postbody);
+            FinishTemplateActivity.AsyncTaskGetData taskGetUser = new FinishTemplateActivity.AsyncTaskGetData(url, postBody);
             taskGetUser.execute();
         }
         Utilities.setToolbar(this);
@@ -136,7 +136,7 @@ public class FinishTemplateActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(JSONObject jsonObject) {
             Template template = new Template(result);
-            if (template.getDataIsset()) {
+            if (template.getDataIsSet()) {
                 float AS_startX = 0, AS_startY = 0, AS_width = 0, AS_height = 0,
                         CS_startX = 0, CS_startY = 0, CS_width = 0, CS_height = 0,
                         IS_startX = 0, IS_startY = 0, IS_width = 0, IS_height = 0;
@@ -169,7 +169,6 @@ public class FinishTemplateActivity extends AppCompatActivity {
                     Log.i("Convert Error", "IS Session");
                 }
                 //create rect
-                Bitmap bitmap = null;
                 final float finalAS_startX = AS_startX;
                 final float finalAS_startY = AS_startY;
                 final float finalAS_width = AS_width;

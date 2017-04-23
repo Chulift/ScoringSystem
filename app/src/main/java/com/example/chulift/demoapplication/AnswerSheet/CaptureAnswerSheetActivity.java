@@ -14,7 +14,6 @@ import android.widget.Toast;
 import com.example.chulift.demoapplication.Class.ExamStorage;
 import com.example.chulift.demoapplication.Class.Utilities;
 import com.example.chulift.demoapplication.Config.Config;
-import com.example.chulift.demoapplication.ExamStorage.ManageExamStorageActivity;
 import com.example.chulift.demoapplication.Image.ImagePossessing;
 import com.example.chulift.demoapplication.R;
 import com.example.chulift.demoapplication.httpConnect.ConnectServer;
@@ -47,7 +46,7 @@ public class CaptureAnswerSheetActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_capture_answer_sheet);
         ButterKnife.bind(this);
-        String jsonMyObject = null;
+        String jsonMyObject;
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             //jsonMyObject = extras.getString("myObject");
@@ -86,7 +85,7 @@ public class CaptureAnswerSheetActivity extends Activity {
                 Bitmap temp2 = null;
                 try {
                     photo = MediaStore.Images.Media.getBitmap(getContentResolver(), imageUri);
-                    Bitmap temp = ImagePossessing.toGrayscale(photo);
+                    Bitmap temp = ImagePossessing.toGrayScale(photo);
                     Bitmap temp1 = ImagePossessing.totBlackWrite(temp);
                     temp2 = ImagePossessing.cutBackGroundImage(temp1, photo);
 
@@ -136,7 +135,7 @@ public class CaptureAnswerSheetActivity extends Activity {
         } catch (Exception e) {
             Log.e("CreateFile", "CreateFileFromSource:" + e.toString());
         }
-        Log.i("File", "Value:" + sourceFile.getPath());
+        Log.i("File", "Value:" + (sourceFile != null ? sourceFile.getPath() : null));
         if (!sourceFile.isFile()) {
             Log.e("CheckFile", "Source File not exist :" + imagePath);
         } else {

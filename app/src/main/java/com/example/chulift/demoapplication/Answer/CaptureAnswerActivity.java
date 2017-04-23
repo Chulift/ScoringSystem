@@ -69,7 +69,7 @@ public class CaptureAnswerActivity extends AppCompatActivity {
                 Bitmap temp2 = null;
                 try {
                     photo = MediaStore.Images.Media.getBitmap(getContentResolver(), imageUri);
-                    Bitmap temp = ImagePossessing.toGrayscale(photo);
+                    Bitmap temp = ImagePossessing.toGrayScale(photo);
                     Bitmap temp1 = ImagePossessing.totBlackWrite(temp);
                     temp2 = ImagePossessing.cutBackGroundImage(temp1, photo);
                 } catch (IOException e) {
@@ -118,7 +118,6 @@ public class CaptureAnswerActivity extends AppCompatActivity {
         if (id_answer != 0) {
             intent = new Intent(this, SelectAnswerActivity.class);
             intent.putExtra("previousPage", "CaptureAnswerActivity");
-        } else {
         }
     }
 
@@ -131,7 +130,7 @@ public class CaptureAnswerActivity extends AppCompatActivity {
         } catch (Exception e) {
             Log.e("CreateFile", "CreateFileFromSource:" + e.toString());
         }
-        Log.i("File", "Value:" + sourceFile.getPath());
+        Log.i("File", "Value:" + (sourceFile != null ? sourceFile.getPath() : null));
         if (!sourceFile.isFile()) {
             Log.e("CheckFile", "Source File not exist :" + imagePath);
         } else {

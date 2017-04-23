@@ -23,7 +23,7 @@
         <activity android:name=".Template.CaptureTemplateActivity" />
         <activity android:name=".Template.CropTemplateActivity" />
         <activity android:name=".Template.FillFormActivity" />
-        <activity android:name=".Login.SignupActivity" />
+        <activity android:name=".Login.SignUpActivity" />
         <activity android:name=".MenusActivity" />
         <activity android:name=".ExamStorage.ManageExamStorageActivity" />
         <activity android:name=".Template.ShowTemplateListActivity" />
@@ -37,7 +37,7 @@
         <activity android:name=".AnswerSheet.AnswerSheetListActivity" />
         <activity android:name=".AnswerSheet.CaptureAnswerSheetActivity" />
         <activity android:name=".Answer.CaptureAnswerActivity" />
-        <activity android:name=".AnswerSheet.TestCameraActivity"></activity>
+        <activity android:name=".AnswerSheet.TestCameraActivity" />
     </application>
 
 </manifest>

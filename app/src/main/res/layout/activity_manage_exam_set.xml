@@ -97,6 +97,7 @@
             android:orientation="vertical">
 
             <ImageButton
+                android:contentDescription="@string/back"
                 android:id="@+id/back_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -122,6 +123,7 @@
             android:orientation="vertical">
 
             <ImageButton
+                android:contentDescription="@string/add"
                 android:id="@+id/add_exam_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

@@ -14,11 +14,6 @@ import org.opencv.core.Mat;
 import org.opencv.core.Scalar;
 import org.opencv.imgproc.Imgproc;
 
-import static android.R.attr.bitmap;
-
-/**
- * Created by Tang on 11/16/2016.
- */
 
 public class ImagePossessing {
     public static Bitmap totBlackWrite(Bitmap inGrayImage,int th){
@@ -90,21 +85,21 @@ public class ImagePossessing {
             return null;
         }
     }
-    public static Bitmap toGrayscale(Bitmap bmpOriginal)
+    public static Bitmap toGrayScale(Bitmap bmpOriginal)
     {
         int width, height;
         height = bmpOriginal.getHeight();
         width = bmpOriginal.getWidth();
 
-        Bitmap bmpGrayscale = Bitmap.createBitmap(width, height, Bitmap.Config.RGB_565);
-        Canvas c = new Canvas(bmpGrayscale);
+        Bitmap bmpGrayScale = Bitmap.createBitmap(width, height, Bitmap.Config.RGB_565);
+        Canvas c = new Canvas(bmpGrayScale);
         Paint paint = new Paint();
         ColorMatrix cm = new ColorMatrix();
         cm.setSaturation(0);
         ColorMatrixColorFilter f = new ColorMatrixColorFilter(cm);
         paint.setColorFilter(f);
         c.drawBitmap(bmpOriginal, 0, 0, paint);
-        return bmpGrayscale;
+        return bmpGrayScale;
     }
     public static Bitmap totBlackWrite(Bitmap bitmap){
         // first convert bitmap into OpenCV mat object
@@ -118,7 +113,7 @@ public class ImagePossessing {
                 CvType.CV_8U, new Scalar(1));
         Imgproc.cvtColor(imageMat, grayMat, Imgproc.COLOR_RGB2GRAY, 1);
 
-        // get the thresholded image
+        // get the threshold image
         Mat thresholdMat = new Mat ( bitmap.getHeight(), bitmap.getWidth(),
                 CvType.CV_8U, new Scalar(1));
         Imgproc.threshold(grayMat, thresholdMat , 128, 255, Imgproc.THRESH_BINARY);

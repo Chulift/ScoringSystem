@@ -13,9 +13,7 @@ import com.example.chulift.demoapplication.R;
 
 import java.util.ArrayList;
 
-/**
- * Created by Level51 on 1/23/2017.
- */
+
 
 public class SelectAnswerAdapter extends BaseAdapter {
     Context context;
@@ -154,8 +152,8 @@ public class SelectAnswerAdapter extends BaseAdapter {
     }
 
     private void changeColor(Button[] buttons, int index) {
-        for (int i = 0; i < buttons.length; i++) {
-            buttons[i].setBackgroundResource(R.color.iron);
+        for (Button button : buttons) {
+            button.setBackgroundResource(R.color.iron);
         }
         buttons[index].setBackgroundResource(R.color.green);
     }

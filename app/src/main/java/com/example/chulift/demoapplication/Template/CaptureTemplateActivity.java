@@ -92,7 +92,7 @@ public class CaptureTemplateActivity extends AppCompatActivity {
                 Bitmap temp2 = null;
                 try {
                     photo = MediaStore.Images.Media.getBitmap(getContentResolver(), imageUri);
-                    Bitmap temp = ImagePossessing.toGrayscale(photo);
+                    Bitmap temp = ImagePossessing.toGrayScale(photo);
                     Bitmap temp1 = ImagePossessing.totBlackWrite(temp);
                     temp2 = ImagePossessing.cutBackGroundImage(temp1, photo);
                 } catch (IOException e) {

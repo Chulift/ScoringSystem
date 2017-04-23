@@ -5,13 +5,11 @@ import android.app.Activity;
 import android.content.pm.PackageManager;
 import android.support.v4.app.ActivityCompat;
 
-/**
- * Created by Chulift on 11/12/2016.
- */
+
 
 public class PermissionRequest {
     // Storage Permissions
-    private static final int REQUEST_NEEDED_PERMINSSION = 1;
+    private static final int REQUEST_NEEDED_PERMISSION = 1;
     private static final int REQUEST_EXTERNAL_STORAGE = 2;
     private static final int REQUEST_CAMERA = 3;
     private static final int REQUEST_INTERNET = 4;
@@ -44,7 +42,7 @@ public class PermissionRequest {
             ActivityCompat.requestPermissions(
                     activity,
                     PERMISSION_NEEDED,
-                    REQUEST_NEEDED_PERMINSSION
+                    REQUEST_NEEDED_PERMISSION
             );
         }
     }

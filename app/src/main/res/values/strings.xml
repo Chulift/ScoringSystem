@@ -6,7 +6,7 @@
     <string name="capture">ถ่ายเทมเพลทข้อสอบ</string>
     <string name="next">ถัดไป</string>
     <string name="crop">ยืนยันการเลือก</string>
-    <string name="recrop">เลือกใหม่</string>
+    <string name="reset_crop">เลือกใหม่</string>
     <string name="ok">กลับหน้าแรก</string>
     <string name="add_exam">เพิ่มกระดาษคำตอบ</string>
     <string name="capture_exam">ถ่ายกระดาษคำตอบ</string>
@@ -18,5 +18,12 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="ic_launcher_web">icon</string>
+    <string name="apply">apply</string>
+    <string name="add">add</string>
+    <string name="camera">camera</string>
+    <string name="picture">picture</string>
+    <string name="upload">upload</string>
+    <string name="logo">logo</string>
 
 </resources>

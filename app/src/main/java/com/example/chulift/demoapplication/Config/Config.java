@@ -1,8 +1,5 @@
 package com.example.chulift.demoapplication.Config;
 
-/**
- * Created by chulift on 3/6/2017.
- */
 
 public class Config {
     public static String server = "http://158.108.207.4/";

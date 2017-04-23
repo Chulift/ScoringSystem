@@ -8,7 +8,7 @@ public class Template {
     private String id_template, user_id_user, template_name, user_input_template_name, template_path, startXRate, startYRate, widthRate, heightRate, numberOfCol, answerPerCol;
     private String numberOfChoice, startXRateCode, startYRateCode, widthRateCode, heightRateCode, startXRateInfo, startYRateInfo, widthRateInfo;
     private String heightRateInfo,numberOfStudentCode;
-    private Boolean dataIsset = false;
+    private Boolean dataIsSet = false;
 
     public String getNumberOfStudentCode() {
         return numberOfStudentCode;
@@ -94,8 +94,8 @@ public class Template {
         return widthRateInfo;
     }
 
-    public Boolean getDataIsset() {
-        return dataIsset;
+    public Boolean getDataIsSet() {
+        return dataIsSet;
     }
 
     public void setAnswerPerCol(String answerPerCol) {
@@ -141,7 +141,7 @@ public class Template {
                 widthRateInfo = template.getString("widthRateInfo");
                 heightRateInfo = template.getString("heightRateInfo");
 
-                this.dataIsset = true;
+                this.dataIsSet = true;
             } catch (JSONException e) {
                 e.printStackTrace();
             }

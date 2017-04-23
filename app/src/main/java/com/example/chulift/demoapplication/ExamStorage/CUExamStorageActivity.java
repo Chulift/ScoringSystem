@@ -25,12 +25,10 @@ import com.example.chulift.demoapplication.R;
 import com.example.chulift.demoapplication.httpConnect.ConnectServer;
 import com.google.gson.Gson;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.io.UnsupportedEncodingException;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
+import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -48,7 +46,6 @@ public class CUExamStorageActivity extends AppCompatActivity {
     public static Boolean IssetTemplate = false;
     public static Template templateSet = null;
     public static String IDTemplate = null;
-    public static int position = -1;
     //0 = add , 1 = edit
     public static int mode = 0;
     ExamStorage examStorage;
@@ -109,9 +106,9 @@ public class CUExamStorageActivity extends AppCompatActivity {
             int n = Integer.parseInt(examStorage.getNumScore());
             numScore.setText("" + n, TextView.BufferType.EDITABLE);
             numChoice.setText(examStorage.getNumChoice(), TextView.BufferType.EDITABLE);
-            String postbody = "{\"num_score\":\"" + examStorage.getNumScore() + "\", " +
+            String postBody = "{\"num_score\":\"" + examStorage.getNumScore() + "\", " +
                     "\"template_name\":\"" + examStorage.getId_template() + "\"}";
-            GetTemplateAsync getTemplateAsync = new GetTemplateAsync(templateUrl, postbody);
+            GetTemplateAsync getTemplateAsync = new GetTemplateAsync(templateUrl, postBody);
             getTemplateAsync.execute();
 
         } else {
@@ -156,26 +153,26 @@ public class CUExamStorageActivity extends AppCompatActivity {
     }
 
     @OnClick(R.id.confirm_btn)
-    void createExam() {//answer_id_answer, user_email, answersheet_name
+    void createExam() {//answer_id_answer, user_email, answerSheet_name
         String temp = nameExamStorage.getText().toString();
         if (!temp.equals("")) {
             if (IssetTemplate && templateSet != null) {
                 if (mode == 1) {
-                    String examStoragesID = examStorage.getId_examStorage();
+                    String examStorageID = examStorage.getId_examStorage();
                     String tempName = templateSet.getId_template();
                     String email = LoginActivity.getUser().getEmail();
                     String editName = nameExamStorage.getText().toString();
                     String scoreExamSet = numScore.getText().toString();
                     String choiceExamSet = numChoice.getText().toString();
-                    String postbody = "{\"id_template\":\"" + tempName + "\", " +
+                    String postBody = "{\"id_template\":\"" + tempName + "\", " +
                             "\"user_email\":\"" + email + "\", " +
                             "\"num_choice\":\"" + choiceExamSet + "\", " +
-                            "\"id_exam_storage\":\"" + examStoragesID + "\", " +
+                            "\"id_exam_storage\":\"" + examStorageID + "\", " +
                             "\"num_score\":\"" + scoreExamSet + "\", " +
                             "\"exam_storage_name\":\"" + editName + "\", " +
                             "\"mode\":\"" + mode + "\"}";
 
-                    SendDataAsync sendDataAsync = new SendDataAsync(url, postbody);
+                    SendDataAsync sendDataAsync = new SendDataAsync(url, postBody);
                     sendDataAsync.execute();
                 } else if (mode == 0) {
                     String tempName = templateSet.getId_template();
@@ -183,14 +180,14 @@ public class CUExamStorageActivity extends AppCompatActivity {
                     String editName = nameExamStorage.getText().toString();
                     String scoreExamSet = numScore.getText().toString();
                     String choiceExamSet = numChoice.getText().toString();
-                    String postbody = "{\"id_template\":\"" + tempName + "\", " +
+                    String postBody = "{\"id_template\":\"" + tempName + "\", " +
                             "\"user_email\":\"" + email + "\", " +
                             "\"num_choice\":\"" + choiceExamSet + "\", " +
                             "\"num_score\":\"" + scoreExamSet + "\", " +
                             "\"exam_storage_name\":\"" + editName + "\", " +
                             "\"mode\":\"" + mode + "\"}";
 
-                    SendDataAsync sendDataAsync = new SendDataAsync(url, postbody);
+                    SendDataAsync sendDataAsync = new SendDataAsync(url, postBody);
                     sendDataAsync.execute();
                 }
             } else {
@@ -206,10 +203,10 @@ public class CUExamStorageActivity extends AppCompatActivity {
     void getTemplate() {
         //isSelectedChange = true;
         String scoreExamSet = numScore.getText().toString();
-        if (scoreExamSet == "0" || scoreExamSet == "")
+        if (Objects.equals(scoreExamSet, "0") || Objects.equals(scoreExamSet, ""))
             scoreExamSet = String.valueOf((Integer.parseInt(templateSet.getNumberOfCol()) * Integer.parseInt(templateSet.getAnswerPerCol())));
-        String postbody = "{\"num_score\":\"" + scoreExamSet + "\"}";
-        GetTemplateAsync templateAsync = new GetTemplateAsync(templateUrl, postbody);
+        String postBody = "{\"num_score\":\"" + scoreExamSet + "\"}";
+        GetTemplateAsync templateAsync = new GetTemplateAsync(templateUrl, postBody);
         templateAsync.execute();
     }
 
@@ -277,10 +274,11 @@ public class CUExamStorageActivity extends AppCompatActivity {
         }
     }
 
-    private class SendDataAsync extends AsyncTask<Object, Object, JSONObject> {
+    private class SendDataAsync extends AsyncTask<Object, Object, Integer> {
         private final String TAG = "SendDataAsync";
         String Url, postBody;
         String result;
+        int code = 0;
 
         public SendDataAsync(String url, String postBody) {
             this.Url = url;
@@ -288,7 +286,7 @@ public class CUExamStorageActivity extends AppCompatActivity {
         }
 
         @Override
-        protected JSONObject doInBackground(Object... params) {
+        protected Integer doInBackground(Object... params) {
             try {
                 final MediaType Json = MediaType.parse("application/json; charset=utf-8");
                 Request.Builder builder = new Request.Builder();
@@ -305,20 +303,16 @@ public class CUExamStorageActivity extends AppCompatActivity {
                 Log.d("Status of sever", response.toString());
 
                 result = response.body().string();
+                code = response.code();
                 Log.d("Value", result);
             } catch (UnknownHostException | UnsupportedEncodingException e) {
                 Log.e(TAG, "Error: " + e.getLocalizedMessage());
-                return null;
+                return 0;
             } catch (Exception e) {
                 Log.e(TAG, "Other Error: " + e.getLocalizedMessage());
-                return null;
+                return 0;
             }
-            try {
-                return new JSONObject(result);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return null;
+            return code;
 
         }
 
@@ -333,8 +327,8 @@ public class CUExamStorageActivity extends AppCompatActivity {
         }
 
         @Override
-        protected void onPostExecute(JSONObject jsonObject) {
-            if (result.equals("1")) {
+        protected void onPostExecute(Integer code) {
+            if (code == 200) {
                 if (mode == 1)
                     Toast.makeText(CUExamStorageActivity.this, "Update success", Toast.LENGTH_SHORT).show();
                 else
@@ -349,7 +343,7 @@ public class CUExamStorageActivity extends AppCompatActivity {
                         finish();
                     }
                 }, 2000);
-            } else if (result != "") {
+            } else if (!Objects.equals(result, "")) {
                 try {
                     arrayList = ConvertJSONString.getTemplateArray(result);
                     Log.i("array", "" + arrayList.size());

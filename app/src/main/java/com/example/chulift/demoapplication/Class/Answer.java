@@ -3,9 +3,7 @@ package com.example.chulift.demoapplication.Class;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-/**
- * Created by chulift on 2/19/2017.
- */
+
 
 public class Answer {
     private String idAnswer, answer, maxScore,userEmail;

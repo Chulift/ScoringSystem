@@ -2,9 +2,6 @@ package com.example.chulift.demoapplication.Class;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-/**
- * Created by chulift on 2/12/2017.
- */
 
 public class AnswerSheet {
     String answerSheetID,examStorageID,status,imagePath,score,answerSheetAnswer;

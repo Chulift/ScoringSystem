@@ -8,9 +8,7 @@ import com.example.chulift.demoapplication.R;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-/**
- * Created by chulift on 3/6/2017.
- */
+
 
 public class ExamSetHolder {
     @BindView(R.id.template_name)
@@ -18,7 +16,7 @@ public class ExamSetHolder {
     @BindView(R.id.name_exam_set)
     TextView nameOfSetExam;
     @BindView(R.id.num_score_exam_set)
-    TextView numScoreOfexamSet;
+    TextView numScoreOfExamSet;
     @BindView(R.id.sequence_exam_set)
     TextView sequenceExamSet;
 
@@ -26,8 +24,8 @@ public class ExamSetHolder {
         return nameOfSetExam;
     }
 
-    public TextView getNumScoreOfexamSet() {
-        return numScoreOfexamSet;
+    public TextView getNumScoreOfExamSet() {
+        return numScoreOfExamSet;
     }
 
     public TextView getSequenceExamSet() {

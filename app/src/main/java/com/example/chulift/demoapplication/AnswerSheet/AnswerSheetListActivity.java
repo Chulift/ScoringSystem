@@ -54,8 +54,7 @@ public class AnswerSheetListActivity extends AppCompatActivity {
 
         Utilities.setToolbar(this);
     }
-    public static void updateData(){
-    }
+
     private void init() {
         progressDialog.show();
         Log.e("init", "init");

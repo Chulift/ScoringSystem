@@ -57,7 +57,7 @@ public class MenusActivity extends AppCompatActivity {
         try {
             listView.setAdapter(new Adapter(context, menus, "MenusActivity"));
         } catch (Exception e) {
-
+            e.printStackTrace();
         }
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -98,7 +98,7 @@ public class MenusActivity extends AppCompatActivity {
     }
 
     private ArrayList<Menu> getMenus() {
-        ArrayList<Menu> arrayList = new ArrayList<Menu>();
+        ArrayList<Menu> arrayList = new ArrayList<>();
         for (int i = 0; i < names.length; i++) {
             arrayList.add(i, new Menu(i + "", names[i], images[i], colors[i]));
         }

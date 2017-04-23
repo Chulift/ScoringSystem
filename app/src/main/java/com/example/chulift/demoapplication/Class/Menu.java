@@ -2,9 +2,6 @@ package com.example.chulift.demoapplication.Class;
 
 import android.graphics.Color;
 
-/**
- * Created by Chulift on 11/15/2016.
- */
 
 public class Menu {
     private String menuID, menuName;
@@ -28,9 +25,11 @@ public class Menu {
         return menuName;
     }
 
-    public String getMenuID() {
-        return menuID;
-    }
+// --Commented out by Inspection START (4/23/2017 7:05 AM):
+//    public String getMenuID() {
+//        return menuID;
+//    }
+// --Commented out by Inspection STOP (4/23/2017 7:05 AM)
 
     public int getImagePath() {
         return imagePath;

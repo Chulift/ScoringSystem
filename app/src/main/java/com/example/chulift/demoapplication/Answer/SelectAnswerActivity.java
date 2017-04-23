@@ -27,6 +27,8 @@ import org.json.JSONObject;
 import java.io.UnsupportedEncodingException;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -86,7 +88,7 @@ public class SelectAnswerActivity extends AppCompatActivity {
         } else {
             //Create Touch_Answer
             listView1 = (ListView) findViewById(R.id.listView5);
-            ArrayList<Integer> arrayList1 = new ArrayList<Integer>();
+            ArrayList<Integer> arrayList1 = new ArrayList<>();
             try {
                 for (int i = 0; i < numOfanswer; i++) {
                     arrayList1.add(i, i);
@@ -170,7 +172,7 @@ public class SelectAnswerActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String resp) {
-            if (resp != "fail") {
+            if (!Objects.equals(resp, "fail")) {
                 try {
                     JSONArray jsonArray = new JSONArray(resp);
                     JSONObject jsonObject = jsonArray.getJSONObject(0);
@@ -182,13 +184,13 @@ public class SelectAnswerActivity extends AppCompatActivity {
                 }
                 try {
                     array_a = new Gson().fromJson(answer.getAnswer(), int[].class);
-                    Log.e("array_a", array_a + "");
+                    Log.e("array_a", Arrays.toString(array_a) + "");
                     if (numOfanswer > array_a.length) array_a = new int[numOfanswer];
                 } catch (Exception e) {
                     Log.e("Error", e.toString());
                 }
                 listView1 = (ListView) findViewById(R.id.listView5);
-                ArrayList<Integer> arrayList1 = new ArrayList<Integer>();
+                ArrayList<Integer> arrayList1 = new ArrayList<>();
                 try {
                     for (int i = 0; i < numOfanswer; i++) {
                         arrayList1.add(i, i);
@@ -271,6 +273,11 @@ public class SelectAnswerActivity extends AppCompatActivity {
             } else
                 Toast.makeText(SelectAnswerActivity.this, "เกิดข้อผิดพลาด ลองใหม่อีกครั้ง", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        this.back();
     }
 
     @OnClick(R.id.back_btn)

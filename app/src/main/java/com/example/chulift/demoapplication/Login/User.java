@@ -3,7 +3,7 @@ package com.example.chulift.demoapplication.Login;
 
 public class User {
     private String email,password,name,surname;
-    private Boolean dataIsset = false;
+    private Boolean dataIsSet = false;
     public User(String email,String password,String name,String surname){
         this.email = email;
         this.password = password;
@@ -18,8 +18,8 @@ public class User {
     public String getPassword() {
         return password;
     }
-    public Boolean getDataIsset() {return dataIsset;}
-    public void setDataIsset(Boolean dataIsset) {
-        this.dataIsset = dataIsset;
+    public Boolean getDataIsSet() {return dataIsSet;}
+    public void setDataIsSet(Boolean dataIsSet) {
+        this.dataIsSet = dataIsSet;
     }
 }

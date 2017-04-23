@@ -106,7 +106,7 @@
             android:id="@+id/reCropBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/recrop" />
+            android:text="@string/reset_crop" />
 
         <Button
             android:id="@+id/nextBtn"

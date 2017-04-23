@@ -38,7 +38,7 @@ public class ConnectServer {
         return resp;
     }
     public static JSONObject getJSONObject(String url,String postBody){
-        JSONObject result = null;
+        JSONObject result;
         try {
             final MediaType Json = MediaType.parse("application/json; charset=utf-8");
             Request.Builder builder = new Request.Builder();
@@ -73,14 +73,14 @@ public class ConnectServer {
     public String getJSONString(String url) {
         OkHttpClient okHttpClient = new OkHttpClient();
         Request request = new Request.Builder().url(url).build();
-        String resp = "RESPONSE";
+        String resp;
         try {
             Response response = okHttpClient.newCall(request).execute();
             resp = response.body().string();
         } catch (Exception e) {
             resp = "Connect Error:" + e.toString();
-        } finally {
-            return resp;
         }
+        return resp;
+
     }
 }

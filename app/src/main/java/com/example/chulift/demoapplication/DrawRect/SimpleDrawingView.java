@@ -8,12 +8,7 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
-import android.widget.ImageView;
-import android.widget.ScrollView;
 
-/**
- * Created by Chulift on 11/12/2016.
- */
 
 public class SimpleDrawingView extends android.support.v7.widget.AppCompatImageView {
     private final int paintColor = Color.RED;

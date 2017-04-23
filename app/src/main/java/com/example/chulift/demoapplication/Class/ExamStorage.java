@@ -3,9 +3,7 @@ package com.example.chulift.demoapplication.Class;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-/**
- * Created by Chulift on 11/15/2016.
- */
+
 
 public class ExamStorage {
     private String id_examStorage, numScore, id_answer,storagePath,numChoice;
@@ -54,9 +52,6 @@ public class ExamStorage {
         return id_examStorage;
     }
 
-    public String answersheet_name() {
-        return exam_storage_name;
-    }
 
     public String getId_template() {
         return id_template;

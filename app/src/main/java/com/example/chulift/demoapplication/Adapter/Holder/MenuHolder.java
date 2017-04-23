@@ -9,9 +9,7 @@ import com.example.chulift.demoapplication.R;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-/**
- * Created by chulift on 3/6/2017.
- */
+
 
 public class MenuHolder {
     @BindView(R.id.image_menu)

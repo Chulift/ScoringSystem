@@ -8,9 +8,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.chulift.demoapplication.Adapter.Holder.ViewHolder;
@@ -22,13 +19,8 @@ import com.google.gson.Gson;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-
-/**
- * Created by chulift on 2/9/2017.
- */
 
 public class RecycleAdapter extends RecyclerView.Adapter<ViewHolder> {
     private ArrayList galleryList;
@@ -66,14 +58,13 @@ public class RecycleAdapter extends RecyclerView.Adapter<ViewHolder> {
         String imgUrl = ((Template) galleryList.get(position)).getTemplate_path();
         Picasso.with(context).load(imgUrl).into(viewHolder.getImg());
 
-        if (page == "CUExamStorageActivity") {
+        if (Objects.equals(page, "CUExamStorageActivity")) {
             //if (CUExamStorageActivity.templateSet != null) {
             if (CUExamStorageActivity.IssetTemplate) {
                 if (CUExamStorageActivity.IDTemplate != null) {
                     //if (CUExamStorageActivity.templateSet.getId_template().equals(template.getId_template())) {
                     if (CUExamStorageActivity.IDTemplate.equals(template.getId_template())) {
                         CUExamStorageActivity.templateSet = template;
-                        CUExamStorageActivity.position = position;
                         viewHolder.getTemplateLayout().setBackgroundResource(R.drawable.border_indigo);
                     } else {
                         viewHolder.getTemplateLayout().setBackgroundResource(R.drawable.border);
@@ -86,7 +77,7 @@ public class RecycleAdapter extends RecyclerView.Adapter<ViewHolder> {
         viewHolder.getTemplateLayout().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (page == "CUExamStorageActivity") {
+                if (Objects.equals(page, "CUExamStorageActivity")) {
                     // v.setEnabled(false);
                     selectedRow = position;
                     Log.i("selectedRow", selectedRow + "");

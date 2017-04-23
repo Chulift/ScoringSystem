@@ -6,12 +6,10 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.widget.Button;
-import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,7 +30,7 @@ public class CropTemplateActivity extends AppCompatActivity {
     private Uri imageUri = null;
     private String imagePath = null;
 
-    private Bitmap photo, cropPhoto;
+    private Bitmap photo;
     private float startX, startY, width, height, widthOfImage, heightOfImage;
     private float templateStartXRate, templateStartYRate, templateWidthRate, templateHeightRate;
     @BindView(R.id.imageView)
@@ -47,8 +45,6 @@ public class CropTemplateActivity extends AppCompatActivity {
     Button reCropBtn;
     @BindView(R.id.cropStartBtn)
     Button cropStartBtn;
-
-    int a = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -83,8 +83,8 @@ public class ShowTemplateFragment extends Fragment {
     }
 
     private void setImage() {
-        Log.i("Tag", template.getDataIsset().toString());
-        if (template.getDataIsset() || template != null) {
+        Log.i("Tag", template.getDataIsSet().toString());
+        if (template.getDataIsSet() || template != null) {
             final float AS_startX = Float.parseFloat(template.getStartXRate());
             final float AS_startY = Float.parseFloat(template.getStartYRate());
             final float AS_width = Float.parseFloat(template.getWidthRate());

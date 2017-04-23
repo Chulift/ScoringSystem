@@ -58,6 +58,7 @@
             android:textColor="@color/white" />
 
     </LinearLayout>
+
     <ListView
         android:id="@+id/listView1"
         android:layout_width="match_parent"
@@ -68,7 +69,7 @@
         android:layout_marginRight="4dp"
         android:background="@color/white"
         android:padding="0dp"
-        android:layout_below="@+id/table_head"></ListView>
+        android:layout_below="@+id/table_head" />
 
     <LinearLayout
         android:id="@+id/btm_bar"
@@ -88,6 +89,7 @@
             android:orientation="vertical">
 
             <ImageButton
+                android:contentDescription="@string/back"
                 android:id="@+id/back_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -113,6 +115,7 @@
             android:orientation="vertical">
 
             <ImageButton
+                android:contentDescription="@string/add"
                 android:id="@+id/add_answer_sheet_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -137,6 +140,7 @@
             android:orientation="vertical">
 
             <ImageButton
+                android:contentDescription="@string/camera"
                 android:id="@+id/test_camera"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

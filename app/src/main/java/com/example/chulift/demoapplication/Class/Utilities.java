@@ -23,9 +23,7 @@ import java.io.FileOutputStream;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
-/**
- * Created by chulift on 3/6/2017.
- */
+
 
 public class Utilities {
 
@@ -64,6 +62,7 @@ public class Utilities {
 
     public static String getRealPathFromURI(Context context, Uri uri) {
         Cursor cursor = context.getContentResolver().query(uri, null, null, null, null);
+        assert cursor != null;
         cursor.moveToFirst();
         int idx = cursor.getColumnIndex(MediaStore.Images.ImageColumns.DATA);
         String output = cursor.getString(idx);
@@ -93,6 +92,7 @@ public class Utilities {
         Toolbar toolbar = (Toolbar) ((Activity) context).findViewById(R.id.toolbar);
         TextView user = (TextView) ((Activity) context).findViewById(R.id.user);
         ((AppCompatActivity) context).setSupportActionBar(toolbar);
+        //noinspection ConstantConditions
         ((AppCompatActivity) context).getSupportActionBar().setDisplayShowTitleEnabled(false);
         user.setText(user.getText() + LoginActivity.getUser().getName());
     }

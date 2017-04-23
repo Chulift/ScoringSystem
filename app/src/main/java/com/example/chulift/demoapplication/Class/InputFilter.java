@@ -2,9 +2,7 @@ package com.example.chulift.demoapplication.Class;
 
 import android.text.Spanned;
 
-/**
- * Created by chulift on 2/18/2017.
- */
+
 
 public class InputFilter implements android.text.InputFilter {
     private int min, max;

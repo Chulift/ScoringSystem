@@ -28,7 +28,7 @@ public class CropDetailActivity extends AppCompatActivity {
     private Uri imageUri = null;
     private String imagePath = null;
 
-    private Bitmap photo, cropPhoto;
+    private Bitmap photo;
     private float startX, startY, width, height, widthOfImage, heightOfImage;
     private float templateStartXRate, templateStartYRate, templateWidthRate, templateHeightRate,
             idStartXRate, idStartYRate, idWidthRate, idHeightRate,

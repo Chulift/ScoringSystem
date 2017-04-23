@@ -12,7 +12,6 @@ import android.widget.Toast;
 import com.example.chulift.demoapplication.Adapter.RecycleAdapter;
 import com.example.chulift.demoapplication.Class.ConvertJSONString;
 import com.example.chulift.demoapplication.Class.Template;
-import com.example.chulift.demoapplication.Login.LoginActivity;
 import com.example.chulift.demoapplication.MenusActivity;
 import com.example.chulift.demoapplication.R;
 import com.example.chulift.demoapplication.httpConnect.ConnectServer;

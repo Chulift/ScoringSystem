@@ -16,6 +16,7 @@
 
     <!-- Rest of content for the activity -->
     <ImageView
+        android:contentDescription="@string/picture"
         android:id="@+id/test_image"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -42,6 +43,7 @@
             android:orientation="vertical">
 
             <ImageButton
+                android:contentDescription="@string/back"
                 android:id="@+id/back_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

@@ -248,7 +248,7 @@ public class FillFormActivity extends AppCompatActivity {
         } catch (Exception e) {
             Log.e("CreateFile", "CreateFileFromSource:" + e.toString());
         }
-        Log.i("File", "Value:" + sourceFile.getPath());
+        Log.i("File", "Value:" + (sourceFile != null ? sourceFile.getPath() : null));
         if (!sourceFile.isFile()) {
             Log.e("CheckFile", "Source File not exist :" + imagePath);
         } else {
@@ -283,19 +283,9 @@ public class FillFormActivity extends AppCompatActivity {
 
             resp = ConnectServer.connectHttp(url, req);
             if (resp == 200) {
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        Toast.makeText(getApplicationContext(), "อัพโหลดข้อมูลเทมเพลทเรียบร้อย", Toast.LENGTH_SHORT).show();
-                    }
-                });
+                Toast.makeText(getApplicationContext(), "อัพโหลดข้อมูลเทมเพลทเรียบร้อย", Toast.LENGTH_SHORT).show();
             } else {
-                final int finalResp = resp;
-                runOnUiThread(new Runnable() {
-                    public void run() {
-                        Toast.makeText(getApplicationContext(), "ไม่สามารถอัพโหลดข้อมูลได้ กรุณาตรวจสอบการเชื่อมต่ออินเทอร์เน็ต", Toast.LENGTH_SHORT).show();
-                    }
-                });
+                Toast.makeText(getApplicationContext(), "ไม่สามารถอัพโหลดข้อมูลได้ กรุณาตรวจสอบการเชื่อมต่ออินเทอร์เน็ต:" + resp, Toast.LENGTH_SHORT).show();
             }
         }
         return resp;

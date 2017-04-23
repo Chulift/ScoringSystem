@@ -52,8 +52,8 @@ public class LoginActivity extends AppCompatActivity {
     private static final String TAG = "LoginActivity";
     private static final int REQUEST_SIGNUP = 0;
     private static User member;
-    private final String url = "http://158.108.207.4/sp_ScoringSystem/getUser.php";
-    String postbody = "";
+    // --Commented out by Inspection (4/23/2017 7:05 AM):private final String url = "http://158.108.207.4/sp_ScoringSystem/getUser.php";
+    String postBody = "";
     ProgressDialog progressDialog;
 
     @BindView(R.id.err_login)TextView _errLoginTxt;
@@ -63,7 +63,7 @@ public class LoginActivity extends AppCompatActivity {
     EditText _passwordText;
     @BindView(R.id.btn_login)
     Button _loginButton;
-    @BindView(R.id.link_signup)
+    @BindView(R.id.link_sign_up)
     TextView _signupLink;
 
     @Override
@@ -90,7 +90,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Start the Signup activity
-                Intent intent = new Intent(getApplicationContext(), SignupActivity.class);
+                Intent intent = new Intent(getApplicationContext(), SignUpActivity.class);
                 startActivityForResult(intent, REQUEST_SIGNUP);
                 finish();
                 overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
@@ -119,8 +119,8 @@ public class LoginActivity extends AppCompatActivity {
 
         // TODO: Implement your own authentication logic here.
 
-        postbody = "{\""+"user_email\""+":\""+email+"\","+"\"user_password\""+":\""+password+"\"}";
-        AsyncTaskGetData taskGetUser = new AsyncTaskGetData("http://158.108.207.4/sp_ScoringSystem/postUser.php",postbody);
+        postBody = "{\""+"user_email\""+":\""+email+"\","+"\"user_password\""+":\""+password+"\"}";
+        AsyncTaskGetData taskGetUser = new AsyncTaskGetData("http://158.108.207.4/sp_ScoringSystem/postUser.php", postBody);
         taskGetUser.execute();
     }
     @Override
@@ -232,7 +232,7 @@ public class LoginActivity extends AppCompatActivity {
                     name = jsonObject.getString("name");
                     surname = jsonObject.getString("surname");
                     member = new User(email,password,name,surname);
-                    member.setDataIsset(true);
+                    member.setDataIsSet(true);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

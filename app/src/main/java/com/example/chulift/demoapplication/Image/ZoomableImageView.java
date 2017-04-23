@@ -8,13 +8,10 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
 import android.view.View;
-import android.widget.ImageView;
 
-/**
- * Created by Chulift on 11/12/2016.
- */
 
-public class ZoomableImageView extends ImageView {
+
+public class ZoomableImageView extends android.support.v7.widget.AppCompatImageView {
     Matrix matrix = new Matrix();
 
     static final int NONE = 0;
@@ -102,7 +99,7 @@ public class ZoomableImageView extends ImageView {
                                 else if (x + deltaX < -right)
                                     deltaX = -(x + right);
                             }
-                            //if the image doesnt fit in the width or height
+                            //if the image doesn't fit in the width or height
                             //limit both up and down and left and right
                             else {
                                 if (x + deltaX > 0)

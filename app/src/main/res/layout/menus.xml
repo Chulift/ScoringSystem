@@ -23,7 +23,7 @@
 
         <ImageView
             android:paddingLeft="25dp"
-
+            android:contentDescription="@string/picture"
             android:id="@+id/image_menu"
             android:layout_alignParentTop="true"
             android:layout_alignParentStart="true"

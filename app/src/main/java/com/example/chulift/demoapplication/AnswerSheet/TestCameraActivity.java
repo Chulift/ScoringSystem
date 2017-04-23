@@ -34,7 +34,7 @@ public class TestCameraActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_camera);
         ButterKnife.bind(this);
-        String jsonMyObject = null;
+        String jsonMyObject;
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             //jsonMyObject = extras.getString("myObject");
@@ -67,7 +67,7 @@ public class TestCameraActivity extends AppCompatActivity {
                 Bitmap temp2 = null;
                 try {
                     photo = MediaStore.Images.Media.getBitmap(getContentResolver(), imageUri);
-                    Bitmap temp = ImagePossessing.toGrayscale(photo);
+                    Bitmap temp = ImagePossessing.toGrayScale(photo);
                     Bitmap temp1 = ImagePossessing.totBlackWrite(temp);
                     temp2 = ImagePossessing.cutBackGroundImage(temp1, photo);
 

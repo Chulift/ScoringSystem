@@ -76,6 +76,7 @@
         android:layout_centerHorizontal="true" />
 
     <ImageView
+        android:contentDescription="@string/home"
         android:layout_below="@id/linearLayout2"
         android:layout_above="@id/okBtn"
         android:layout_width="match_parent"

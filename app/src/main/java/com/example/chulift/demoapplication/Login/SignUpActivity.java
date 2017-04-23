@@ -26,9 +26,9 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
-public class SignupActivity extends AppCompatActivity {
+public class SignUpActivity extends AppCompatActivity {
 
-    private static final String TAG = "SignupActivity";
+    private static final String TAG = "SignUpActivity";
 
     @BindView(R.id.input_name)
     EditText _nameText;
@@ -41,7 +41,7 @@ public class SignupActivity extends AppCompatActivity {
     EditText _passwordText;
     @BindView(R.id.input_reEnterPassword)
     EditText _reEnterPasswordText;
-    @BindView(R.id.btn_signup)
+    @BindView(R.id.btn_sign_up)
     Button _signupButton;
     @BindView(R.id.link_login)
     TextView _loginLink;
@@ -83,7 +83,7 @@ public class SignupActivity extends AppCompatActivity {
 
         _signupButton.setEnabled(false);
 
-        progressDialog = new ProgressDialog(SignupActivity.this,
+        progressDialog = new ProgressDialog(SignUpActivity.this,
                 R.style.AppTheme_Dark_Dialog);
         progressDialog.setIndeterminate(true);
         progressDialog.setMessage("Creating Account...");
@@ -119,9 +119,9 @@ public class SignupActivity extends AppCompatActivity {
 
     public void onSignupSuccess() {
         _signupButton.setEnabled(true);
-        Toast.makeText(SignupActivity.this, "Sign up success", Toast.LENGTH_LONG).show();
+        Toast.makeText(SignUpActivity.this, "Sign up success", Toast.LENGTH_LONG).show();
         setResult(RESULT_OK, null);
-        startActivity(new Intent(SignupActivity.this, LoginActivity.class));
+        startActivity(new Intent(SignUpActivity.this, LoginActivity.class));
         overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
         finish();
     }

@@ -6,9 +6,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-/**
- * Created by chulift on 3/6/2017.
- */
+
 
 public class ConvertJSONString {
     public static ArrayList getTemplateArray(String resp) {
