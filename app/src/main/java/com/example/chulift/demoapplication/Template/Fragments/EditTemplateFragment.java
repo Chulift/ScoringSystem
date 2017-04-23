@@ -36,8 +36,8 @@ import okhttp3.RequestBody;
  */
 public class EditTemplateFragment extends Fragment {
 
-    private final String url = Config.serverURL + "updateTemplate.php";
-    private final String deleteURL = Config.serverURL + "DeleteTemplate.php";
+    private final String url = Config.projectUrl + "updateTemplate.php";
+    private final String deleteURL = Config.projectUrl + "DeleteTemplate.php";
     private static String ARG_SECTION_NUMBER = "section_number";
     private static String ARG_TEMPLATE = "template";
     private int param;

@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.example.chulift.demoapplication.Adapter.RecycleAdapter;
 import com.example.chulift.demoapplication.Class.ConvertJSONString;
 import com.example.chulift.demoapplication.Class.Template;
+import com.example.chulift.demoapplication.Login.LoginActivity;
 import com.example.chulift.demoapplication.MenusActivity;
 import com.example.chulift.demoapplication.R;
 import com.example.chulift.demoapplication.httpConnect.ConnectServer;
@@ -24,10 +25,10 @@ import butterknife.OnClick;
 
 import static com.example.chulift.demoapplication.Class.Utilities.setStrictMode;
 import static com.example.chulift.demoapplication.Class.Utilities.setToolbar;
-import static com.example.chulift.demoapplication.Config.Config.serverURL;
+import static com.example.chulift.demoapplication.Config.Config.projectUrl;
 
 public class ShowTemplateListActivity extends AppCompatActivity {
-    private final String url = serverURL + "getTemplate.php";
+    private final String url = projectUrl + "getTemplate.php";
 
     private ArrayList arrayList;
     private String resp;
@@ -110,6 +111,12 @@ public class ShowTemplateListActivity extends AppCompatActivity {
     void back() {
         Intent mainMenusIntent = new Intent(this, MenusActivity.class);
         startActivity(mainMenusIntent);
+        finish();
+    }
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this,MenusActivity.class);
+        startActivity(intent);
         finish();
     }
 }

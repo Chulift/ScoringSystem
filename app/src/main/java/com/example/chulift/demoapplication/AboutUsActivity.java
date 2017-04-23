@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.example.chulift.demoapplication.Login.LoginActivity;
+
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -17,6 +19,12 @@ public class AboutUsActivity extends Activity {
     }
     @OnClick(R.id.home_btn)void back(){
         startActivity(new Intent(this,MenusActivity.class));
+        finish();
+    }
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this,LoginActivity.class);
+        startActivity(intent);
         finish();
     }
 }

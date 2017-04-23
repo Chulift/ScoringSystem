@@ -43,8 +43,8 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 
 public class CUExamStorageActivity extends AppCompatActivity {
-    private final String templateUrl = Config.serverURL + "getTemplate.php";
-    private final String url = Config.serverURL + "CreateExamSet.php";
+    private final String templateUrl = Config.projectUrl + "getTemplate.php";
+    private final String url = Config.projectUrl + "CreateExamSet.php";
     public static Boolean IssetTemplate = false;
     public static Template templateSet = null;
     public static String IDTemplate = null;

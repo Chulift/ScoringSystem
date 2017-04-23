@@ -44,12 +44,14 @@ public class MenusActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         user.setText(user.getText()+LoginActivity.getUser().getName());
     }
-/*
+
     @Override
-    public boolean onCreateOptionsMenu(android.view.Menu menu) {
-        //return super.onCreateOptionsMenu(menu);
+    public void onBackPressed() {
+        Intent intent = new Intent(this,LoginActivity.class);
+        startActivity(intent);
+        finish();
     }
-*/
+
     private void init(final Context context) {
         menus = getMenus();
         try {

@@ -165,7 +165,7 @@ public class Adapter extends BaseAdapter {
     }
 
     private void deleteAnswerSheet(final AnswerSheet answerSheet) {
-        final String delUrl = Config.serverURL + "deleteAnswerSheet.php";
+        final String delUrl = Config.projectUrl + "deleteAnswerSheet.php";
         new AlertDialog.Builder(context)
                 .setTitle("Confirm delete.")
                 .setMessage("ต้องการลบใช่หรือไม่?")
@@ -223,7 +223,7 @@ public class Adapter extends BaseAdapter {
     }
 
     private void deleteExamStorage(final ExamStorage examStorage) {
-        final String delUrl = Config.serverURL + "deleteExamStorage.php";
+        final String delUrl = Config.projectUrl + "deleteExamStorage.php";
         new AlertDialog.Builder(context)
                 .setTitle("Confirm delete.")
                 .setMessage("ต้องการลบ " + examStorage.getExam_storage_name() + " ใช่หรือไม่?")

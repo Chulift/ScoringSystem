@@ -73,11 +73,13 @@ public class SimpleDrawingView extends android.support.v7.widget.AppCompatImageV
         if (!isCropped) {
             pointX = event.getX();
             pointY = event.getY();
+
         }
 // Checks for the event that occurs
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 if (!isCropped) {
+
                     startX = pointX;
                     startY = pointY;
                 }

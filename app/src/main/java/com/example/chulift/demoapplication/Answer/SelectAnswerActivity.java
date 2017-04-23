@@ -39,8 +39,8 @@ import okhttp3.Response;
 
 public class SelectAnswerActivity extends AppCompatActivity {
     public static int[] array_a;
-    private final String createAnswerURL = Config.serverURL + "createAnswer.php";
-    private final String getAnswerURL = Config.serverURL + "getAnswer.php";
+    private final String createAnswerURL = Config.projectUrl + "createAnswer.php";
+    private final String getAnswerURL = Config.projectUrl + "getAnswer.php";
 
     //private Template template;
     private String previousPage;

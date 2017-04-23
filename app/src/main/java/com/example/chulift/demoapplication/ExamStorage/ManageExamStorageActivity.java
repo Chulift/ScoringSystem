@@ -22,7 +22,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class ManageExamStorageActivity extends AppCompatActivity {
-    private final String url = Config.serverURL + "getJSON.php";
+    private final String url = Config.projectUrl + "getJSON.php";
     @BindView(R.id.listView1)
     ListView lstView1;
     private ArrayList arrayList;

@@ -33,7 +33,7 @@ import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 
 public class CaptureAnswerActivity extends AppCompatActivity {
-    private final String url = Config.serverURL + "createAnswerFromImage.php";
+    private final String url = Config.projectUrl + "createAnswerFromImage.php";
     private final String imgPath = Config.serverImagePathURL;
 
     private static final int REQUEST_ACTION_CAMERA = 1;

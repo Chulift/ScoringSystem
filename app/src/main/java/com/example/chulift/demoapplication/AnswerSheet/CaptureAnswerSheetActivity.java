@@ -1,10 +1,7 @@
 package com.example.chulift.demoapplication.AnswerSheet;
 
 import android.app.Activity;
-import android.app.ProgressDialog;
-import android.content.ContentValues;
 import android.content.Intent;
-import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -17,6 +14,7 @@ import android.widget.Toast;
 import com.example.chulift.demoapplication.Class.ExamStorage;
 import com.example.chulift.demoapplication.Class.Utilities;
 import com.example.chulift.demoapplication.Config.Config;
+import com.example.chulift.demoapplication.ExamStorage.ManageExamStorageActivity;
 import com.example.chulift.demoapplication.Image.ImagePossessing;
 import com.example.chulift.demoapplication.R;
 import com.example.chulift.demoapplication.httpConnect.ConnectServer;
@@ -27,14 +25,13 @@ import java.io.IOException;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 
 public class CaptureAnswerSheetActivity extends Activity {
 
-    private final String url = Config.serverURL + "uploadAnswerSheet.php";
+    private final String url = Config.projectUrl + "uploadAnswerSheet.php";
     private final String imgPath = Config.serverImagePathURL;
 
     private static final int REQUEST_ACTION_CAMERA = 1;
@@ -66,9 +63,20 @@ public class CaptureAnswerSheetActivity extends Activity {
     }
 
     @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, AnswerSheetListActivity.class);
+        intent.putExtra("examStorage",new Gson().toJson(examStorage));
+        startActivity(intent);
+        finish();
+    }
+
+    @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_ACTION_CAMERA && resultCode == RESULT_OK) {
             setBitmap();
+        }
+        else if (resultCode == RESULT_CANCELED){
+            this.onBackPressed();
         }
     }
 
@@ -139,7 +147,7 @@ public class CaptureAnswerSheetActivity extends Activity {
         if (!sourceFile.isFile()) {
             Log.e("CheckFile", "Source File not exist :" + imagePath);
         } else {
-            String path = imgPath + examStorage.getStoragePath() + sourceFile.getName();
+            String path = examStorage.getStoragePath();
             final MediaType MEDIA_TYPE_JPG = MediaType.parse("image/jpg");
             RequestBody req = new MultipartBody.Builder()
                     .setType(MultipartBody.FORM)

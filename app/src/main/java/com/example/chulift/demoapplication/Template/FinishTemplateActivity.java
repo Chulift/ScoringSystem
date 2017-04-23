@@ -38,7 +38,7 @@ import okhttp3.Response;
 
 public class FinishTemplateActivity extends AppCompatActivity {
     private final String TAG = "FinishActivity";
-    private final String url = Config.serverURL + "GetTemplateInfo.php";
+    private final String url = Config.projectUrl + "GetTemplateInfo.php";
     private ProgressDialog progressDialog;
     private Target loadTarget;
     @BindView(R.id.imageView)

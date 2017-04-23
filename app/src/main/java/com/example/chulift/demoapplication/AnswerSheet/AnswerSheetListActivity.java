@@ -25,7 +25,7 @@ import butterknife.OnClick;
 
 public class AnswerSheetListActivity extends AppCompatActivity {
 
-    private static final String url = Config.serverURL + "getAnswerSheet.php";
+    private static final String url = Config.projectUrl + "getAnswerSheet.php";
 
     private ListView answerSheetListView;
     private static ArrayList arrayList;

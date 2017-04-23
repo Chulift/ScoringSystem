@@ -46,7 +46,7 @@ public class FillFormActivity extends AppCompatActivity {
     private float templateStartXRate, templateStartYRate, templateWidthRate, templateHeightRate,
             idStartXRate, idStartYRate, idWidthRate, idHeightRate,
             detailStartXRate, detailStartYRate, detailWidthRate, detailHeightRate;
-    private final String url = Config.serverURL + "uploadTemplate.php";
+    private final String url = Config.projectUrl + "uploadTemplate.php";
     private final String imgPath = Config.serverImagePathURL;
     private String templateName;
     @BindView(R.id.num_student_code_picker)
