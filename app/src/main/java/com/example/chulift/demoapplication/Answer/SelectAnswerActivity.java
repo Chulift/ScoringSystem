@@ -113,14 +113,9 @@ public class SelectAnswerActivity extends AppCompatActivity {
         String examStoragesID = examStorage.getId_examStorage();
         String email = LoginActivity.getUser().getEmail();
         String scoreExamSet = numOfanswer + "";
-        //Intent intent = new Intent(getApplicationContext(), ShowSelectedAnswerActivity.class);
-        //intent.putExtra("array", array_a);
         String postbody = "{\"user_email\":\"" + email + "\", \"id_exam_storage\":\"" + examStoragesID + "\", \"num_score\":\"" + scoreExamSet + "\", \"id_answer\":\"" + idAnswer + "\", \"answer\":\"" + new Gson().toJson(array_a) + "\"}";
         SendDataAsync sendDataAsync = new SendDataAsync(createAnswerURL, postbody);
         sendDataAsync.execute();
-        //intent.putExtra("myObject", new Gson().toJson(template));
-        //startActivity(intent);
-        //finish();
     }
 
     public class GetAnswerAsync extends AsyncTask<Object, Object, String> {

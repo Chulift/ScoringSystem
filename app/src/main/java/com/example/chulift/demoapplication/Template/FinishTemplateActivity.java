@@ -69,6 +69,11 @@ public class FinishTemplateActivity extends AppCompatActivity {
         Utilities.setToolbar(this);
     }
 
+    @Override
+    public void onBackPressed() {
+        this.home();
+    }
+
     @OnClick(R.id.okBtn)
     void home() {
         startActivity(new Intent(getApplicationContext(), ShowTemplateListActivity.class));

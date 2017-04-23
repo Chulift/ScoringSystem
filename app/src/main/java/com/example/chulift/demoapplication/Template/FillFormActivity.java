@@ -158,6 +158,11 @@ public class FillFormActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onBackPressed() {
+        this.back();
+    }
+
     private void setBitmap() {
         new AsyncTask<Void, Void, Bitmap>() {
             @Override

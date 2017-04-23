@@ -23,8 +23,6 @@ public class AboutUsActivity extends Activity {
     }
     @Override
     public void onBackPressed() {
-        Intent intent = new Intent(this,LoginActivity.class);
-        startActivity(intent);
-        finish();
+        this.back();
     }
 }

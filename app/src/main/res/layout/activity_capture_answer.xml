@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#EEEEEE"
     tools:context="com.example.chulift.demoapplication.Answer.CaptureAnswerActivity">
 
     <ImageView
@@ -13,14 +14,34 @@
         app:srcCompat="@drawable/picture"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
-        android:layout_above="@+id/button"
+        android:layout_above="@+id/btm_bar"
         android:layout_alignParentEnd="true" />
 
-    <Button
-        android:id="@+id/button"
+
+    <LinearLayout
+        android:id="@+id/btm_bar"
+        android:layout_alignParentBottom="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_marginBottom="0dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="0dp"
+        android:orientation="vertical">
+
+        <ImageButton
+            android:id="@+id/back_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:background="#EEEEEE"
+            android:src="@mipmap/back_button" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ย้อนกลับ"
+            android:textAlignment="center"
+            android:textColor="@color/black" />
+    </LinearLayout>
 </RelativeLayout>

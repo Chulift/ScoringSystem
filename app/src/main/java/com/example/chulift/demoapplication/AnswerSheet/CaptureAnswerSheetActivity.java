@@ -42,7 +42,6 @@ public class CaptureAnswerSheetActivity extends Activity {
     @BindView(R.id.imageViewAnswer)
     ImageView imgView;
 
-    //private Bitmap resultBitmap;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,7 +64,7 @@ public class CaptureAnswerSheetActivity extends Activity {
     @Override
     public void onBackPressed() {
         Intent intent = new Intent(this, AnswerSheetListActivity.class);
-        intent.putExtra("examStorage",new Gson().toJson(examStorage));
+        intent.putExtra("examStorage", new Gson().toJson(examStorage));
         startActivity(intent);
         finish();
     }
@@ -74,8 +73,7 @@ public class CaptureAnswerSheetActivity extends Activity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_ACTION_CAMERA && resultCode == RESULT_OK) {
             setBitmap();
-        }
-        else if (resultCode == RESULT_CANCELED){
+        } else if (resultCode == RESULT_CANCELED) {
             this.onBackPressed();
         }
     }
@@ -109,10 +107,6 @@ public class CaptureAnswerSheetActivity extends Activity {
                     Log.e("onResult", "Can't get Path.");
                 }
                 upload();
-                //imageView.setImageBitmap(temp2);
-                //resultBitmap = temp2;
-                //resultBitmap = bitmap;
-
             }
         }.execute();
         Intent intent = new Intent(CaptureAnswerSheetActivity.this, AnswerSheetListActivity.class);
@@ -129,7 +123,6 @@ public class CaptureAnswerSheetActivity extends Activity {
             imageUri = resultImg;
             imagePath = file.getAbsolutePath();
         } else {
-            //Toast.makeText(this, "No Image", Toast.LENGTH_LONG).show();
             Log.e("dump", "no image");
         }
     }
@@ -158,19 +151,9 @@ public class CaptureAnswerSheetActivity extends Activity {
                     .addFormDataPart("uploaded_file", sourceFile.getName(), RequestBody.create(MEDIA_TYPE_JPG, sourceFile)).build();
             resp = ConnectServer.connectHttp(url, req);
             if (resp == 200) {
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        Toast.makeText(getApplicationContext(), "อัพโหลดข้อมูลเทมเพลทเรียบร้อย", Toast.LENGTH_SHORT).show();
-                    }
-                });
+                Toast.makeText(this, "อัพโหลดข้อมูลเทมเพลทเรียบร้อย", Toast.LENGTH_SHORT).show();
             } else {
-                final int finalResp = resp;
-                runOnUiThread(new Runnable() {
-                    public void run() {
-                        Toast.makeText(getApplicationContext(), "ไม่สามารถอัพโหลดข้อมูลได้ กรุณาตรวจสอบการเชื่อมต่ออินเทอร์เน็ต" + finalResp, Toast.LENGTH_SHORT).show();
-                    }
-                });
+                Toast.makeText(this, "ไม่สามารถอัพโหลดข้อมูลได้ กรุณาตรวจสอบการเชื่อมต่ออินเทอร์เน็ต " + resp, Toast.LENGTH_SHORT).show();
             }
 
         }
@@ -180,15 +163,7 @@ public class CaptureAnswerSheetActivity extends Activity {
 
     void upload() {
         if (imagePath != null) {
-            /*Intent intent = new Intent(CaptureAnswerSheetActivity.this, AnswerSheetListActivity.class);
-            intent.putExtra("examStorage", new Gson().toJson(examStorage));
-            startActivity(intent);
-            finish();*/
-            /*final ProgressDialog progressDialog = new ProgressDialog(CaptureAnswerSheetActivity.this, R.style.AppTheme_Dark_Dialog);
-            progressDialog.setIndeterminate(false);
-            progressDialog.setCancelable(false);
-            progressDialog.setMessage("wait..");
-            progressDialog.show();*/
+
             new AsyncTask<Void, Void, Integer>() {
                 @Override
                 protected Integer doInBackground(Void... voids) {
@@ -199,12 +174,6 @@ public class CaptureAnswerSheetActivity extends Activity {
                 @Override
                 protected void onPostExecute(Integer integer) {
                     Log.e("response", "" + integer);
-                    //answerSheetListActivity.updateData();
-                    /*progressDialog.dismiss();
-                    Intent intent = new Intent(CaptureAnswerSheetActivity.this, AnswerSheetListActivity.class);
-                    intent.putExtra("examStorage", new Gson().toJson(examStorage));
-                    startActivity(intent);
-                    finish();*/
                 }
             }.execute();
         }

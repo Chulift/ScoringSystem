@@ -32,10 +32,8 @@
         <activity android:name=".Template.CropDetailActivity" />
         <activity android:name=".AboutUsActivity" />
         <activity android:name=".Template.EditTemplateActivity" />
-        <activity android:name=".Answer.ChooseAnswerMethodActivity" />
         <activity android:name=".ExamStorage.CUExamStorageActivity" />
         <activity android:name=".Answer.SelectAnswerActivity" />
-        <activity android:name=".Answer.ShowSelectedAnswerActivity" />
         <activity android:name=".AnswerSheet.AnswerSheetListActivity" />
         <activity android:name=".AnswerSheet.CaptureAnswerSheetActivity" />
         <activity android:name=".Answer.CaptureAnswerActivity" />

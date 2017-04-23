@@ -107,16 +107,15 @@ public class ShowTemplateListActivity extends AppCompatActivity {
         finish();
     }
 
+    @Override
+    public void onBackPressed() {
+        this.back();
+    }
+
     @OnClick(R.id.back_btn)
     void back() {
         Intent mainMenusIntent = new Intent(this, MenusActivity.class);
         startActivity(mainMenusIntent);
-        finish();
-    }
-    @Override
-    public void onBackPressed() {
-        Intent intent = new Intent(this,MenusActivity.class);
-        startActivity(intent);
         finish();
     }
 }

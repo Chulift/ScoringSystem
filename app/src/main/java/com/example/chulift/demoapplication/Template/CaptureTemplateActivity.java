@@ -97,7 +97,7 @@ public class CaptureTemplateActivity extends AppCompatActivity {
                     temp2 = ImagePossessing.cutBackGroundImage(temp1, photo);
                 } catch (IOException e) {
                     Log.e("setBitmap", e.toString());
-                    Toast.makeText(getApplicationContext(),"เกิดข้อผิดพลาด ถ่ายใหม่อีกครั้ง",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "เกิดข้อผิดพลาด ถ่ายใหม่อีกครั้ง", Toast.LENGTH_SHORT).show();
                 }
                 return temp2;
             }
@@ -108,6 +108,11 @@ public class CaptureTemplateActivity extends AppCompatActivity {
                 resultBitmap = bitmap;
             }
         }.execute();
+    }
+
+    @Override
+    public void onBackPressed() {
+        this.back();
     }
 
     @OnClick(R.id.back_btn)

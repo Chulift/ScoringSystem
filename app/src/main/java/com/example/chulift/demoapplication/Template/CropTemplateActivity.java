@@ -135,6 +135,11 @@ public class CropTemplateActivity extends AppCompatActivity {
         nextBtn.setEnabled(false);
     }
 
+    @Override
+    public void onBackPressed() {
+        this.back();
+    }
+
     @OnClick(R.id.back_btn)
     void back() {
         Intent captureTemplate = new Intent(this, CaptureTemplateActivity.class);

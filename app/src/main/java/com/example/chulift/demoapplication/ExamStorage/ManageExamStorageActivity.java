@@ -42,6 +42,11 @@ public class ManageExamStorageActivity extends AppCompatActivity {
         Utilities.setToolbar(this);
     }
 
+    @Override
+    public void onBackPressed() {
+        this.back();
+    }
+
     @OnClick(R.id.back_btn)
     void back() {
         Intent intent = new Intent(this, MenusActivity.class);

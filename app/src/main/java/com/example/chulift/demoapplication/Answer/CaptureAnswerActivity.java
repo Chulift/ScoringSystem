@@ -119,11 +119,7 @@ public class CaptureAnswerActivity extends AppCompatActivity {
             intent = new Intent(this, SelectAnswerActivity.class);
             intent.putExtra("previousPage", "CaptureAnswerActivity");
         } else {
-            //Toast.makeText(this,"สร้างเฉลยผิดพลาด",Toast.LENGTH_SHORT).show();
-            //intent = new Intent(this, ChooseAnswerMethodActivity.class);
         }
-        //intent.putExtra("examStorage", new Gson().toJson(examStorage));
-        //startActivity(intent);
     }
 
 
@@ -191,7 +187,13 @@ public class CaptureAnswerActivity extends AppCompatActivity {
     public void run() {
 
     }
-    @OnClick(R.id.button)void back(){
+
+    @Override
+    public void onBackPressed() {
+        this.back();
+    }
+
+    @OnClick(R.id.back_btn)void back(){
         Intent intent = new Intent(this,ManageExamStorageActivity.class);
         intent.putExtra("examStorage",new Gson().toJson(examStorage));
         startActivity(intent);

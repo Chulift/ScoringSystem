@@ -109,7 +109,8 @@ public class CUExamStorageActivity extends AppCompatActivity {
             int n = Integer.parseInt(examStorage.getNumScore());
             numScore.setText("" + n, TextView.BufferType.EDITABLE);
             numChoice.setText(examStorage.getNumChoice(), TextView.BufferType.EDITABLE);
-            String postbody = "{\"num_score\":\"" + examStorage.getNumScore() + "\", \"template_name\":\"" + examStorage.getId_template() + "\"}";
+            String postbody = "{\"num_score\":\"" + examStorage.getNumScore() + "\", " +
+                    "\"template_name\":\"" + examStorage.getId_template() + "\"}";
             GetTemplateAsync getTemplateAsync = new GetTemplateAsync(templateUrl, postbody);
             getTemplateAsync.execute();
 
@@ -137,6 +138,11 @@ public class CUExamStorageActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        this.back();
+    }
+
     @OnClick(R.id.back_btn)
     void back() {
         Intent mainMenusIntent = new Intent(this, ManageExamStorageActivity.class);
@@ -161,7 +167,13 @@ public class CUExamStorageActivity extends AppCompatActivity {
                     String editName = nameExamStorage.getText().toString();
                     String scoreExamSet = numScore.getText().toString();
                     String choiceExamSet = numChoice.getText().toString();
-                    String postbody = "{\"id_template\":\"" + tempName + "\", \"user_email\":\"" + email + "\", \"num_choice\":\"" + choiceExamSet + "\", \"id_exam_storage\":\"" + examStoragesID + "\", \"num_score\":\"" + scoreExamSet + "\", \"exam_storage_name\":\"" + editName + "\", \"mode\":\"" + mode + "\"}";
+                    String postbody = "{\"id_template\":\"" + tempName + "\", " +
+                            "\"user_email\":\"" + email + "\", " +
+                            "\"num_choice\":\"" + choiceExamSet + "\", " +
+                            "\"id_exam_storage\":\"" + examStoragesID + "\", " +
+                            "\"num_score\":\"" + scoreExamSet + "\", " +
+                            "\"exam_storage_name\":\"" + editName + "\", " +
+                            "\"mode\":\"" + mode + "\"}";
 
                     SendDataAsync sendDataAsync = new SendDataAsync(url, postbody);
                     sendDataAsync.execute();
@@ -171,7 +183,12 @@ public class CUExamStorageActivity extends AppCompatActivity {
                     String editName = nameExamStorage.getText().toString();
                     String scoreExamSet = numScore.getText().toString();
                     String choiceExamSet = numChoice.getText().toString();
-                    String postbody = "{\"id_template\":\"" + tempName + "\", \"user_email\":\"" + email + "\", \"num_choice\":\"" + choiceExamSet + "\", \"num_score\":\"" + scoreExamSet + "\", \"exam_storage_name\":\"" + editName + "\", \"mode\":\"" + mode + "\"}";
+                    String postbody = "{\"id_template\":\"" + tempName + "\", " +
+                            "\"user_email\":\"" + email + "\", " +
+                            "\"num_choice\":\"" + choiceExamSet + "\", " +
+                            "\"num_score\":\"" + scoreExamSet + "\", " +
+                            "\"exam_storage_name\":\"" + editName + "\", " +
+                            "\"mode\":\"" + mode + "\"}";
 
                     SendDataAsync sendDataAsync = new SendDataAsync(url, postbody);
                     sendDataAsync.execute();

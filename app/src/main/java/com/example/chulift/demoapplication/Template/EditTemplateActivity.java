@@ -53,14 +53,19 @@ public class EditTemplateActivity extends AppCompatActivity {
         Utilities.setToolbar(this);
     }
 
+    @Override
+    public void onBackPressed() {
+        this.back();
+    }
+
     @OnClick(R.id.back_btn)
     void back() {
         startActivity(new Intent(EditTemplateActivity.this, ShowTemplateListActivity.class));
         finish();
     }
 
-    public class SectionsPagerAdapter extends FragmentPagerAdapter {
-        public SectionsPagerAdapter(FragmentManager fm) {
+    private class SectionsPagerAdapter extends FragmentPagerAdapter {
+        private SectionsPagerAdapter(FragmentManager fm) {
             super(fm);
         }
 
