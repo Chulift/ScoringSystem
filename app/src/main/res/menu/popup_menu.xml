@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/popup_menu_add_answer_to_exam" android:icon="@mipmap/paper_add" android:title="จัดการเฉลย"  />
-    <item android:id="@+id/popup_menu_edit_set_exam" android:icon="@mipmap/paper_edit" android:title="แก้ไขชุดข้อสอบ"/>
-    <item android:id="@+id/popup_menu_check_exam" android:icon="@mipmap/check_paper" android:title="ตรวจข้อสอบ"/>
-    <item android:id="@+id/popup_menu_delete_set_exam" android:icon="@mipmap/paper_delete" android:title="ลบ"/>
+    <item android:id="@+id/popup_menu_add_answer_to_exam" android:icon="@mipmap/paper_add" android:title="@string/manage_answer"  />
+    <item android:id="@+id/popup_menu_edit_set_exam" android:icon="@mipmap/paper_edit" android:title="@string/edit_exam_storage"/>
+    <item android:id="@+id/popup_menu_check_exam" android:icon="@mipmap/check_paper" android:title="@string/scoring"/>
+    <item android:id="@+id/popup_menu_delete_set_exam" android:icon="@mipmap/paper_delete" android:title="@string/delete_title"/>
 </menu>

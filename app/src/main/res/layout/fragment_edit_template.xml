@@ -9,7 +9,7 @@
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -26,7 +26,7 @@
                         android:id="@+id/input_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="ชื่อเทมเพลท"
+                        android:hint="@string/template_name"
                         android:inputType="text" />
                 </android.support.design.widget.TextInputLayout>
                 <RelativeLayout
@@ -57,7 +57,7 @@
                         android:layout_alignParentStart="true"
                         android:layout_centerVertical="true"
                         android:padding="10dp"
-                        android:text="จำนวนตัวเลขรหัสประจำตัว"
+                        android:text="@string/student_id_count"
                         android:textSize="16sp" />
                 </RelativeLayout>
                 <RelativeLayout
@@ -88,7 +88,7 @@
                         android:layout_alignParentStart="true"
                         android:layout_centerVertical="true"
                         android:padding="10dp"
-                        android:text="จำนวนคอลัมป์ของโซนคำตอบ"
+                        android:text="@string/column_count"
                         android:textSize="16sp" />
                 </RelativeLayout>
 
@@ -124,7 +124,7 @@
                         android:layout_alignParentStart="true"
                         android:layout_centerVertical="true"
                         android:padding="10dp"
-                        android:text="จำนวนข้อต่อคอลัมป์"
+                        android:text="@string/section_count"
                         android:textSize="16sp" />
                 </RelativeLayout>
 
@@ -160,7 +160,7 @@
                         android:layout_alignParentStart="true"
                         android:layout_centerVertical="true"
                         android:padding="10dp"
-                        android:text="จำนวนตัวเลือกต่อข้อ"
+                        android:text="@string/choice_count"
                         android:textSize="16sp" />
                 </RelativeLayout>
 
@@ -176,18 +176,18 @@
                     android:id="@+id/update_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="แก้ไข" />
+                    android:text="@string/edit" />
 
                 <Button
                     android:id="@+id/cancel_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="เคลียร์ข้อมูล" />
+                    android:text="@string/clear" />
                 <Button
                     android:id="@+id/delete_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="ลบเทมเพลทนี้" />
+                    android:text="@string/delete_template" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

@@ -12,11 +12,11 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.chulift.demoapplication.Adapter.Adapter;
-import com.example.chulift.demoapplication.Class.Menu;
-import com.example.chulift.demoapplication.Template.ShowTemplateListActivity;
-import com.example.chulift.demoapplication.ExamStorage.ManageExamStorageActivity;
-import com.example.chulift.demoapplication.Login.LoginActivity;
+import com.example.chulift.demoapplication.adapter.Adapter;
+import com.example.chulift.demoapplication.classes.Menu;
+import com.example.chulift.demoapplication.template.ShowTemplateListActivity;
+import com.example.chulift.demoapplication.examStorage.ManageExamStorageActivity;
+import com.example.chulift.demoapplication.login.LoginActivity;
 
 import java.util.ArrayList;
 

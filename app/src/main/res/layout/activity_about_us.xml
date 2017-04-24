@@ -20,7 +20,7 @@
             android:gravity="center_horizontal"
             android:paddingBottom="20dp"
             android:paddingTop="20dp"
-            android:text="เกี่ยวกับเรา"
+            android:text="@string/about_us"
             android:textColor="@color/black"
             android:textSize="20sp"
             android:id="@+id/textView" />
@@ -54,7 +54,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="20dp"
-                        android:text="เกี่ยวกับ App"
+                        android:text="@string/about_app"
                         android:textColor="@color/black"
                         android:textSize="16sp" />
 
@@ -79,28 +79,28 @@
                         android:layout_height="wrap_content"
                         android:gravity="center_horizontal"
                         android:paddingBottom="10dp"
-                        android:text="เวอร์ชั่น: 1.0.0"
+                        android:text="@string/app_version"
                         android:textColor="@color/black" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center_horizontal"
-                        android:text="ระบบตรวจข้อสอบปรนัยแบบฝน"
+                        android:text="@string/project_name"
                         android:textColor="@color/black" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center_horizontal"
-                        android:text="ผ่านระบบปฎิบัติการแอนดรอยด์"
+                        android:text="@string/os_target"
                         android:textColor="@color/black" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center_horizontal"
-                        android:text="พร้อมอุปกรณ์ยึดจับ"
+                        android:text="@string/binding_equipment"
                         android:textColor="@color/black" />
                 </LinearLayout>
 
@@ -116,21 +116,21 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center_horizontal"
-                        android:text="ที่ให้คุณสามารถตรวจข้อสอบได้สะดวก รวดเร็วกว่าที่เคยเป็น"
+                        android:text="@string/comfortable"
                         android:textColor="@color/black" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center_horizontal"
-                        android:text="และสามารถจัดการทุกอย่างได้ง่าย"
+                        android:text="@string/easy_usage"
                         android:textColor="@color/black" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center_horizontal"
-                        android:text="ได้ด้วยตัวคุณเองตลอด 24 ชม"
+                        android:text="@string/time_usage"
                         android:textColor="@color/black" />
                 </LinearLayout>
 

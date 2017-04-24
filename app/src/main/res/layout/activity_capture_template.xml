@@ -27,7 +27,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:drawableTop="@mipmap/num1"
-            android:text="ถ่ายข้อสอบ"
+            android:text="@string/capture_exam"
             android:textAlignment="center"
             android:textColor="@color/green"
             android:textSize="16sp" />
@@ -39,7 +39,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:drawableTop="@mipmap/num2"
-            android:text="เลือกส่วนสำคัญ"
+            android:text="@string/select_main_dimension"
             android:textAlignment="center"
             android:textColor="@color/monsoon"
             android:textSize="16sp" />
@@ -50,7 +50,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:drawableTop="@mipmap/num3"
-            android:text="กรอกข้อมูล"
+            android:text="@string/fill_form"
             android:textAlignment="center"
             android:textColor="@color/monsoon"
             android:textSize="16sp" />
@@ -61,7 +61,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:drawableTop="@mipmap/num4"
-            android:text="จบการทำงาน"
+            android:text="@string/finish"
             android:textAlignment="center"
             android:textColor="@color/monsoon"
             android:textSize="16sp" />

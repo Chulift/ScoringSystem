@@ -5,7 +5,7 @@
     android:id="@+id/activity_finish_template"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.chulift.demoapplication.Template.FinishTemplateActivity">
+    tools:context="com.example.chulift.demoapplication.template.FinishTemplateActivity">
     <!-- Load the toolbar here -->
     <include
         android:id="@+id/toolbar"
@@ -29,10 +29,10 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:drawableTop="@mipmap/num1"
-            android:text="ถ่ายข้อสอบ"
+            android:text="@string/capture_exam"
             android:textAlignment="center"
             android:textColor="@color/black"
-            android:textSize="16dp" />
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/textView2"
@@ -40,10 +40,10 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:drawableTop="@mipmap/num2"
-            android:text="เลือกส่วนสำคัญ"
+            android:text="@string/select_main_dimension"
             android:textAlignment="center"
             android:textColor="@color/black"
-            android:textSize="16dp" />
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/textView3"
@@ -51,10 +51,10 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:drawableTop="@mipmap/num3"
-            android:text="กรอกข้อมูล"
+            android:text="@string/fill_form"
             android:textAlignment="center"
             android:textColor="@color/black"
-            android:textSize="16dp" />
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/textView4"
@@ -62,10 +62,10 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:drawableTop="@mipmap/num4"
-            android:text="จบการทำงาน"
+            android:text="@string/finish"
             android:textAlignment="center"
             android:textColor="@color/green"
-            android:textSize="16dp" />
+            android:textSize="16sp" />
     </LinearLayout>
     <Button
         android:text="@string/ok"

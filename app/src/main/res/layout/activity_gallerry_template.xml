@@ -19,7 +19,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/toolbar"
-        android:text="จัดการกระดาษคำตอบ"
+        android:text="@string/manage_template_header"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="30sp"
@@ -54,7 +54,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="หน้าหลัก"
+                android:text="@string/home"
                 android:textAlignment="center"
                 android:textColor="@color/black" />
         </LinearLayout>
@@ -79,7 +79,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="เพิ่มกระดาษคำตอบ"
+                android:text="@string/add_exam"
                 android:textAlignment="center"
                 android:textColor="@color/black" />
         </LinearLayout>

@@ -4,7 +4,8 @@
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:gravity="center_vertical">
+    android:gravity="center_vertical"
+    android:baselineAligned="false">
 
     <LinearLayout
         android:layout_weight="0.15"
@@ -16,7 +17,7 @@
             android:id="@+id/answerSheet_id"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="i"
+            android:text="@string/index"
             android:textColor="@color/black"
             android:textAlignment="center"
             android:padding="10dp" />
@@ -34,7 +35,7 @@
             android:id="@+id/score_row"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Score"
+            android:text="@string/score"
             android:textColor="@color/black" />
 
     </LinearLayout>
@@ -46,7 +47,7 @@
         android:padding="10dp"
         android:layout_height="match_parent">
         <TextView
-            android:text="Status:"
+            android:text="@string/status"
             android:gravity="center_vertical"
             android:textColor="@color/black"
             android:id="@+id/answerSheet_status"

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#EEEEEE"
-    tools:context=".ExamStorage.ManageExamStorageActivity">
+    tools:context=".examStorage.ManageExamStorageActivity">
     <!-- Load the toolbar here -->
     <include
         android:id="@+id/toolbar"
@@ -18,7 +18,7 @@
         android:id="@+id/header_txtView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="จัดการชุดข้อสอบ"
+        android:text="@string/manage_exam_storage_header"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="30sp"
@@ -37,7 +37,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.1"
             android:padding="3dp"
-            android:text="#"
+            android:text="@string/index"
             android:textColor="@color/white" />
 
         <TextView
@@ -45,7 +45,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.4"
             android:padding="3dp"
-            android:text="ชื่อชุดข้อสอบ"
+            android:text="@string/exam_storage_name"
             android:textColor="@color/white" />
 
         <TextView
@@ -54,15 +54,15 @@
             android:layout_weight="0.2"
             android:padding="3dp"
             android:textAlignment="center"
-            android:text="จำนวนข้อ"
+            android:text="@string/num_section"
             android:textColor="@color/white" />
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.4"
-            android:paddingLeft="6dp"
-            android:text="เทมเพลท"
+            android:paddingStart="6dp"
+            android:text="@string/template_name"
             android:textColor="@color/white" />
 
     </LinearLayout>
@@ -108,7 +108,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="หน้าหลัก"
+                android:text="@string/home"
                 android:textAlignment="center"
                 android:textColor="@color/black" />
         </LinearLayout>
@@ -134,7 +134,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="เพิ่มชุดข้อสอบ"
+                android:text="@string/add_exam_storage"
                 android:textAlignment="center"
                 android:textColor="@color/black" />
         </LinearLayout>

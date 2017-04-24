@@ -25,10 +25,10 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:drawableTop="@mipmap/num1"
-            android:text="ถ่ายข้อสอบ"
+            android:text="@string/capture_exam"
             android:textAlignment="center"
             android:textColor="@color/black"
-            android:textSize="16dp" />
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/textView2"
@@ -36,10 +36,10 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:drawableTop="@mipmap/num2"
-            android:text="เลือกส่วนสำคัญ"
+            android:text="@string/select_main_dimension"
             android:textAlignment="center"
             android:textColor="@color/black"
-            android:textSize="16dp" />
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/textView3"
@@ -47,10 +47,10 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:drawableTop="@mipmap/num3"
-            android:text="กรอกข้อมูล"
+            android:text="@string/fill_form"
             android:textAlignment="center"
             android:textColor="@color/green"
-            android:textSize="16dp" />
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/textView4"
@@ -58,10 +58,10 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:drawableTop="@mipmap/num4"
-            android:text="จบการทำงาน"
+            android:text="@string/finish"
             android:textAlignment="center"
             android:textColor="@color/monsoon"
-            android:textSize="16dp" />
+            android:textSize="16sp" />
     </LinearLayout>
 
     <ScrollView
@@ -121,7 +121,7 @@
                             android:layout_height="wrap_content"
                             android:paddingBottom="15dp"
                             android:paddingTop="15dp"
-                            android:text="รายละเอียดของกระดาษคำตอบ"
+                            android:text="@string/answer_sheet_detail_form"
                             android:textSize="20sp" />
 
                         <android.support.design.widget.TextInputLayout
@@ -132,7 +132,7 @@
                                 android:id="@+id/input_name"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:hint="ชื่อเทมเพลท"
+                                android:hint="@string/template_name"
                                 android:inputType="text" />
                         </android.support.design.widget.TextInputLayout>
                         <RelativeLayout
@@ -163,7 +163,7 @@
                                 android:layout_alignParentStart="true"
                                 android:layout_centerVertical="true"
                                 android:padding="10dp"
-                                android:text="จำนวนตัวเลขรหัสประจำตัว"
+                                android:text="@string/student_id_count"
                                 android:textSize="16sp" />
                         </RelativeLayout>
                         <RelativeLayout
@@ -194,7 +194,7 @@
                                 android:layout_alignParentStart="true"
                                 android:layout_centerVertical="true"
                                 android:padding="10dp"
-                                android:text="จำนวนคอลัมป์ของโซนคำตอบ"
+                                android:text="@string/column_count"
                                 android:textSize="16sp" />
 
 
@@ -232,7 +232,7 @@
                                 android:layout_alignParentStart="true"
                                 android:layout_centerVertical="true"
                                 android:padding="10dp"
-                                android:text="จำนวนข้อต่อคอลัมป์"
+                                android:text="@string/section_count"
                                 android:textSize="16sp" />
                         </RelativeLayout>
 
@@ -268,7 +268,7 @@
                                 android:layout_alignParentStart="true"
                                 android:layout_centerVertical="true"
                                 android:padding="10dp"
-                                android:text="จำนวนตัวเลือกต่อข้อ"
+                                android:text="@string/choice_count"
                                 android:textSize="16sp" />
                         </RelativeLayout>
                     </LinearLayout>
@@ -288,7 +288,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
-                    android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
                     android:text="@string/back" />
 
@@ -299,7 +298,7 @@
                     android:layout_alignParentBottom="true"
                     android:layout_alignParentEnd="true"
                     android:layout_marginStart="14dp"
-                    android:text="อัพโหลดเทมเพลทข้อสอบ" />
+                    android:text="@string/upload_template" />
             </RelativeLayout>
         </LinearLayout>
 

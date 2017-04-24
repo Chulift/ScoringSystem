@@ -14,7 +14,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="0.1"
-        android:text="#"
+        android:text="@string/index"
         android:textColor="@color/black" />
 
     <TextView
@@ -22,7 +22,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="0.4"
-        android:text="ชื่อชุดข้อสอบ"
+        android:text="@string/exam_storage_name"
         android:textColor="@color/black" />
 
     <TextView
@@ -31,7 +31,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="0.2"
-        android:text="จำนวนข้อ"
+        android:text="@string/num_section"
         android:textColor="@color/black" />
 
     <TextView
@@ -39,7 +39,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="0.4"
-        android:paddingLeft="6dp"
-        android:text="เทมเพลท"
+        android:paddingStart="6dp"
+        android:text="@string/template_name"
         android:textColor="@color/black" />
 </LinearLayout>

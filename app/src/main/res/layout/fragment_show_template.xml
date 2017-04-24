@@ -2,14 +2,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.chulift.demoapplication.Template.Fragments.ShowTemplateFragment">
+    tools:context="com.example.chulift.demoapplication.template.Fragments.ShowTemplateFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.example.chulift.demoapplication.Image.ZoomableImageView
+        <com.example.chulift.demoapplication.image.ZoomableImageView
             android:id="@+id/examImg"
             android:layout_centerHorizontal="true"
             android:layout_width="wrap_content"

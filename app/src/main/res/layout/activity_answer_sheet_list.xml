@@ -16,7 +16,7 @@
         android:id="@+id/header_txtView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="ตรวจข้อสอบ"
+        android:text="@string/answer_sheet_list_header"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="30sp"
@@ -35,7 +35,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.15"
             android:padding="3dp"
-            android:text="#"
+            android:text="@string/index"
             android:textColor="@color/white" />
 
         <TextView
@@ -44,7 +44,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.40"
             android:padding="3dp"
-            android:text="คะแนน"
+            android:text="@string/point"
             android:textColor="@color/white" />
 
 
@@ -53,8 +53,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.45"
-            android:paddingLeft="6dp"
-            android:text="สถานะการตรวจ"
+            android:paddingStart="6dp"
+            android:text="@string/status"
             android:textColor="@color/white" />
 
     </LinearLayout>
@@ -100,7 +100,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="ย้อนกลับ"
+                android:text="@string/back"
                 android:textAlignment="center"
                 android:textColor="@color/black" />
         </LinearLayout>
@@ -126,7 +126,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="ถ่ายกระดาษคำตอบ"
+                android:text="@string/capture_answer_sheet"
                 android:textAlignment="center"
                 android:textColor="@color/black" />
         </LinearLayout>
@@ -151,7 +151,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="ทดสอบกล้อง"
+                android:text="@string/test_camera"
                 android:textAlignment="center"
                 android:textColor="@color/black" />
         </LinearLayout>

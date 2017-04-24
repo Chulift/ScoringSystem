@@ -18,7 +18,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/toolbar"
         android:gravity="center_horizontal"
-        android:text="สร้างชุดข้อสอบ"
+        android:text="@string/create_exam_storage"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold" />
@@ -55,7 +55,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="ย้อนกลับ"
+                android:text="@string/back"
                 android:textAlignment="center"
                 android:textColor="@color/black" />
         </LinearLayout>
@@ -84,7 +84,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="ยืนยัน"
+                android:text="@string/confirm"
                 android:textAlignment="center"
                 android:textColor="@color/black" />
         </LinearLayout>
@@ -120,20 +120,21 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="ชื่อชุดข้อสอบ" />
+                android:text="@string/exam_storage_name" />
 
             <EditText
                 android:id="@+id/name_exam_set"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp" />
+                android:layout_marginStart="10dp" />
         </LinearLayout>
 
         <LinearLayout
             android:weightSum="1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:baselineAligned="false">
 
             <LinearLayout
                 android:layout_weight="0.5"
@@ -143,13 +144,13 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="จำนวนช้อ" />
+                    android:text="@string/num_section" />
 
                 <EditText
                     android:id="@+id/num_score_exam_set"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginStart="10dp"
                     android:inputType="number" />
             </LinearLayout>
 
@@ -159,16 +160,16 @@
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:layout_marginLeft="20dp"
+                    android:layout_marginStart="20dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="จำนวนตัวเลือก" />
+                    android:text="@string/num_choice" />
 
                 <EditText
                     android:id="@+id/num_choice_exam_set"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginStart="10dp"
                     android:inputType="number" />
             </LinearLayout>
         </LinearLayout>
@@ -177,7 +178,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="14dp"
-            android:text="เลือกเทมเพลท"
+            android:text="@string/choose_template"
             android:textColor="@color/black"
             android:textStyle="bold" />
     </LinearLayout>

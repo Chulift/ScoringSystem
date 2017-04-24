@@ -3,7 +3,7 @@
     android:id="@+id/template_layout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="14px"
+    android:layout_margin="14dp"
     android:background="@drawable/border"
     android:orientation="vertical">
 
