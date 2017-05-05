@@ -6,7 +6,7 @@
     <color name="colorHuman">#e69679</color>
     <color name="colorWhite">#FFFFFF</color>
 
-
+    <color name="control_background">#cc4285f4</color>
     <color name="indianred">#DC8C8C</color>
     <color name="primary">#E43F3F</color>
     <color name="primary_dark">#E12929</color>

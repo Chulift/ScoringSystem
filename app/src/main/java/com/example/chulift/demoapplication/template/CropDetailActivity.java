@@ -10,6 +10,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -39,18 +41,20 @@ public class CropDetailActivity extends AppCompatActivity {
     Toolbar toolbar;
     @BindView(R.id.user)
     TextView user;
-    @BindView(R.id.cropStartBtn)
-    Button cropStartBtn;
+    @BindView(R.id.cropConfirmBtn)
+    ImageButton cropStartBtn;
     @BindView(R.id.reCropBtn)
-    Button reCropBtn;
+    ImageButton reCropBtn;
     @BindView(R.id.nextBtn)
-    Button nextBtn;
+    ImageButton nextBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crop_detail);
         ButterKnife.bind(this);
+
+        imageView.setScaleType(ImageView.ScaleType.CENTER);
         Bundle extras = getIntent().getExtras();
         nextBtn.setEnabled(false);
         reCropBtn.setEnabled(false);
@@ -92,7 +96,7 @@ public class CropDetailActivity extends AppCompatActivity {
         }.execute();
     }
 
-    @OnClick(R.id.cropStartBtn)
+    @OnClick(R.id.cropConfirmBtn)
     void crop() {
         if (imageView.getStartX() != 0) {
             startX = imageView.getStartX();

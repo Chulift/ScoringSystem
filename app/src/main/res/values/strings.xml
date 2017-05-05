@@ -75,7 +75,7 @@
     <string name="already_a_member_login">Already a member? Login</string>
     <string name="blank" />
     <string name="delete_title">ลบ</string>
-    <string name="score">Score</string>
+    <string name="score">คะแนน</string>
     <string name="edit">แก้ไข</string>
     <string name="clear">เคลียร์ข้อมูล</string>
     <string name="delete_template">ลบเทมเพลทนี้</string>
@@ -84,5 +84,19 @@
     <string name="edit_exam_storage">แก้ไขชุดข้อสอบ</string>
     <string name="scoring">ตรวจข้อสอบ</string>
     <string name="user">ผู้ใช้:</string>
+    <string name="std_code">รหัสนักเรียน</string>
+    <string name="undo">undo</string>
+    <string name="description_info">Info</string>
+    <string name="request_permission">This sample needs camera permission.</string>
+    <string name="camera_error">This device doesn\'t support Camera2 API.</string>
+    <string name="intro_message">
+        <![CDATA[
 
+
+            This sample demonstrates the basic use of Camera2 API. Check the source code to see how
+            you can display camera preview and take pictures.
+
+
+        ]]>
+    </string>
 </resources>

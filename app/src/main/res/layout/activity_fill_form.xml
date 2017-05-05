@@ -283,22 +283,27 @@
                 android:layout_centerHorizontal="true"
                 android:orientation="horizontal">
 
-                <Button
+                <ImageButton
                     android:id="@+id/back_btn"
+                    style="?android:attr/buttonBarButtonStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentStart="true"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/back"
+                    android:src="@mipmap/arrow_back_icon"
                     android:text="@string/back" />
 
-                <android.support.v7.widget.AppCompatButton
+                <ImageButton
+                    style="?android:attr/buttonBarButtonStyle"
+                    android:src="@mipmap/upload_icon"
                     android:id="@+id/btn_upload"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
                     android:layout_alignParentEnd="true"
                     android:layout_marginStart="14dp"
-                    android:text="@string/upload_template" />
+                    android:text="@string/upload_template"
+                    android:contentDescription="@string/upload" />
             </RelativeLayout>
         </LinearLayout>
 

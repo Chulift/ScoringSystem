@@ -74,7 +74,8 @@ public class MenusActivity extends AppCompatActivity {
 
                         break;
                     case 2:
-                        Toast.makeText(context,"หน้านี้ยังไม่มี",Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(context,"หน้านี้ยังไม่มี",Toast.LENGTH_SHORT).show();
+                        intent = new Intent(MenusActivity.this, CameraActivity.class);
                         break;
                     case 3:
                         intent = new Intent(MenusActivity.this,AboutUsActivity.class);

@@ -1,7 +1,7 @@
 package com.example.chulift.demoapplication.login;
 
 
-class User {
+public class User {
     private String email,password,name,surname;
     private Boolean dataIsSet = false;
     public User(String email,String password,String name,String surname){

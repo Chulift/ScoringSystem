@@ -13,7 +13,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.chulift.demoapplication.MenusActivity;
+import com.example.chulift.demoapplication.FirstMenusActivity;
 import com.example.chulift.demoapplication.permission.PermissionRequest;
 import com.example.chulift.demoapplication.R;
 
@@ -237,7 +237,7 @@ public class LoginActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
                 onLoginSuccess();
-                startActivity(new Intent(getApplicationContext(), MenusActivity.class));
+                startActivity(new Intent(getApplicationContext(), FirstMenusActivity.class));
                 finish();
             }else {
                 onLoginFailed();

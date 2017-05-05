@@ -4,7 +4,7 @@ import org.json.JSONObject;
 
 
 public class AnswerSheet {
-    String answerSheetID,examStorageID,status,imagePath,score,answerSheetAnswer;
+    private String answerSheetID,examStorageID,status,imagePath,score,answerSheetAnswer,studentCode;
     public AnswerSheet(JSONObject jsonObject){
         if (jsonObject != null) {
             try {
@@ -14,10 +14,15 @@ public class AnswerSheet {
                 imagePath = jsonObject.getString("image_path");
                 score = jsonObject.getString("score");
                 answerSheetAnswer = jsonObject.getString("answerSheet_answer");
+                studentCode = jsonObject.getString("StudentCode");
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
+    }
+
+    public String getStudentCode() {
+        return studentCode;
     }
 
     public String getScore() {

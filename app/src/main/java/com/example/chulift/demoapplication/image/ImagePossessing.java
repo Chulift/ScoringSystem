@@ -79,7 +79,7 @@ public class ImagePossessing {
         }
         Log.w("cutBackGroundImage","Finished");
         //result
-        if (x1 + x2 + y1 + y2 > 0) {
+        if (x1 + x2 + y1 + y2 > 0 && width > 0) {
             return Bitmap.createBitmap(original, x1, y1, x2 - x1, y2 - y1);
         } else {
             return null;

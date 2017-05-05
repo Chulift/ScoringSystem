@@ -87,9 +87,10 @@ public class Adapter extends BaseAdapter {
             holder = new AnswerSheetListHolder(convertView);
             convertView.setTag(holder);
         }
-        holder.getIdOfExam().setText(position + "");
-        holder.getScoreOfExam().setText(answerSheet.getScore() + "");
-        holder.getStatusOfAnswerSheet().setText(answerSheet.getStatus() + "");
+        holder.getIdOfExam().setText(String.valueOf(position+1));
+        holder.getScoreOfExam().setText(answerSheet.getScore());
+        holder.getStatusOfAnswerSheet().setText(answerSheet.getStatus());
+        holder.getStudentCode().setText(answerSheet.getStudentCode());
         Log.i("AnswerSheer", "" + position);
         convertView.setOnClickListener(new View.OnClickListener() {
 

@@ -9,7 +9,7 @@ import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -60,7 +60,7 @@ public class CaptureTemplateActivity extends AppCompatActivity {
     @BindView(R.id.user)
     TextView user;
     @BindView(R.id.nextBtn)
-    Button nextBtn;
+    ImageButton nextBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

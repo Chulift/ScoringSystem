@@ -16,7 +16,7 @@ public class AboutUsActivity extends Activity {
         ButterKnife.bind(this);
     }
     @OnClick(R.id.home_btn)void back(){
-        startActivity(new Intent(this,MenusActivity.class));
+        startActivity(new Intent(this,FirstMenusActivity.class));
         finish();
     }
     @Override

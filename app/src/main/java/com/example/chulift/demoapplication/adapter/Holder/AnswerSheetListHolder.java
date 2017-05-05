@@ -17,9 +17,14 @@ public class AnswerSheetListHolder {
     TextView scoreOfExam;
     @BindView(R.id.answerSheet_status)
     TextView statusOfAnswerSheet;
+    @BindView(R.id.student_code)TextView studentCode;
 
     public AnswerSheetListHolder(View view) {
         ButterKnife.bind(this, view);
+    }
+
+    public TextView getStudentCode() {
+        return studentCode;
     }
 
     public TextView getIdOfExam() {

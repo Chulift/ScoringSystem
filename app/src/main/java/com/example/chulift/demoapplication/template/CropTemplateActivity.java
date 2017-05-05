@@ -6,10 +6,16 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.widget.Button;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,7 +35,7 @@ public class CropTemplateActivity extends AppCompatActivity {
 
     private Uri imageUri = null;
     private String imagePath = null;
-
+    private Boolean isBlockedScroll = false;
     private Bitmap photo;
     private float startX, startY, width, height, widthOfImage, heightOfImage;
     private float templateStartXRate, templateStartYRate, templateWidthRate, templateHeightRate;
@@ -40,27 +46,27 @@ public class CropTemplateActivity extends AppCompatActivity {
     @BindView(R.id.user)
     TextView user;
     @BindView(R.id.nextBtn)
-    Button nextBtn;
+    ImageButton nextBtn;
     @BindView(R.id.reCropBtn)
-    Button reCropBtn;
-    @BindView(R.id.cropStartBtn)
-    Button cropStartBtn;
-
+    ImageButton reCropBtn;
+    @BindView(R.id.cropConfirmBtn)
+    ImageButton cropConfirmBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crop_template);
         ButterKnife.bind(this);
+        imageView.setScaleType(ImageView.ScaleType.CENTER);
         Bundle extras = getIntent().getExtras();
         nextBtn.setEnabled(false);
         reCropBtn.setEnabled(false);
+
         if (extras != null) {
             imageUri = (Uri) extras.get("imageUri");
             imagePath = extras.getString("imagePath");
             setBitmap();
             Log.i("Extras", imageUri.toString() + ", " + imagePath);
         }
-
         setToolbar(this);
     }
 
@@ -86,7 +92,8 @@ public class CropTemplateActivity extends AppCompatActivity {
         }.execute();
     }
 
-    @OnClick(R.id.cropStartBtn)
+
+    @OnClick(R.id.cropConfirmBtn)
     void crop() {
         if (imageView.getStartX() != 0) {
             startX = imageView.getStartX();
@@ -117,16 +124,16 @@ public class CropTemplateActivity extends AppCompatActivity {
 
             Toast.makeText(this, "เลือกส่วนคำตอบเรียบร้อยแล้ว", Toast.LENGTH_LONG).show();
             imageView.setCropped(true);
-            cropStartBtn.setEnabled(false);
+            cropConfirmBtn.setEnabled(false);
             reCropBtn.setEnabled(true);
             nextBtn.setEnabled(true);
         }
     }
 
     @OnClick(R.id.reCropBtn)
-    void reCrop() {
+    void startDraw() {
         imageView.setCropped(false);
-        cropStartBtn.setEnabled(true);
+        cropConfirmBtn.setEnabled(true);
         reCropBtn.setEnabled(false);
         nextBtn.setEnabled(false);
     }

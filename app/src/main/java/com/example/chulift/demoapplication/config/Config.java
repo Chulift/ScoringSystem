@@ -9,4 +9,8 @@ public class Config {
     public static int maxKeyboardInput = 200;
     public static int maxChoiceOfTemplate = 5;
     public static int minChoiceOfTemplate = 3;
+
+    public static void setServer(String server) {
+        Config.server = server;
+    }
 }

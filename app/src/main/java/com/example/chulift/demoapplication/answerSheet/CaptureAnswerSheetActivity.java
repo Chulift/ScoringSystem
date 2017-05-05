@@ -3,6 +3,8 @@ package com.example.chulift.demoapplication.answerSheet;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Camera;
+import android.hardware.camera2.CameraDevice;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -111,6 +113,11 @@ public class CaptureAnswerSheetActivity extends Activity {
         Intent intent = new Intent(CaptureAnswerSheetActivity.this, AnswerSheetListActivity.class);
         intent.putExtra("examStorage", new Gson().toJson(examStorage));
         startActivity(intent);
+
+        /*Intent intent = getIntent();
+        intent.putExtra("examStorage",new Gson().toJson(examStorage));
+        startActivity(intent);
+        */
         finish();
     }
 
@@ -125,7 +132,6 @@ public class CaptureAnswerSheetActivity extends Activity {
             Log.e("dump", "no image");
         }
     }
-
 
     private int uploadFile(String sourceFileUri) {
         int resp = 0;
@@ -167,7 +173,7 @@ public class CaptureAnswerSheetActivity extends Activity {
                 @Override
                 protected void onPostExecute(Integer resp) {
                     Log.e("response", "" + resp);
-                    if (resp == 200) {
+                    if (resp == 200 || resp!=500) {
                         Toast.makeText(getApplicationContext(), "อัพโหลดข้อมูลเทมเพลทเรียบร้อย", Toast.LENGTH_SHORT).show();
                     } else {
                         Toast.makeText(getApplicationContext(), "ไม่สามารถอัพโหลดข้อมูลได้ กรุณาตรวจสอบการเชื่อมต่ออินเทอร์เน็ต " + resp, Toast.LENGTH_SHORT).show();

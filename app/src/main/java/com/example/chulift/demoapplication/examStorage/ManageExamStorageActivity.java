@@ -7,6 +7,7 @@ import android.support.v7.widget.Toolbar;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.chulift.demoapplication.FirstMenusActivity;
 import com.example.chulift.demoapplication.adapter.Adapter;
 import com.example.chulift.demoapplication.classes.ConvertJSONString;
 import com.example.chulift.demoapplication.classes.Utilities;
@@ -49,7 +50,7 @@ public class ManageExamStorageActivity extends AppCompatActivity {
 
     @OnClick(R.id.back_btn)
     void back() {
-        Intent intent = new Intent(this, MenusActivity.class);
+        Intent intent = new Intent(this, FirstMenusActivity.class);
         startActivity(intent);
         finish();
     }

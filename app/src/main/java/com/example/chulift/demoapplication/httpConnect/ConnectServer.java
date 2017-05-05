@@ -51,7 +51,7 @@ public class ConnectServer {
             OkHttpClient client = new OkHttpClient();
 
             Response response = client.newCall(request).execute();
-
+            Log.e("data",response.body().string());
             Log.d("Status of sever", response.toString());
             try {
                 result = new JSONObject(response.body().string());

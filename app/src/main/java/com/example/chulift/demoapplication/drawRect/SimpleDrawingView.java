@@ -12,6 +12,10 @@ import android.view.MotionEvent;
 
 public class SimpleDrawingView extends android.support.v7.widget.AppCompatImageView {
     private final int paintColor = Color.RED;
+    public static int MODE_SCROLL = 0;
+    public static int MODE_CROP = 1;
+
+    private int mode;
     private Paint drawPaint;
     float pointX = 0;
     float pointY = 0;
@@ -19,6 +23,7 @@ public class SimpleDrawingView extends android.support.v7.widget.AppCompatImageV
     float startY = 0;
     Bitmap bm;
     private Boolean isCropped = false;
+
     float bmWidth, bmHeight;
 
     public SimpleDrawingView(Context context, AttributeSet attrs, int defStyle) {
@@ -89,14 +94,22 @@ public class SimpleDrawingView extends android.support.v7.widget.AppCompatImageV
         return true;
     }
 
+    public int getMode() {
+        return mode;
+    }
+
+    public void setMode(int mode) {
+        this.mode = mode;
+    }
+
     @Override
     protected void onDraw(Canvas canvas) {
 
-        if (bm != null) {
-            canvas.drawBitmap(bm, null, new Rect(0, 0, this.getWidth(), this.getHeight()), null);
-        }
-        canvas.drawRect(startX, startY, pointX, pointY, drawPaint);
-        //else canvas.drawRect(-1, -1, 1, -1, drawPaint);
+            if (bm != null) {
+                canvas.drawBitmap(bm, null, new Rect(0, 0, this.getWidth(), this.getHeight()), null);
+            }
+            canvas.drawRect(startX, startY, pointX, pointY, drawPaint);
+            //else canvas.drawRect(-1, -1, 1, -1, drawPaint);
 
     }
 

@@ -13,8 +13,8 @@ import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.NumberPicker;
 import android.widget.TextView;
@@ -66,7 +66,7 @@ public class FillFormActivity extends AppCompatActivity {
     @BindView(R.id.user)
     TextView user;
     @BindView(R.id.btn_upload)
-    Button uploadBtn;
+    ImageButton uploadBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

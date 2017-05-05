@@ -9,6 +9,7 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
 
+import com.example.chulift.demoapplication.FirstMenusActivity;
 import com.example.chulift.demoapplication.adapter.RecycleAdapter;
 import com.example.chulift.demoapplication.classes.ConvertJSONString;
 import com.example.chulift.demoapplication.classes.Template;
@@ -113,7 +114,7 @@ public class ShowTemplateListActivity extends AppCompatActivity {
 
     @OnClick(R.id.back_btn)
     void back() {
-        Intent mainMenusIntent = new Intent(this, MenusActivity.class);
+        Intent mainMenusIntent = new Intent(this, FirstMenusActivity.class);
         startActivity(mainMenusIntent);
         finish();
     }

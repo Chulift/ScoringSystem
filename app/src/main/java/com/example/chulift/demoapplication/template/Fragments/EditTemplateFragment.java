@@ -193,6 +193,7 @@ public class EditTemplateFragment extends Fragment {
 
     @OnClick(R.id.cancel_button)
     void clear() {
+        Toast.makeText(getContext(),"เคลียร์ข้อมูล",Toast.LENGTH_SHORT).show();
         columnPicker.setValue(Integer.parseInt(template.getNumberOfCol()));
         choicePicker.setValue(Integer.parseInt(template.getNumberOfChoice()));
         sectionPicker.setValue(Integer.parseInt(template.getAnswerPerCol()));

@@ -82,49 +82,117 @@
 
     </LinearLayout>
 
+    <com.example.chulift.demoapplication.drawRect.SimpleDrawingView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearLayout2" />
 
     <LinearLayout
         android:id="@+id/btm_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:weightSum="4">
 
-
-        <Button
-            android:id="@+id/back_btn"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/back" />
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
 
-        <Button
-            android:id="@+id/cropStartBtn"
+            <ImageButton
+                android:id="@+id/back_btn"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/back"
+                android:src="@mipmap/arrow_back_icon"
+                android:text="@string/back" />
+            <TextView
+                android:textColor="@color/colorPrimaryDark"
+                android:text="ย้อนกลับ"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <!--
+                <ImageButton
+
+                    android:id="@+id/cropStartBtn"
+                    style="?android:attr/buttonBarButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/crop"
+                    android:src="@mipmap/start_icon"
+                    android:text="@string/crop" />
+        -->
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/crop" />
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
 
+            <ImageButton
+                android:id="@+id/cropConfirmBtn"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/confirm"
+                android:src="@mipmap/confirm_icon"
+                android:text="@string/crop" />
+            <TextView
+                android:textColor="@color/colorPrimaryDark"
+                android:text="ยืนยันการเลือก"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
 
-        <Button
-            android:id="@+id/reCropBtn"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/reset_crop" />
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
 
-        <Button
-            android:id="@+id/nextBtn"
+            <ImageButton
+                android:id="@+id/reCropBtn"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/reset_crop"
+                android:src="@mipmap/redo_icon"
+                android:text="@string/reset_crop" />
+            <TextView
+                android:textColor="@color/colorPrimaryDark"
+                android:text="เลือกใหม่"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/next" />
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/nextBtn"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:contentDescription="@string/next"
+                android:src="@mipmap/arrow_next_icon"
+                android:text="@string/next" />
+            <TextView
+                android:textColor="@color/colorPrimaryDark"
+                android:text="ขั้นตอนต่อไป"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
     </LinearLayout>
-
-    <com.example.chulift.demoapplication.drawRect.SimpleDrawingView
-        android:id="@+id/imageView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@id/btm_bar"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/linearLayout2"
-        android:layout_centerHorizontal="true" />
-
-
 </RelativeLayout>

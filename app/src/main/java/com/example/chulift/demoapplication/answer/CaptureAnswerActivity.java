@@ -43,7 +43,8 @@ public class CaptureAnswerActivity extends AppCompatActivity {
     private int id_answer;
     private Bitmap photo;
     private Bitmap resultBitmap;
-    @BindView(R.id.imageView3)ImageView imageView;
+    @BindView(R.id.imageView3)
+    ImageView imageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,6 +91,7 @@ public class CaptureAnswerActivity extends AppCompatActivity {
                     Log.e("onResult", "Can't get Path.");
                 }
                 upload();
+
             }
         }.execute();
     }
@@ -103,22 +105,25 @@ public class CaptureAnswerActivity extends AppCompatActivity {
             imagePath = file.getAbsolutePath();
         } else {
             //Toast.makeText(this, "No Image", Toast.LENGTH_LONG).show();
-            Log.e("dump","no image");
+            Log.e("dump", "no image");
         }
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        Intent intent = null;
         if (requestCode == REQUEST_ACTION_CAMERA && resultCode == RESULT_OK) {
             setBitmap();
-
-
-        }
-        Intent intent;
-        if (id_answer != 0) {
+        } else if (resultCode == RESULT_CANCELED) {
+            intent = new Intent(getApplicationContext(), SelectAnswerActivity.class);
+            intent.putExtra("examStorage", new Gson().toJson(examStorage));
+            startActivity(intent);
+        } else if (id_answer != 0) {
             intent = new Intent(this, SelectAnswerActivity.class);
             intent.putExtra("previousPage", "CaptureAnswerActivity");
         }
+
+
     }
 
 
@@ -192,9 +197,10 @@ public class CaptureAnswerActivity extends AppCompatActivity {
         this.back();
     }
 
-    @OnClick(R.id.back_btn)void back(){
-        Intent intent = new Intent(this,ManageExamStorageActivity.class);
-        intent.putExtra("examStorage",new Gson().toJson(examStorage));
+    @OnClick(R.id.back_btn)
+    void back() {
+        Intent intent = new Intent(this, SelectAnswerActivity.class);
+        intent.putExtra("examStorage", new Gson().toJson(examStorage));
         startActivity(intent);
     }
 
@@ -205,14 +211,17 @@ public class CaptureAnswerActivity extends AppCompatActivity {
             progressDialog.setIndeterminate(false);
             progressDialog.setCancelable(false);
             progressDialog.setMessage("wait..");
+
             progressDialog.show();
+
+
             new AsyncTask<Void, Void, Integer>() {
                 @Override
                 protected Integer doInBackground(Void... voids) {
                     Log.d("PathOfImage", imagePath);
 
 
-                    int r =  uploadFile(imagePath);
+                    int r = uploadFile(imagePath);
 
                     return r;
                 }
@@ -221,6 +230,11 @@ public class CaptureAnswerActivity extends AppCompatActivity {
                 protected void onPostExecute(Integer integer) {
                     Log.e("response", "" + integer);
                     progressDialog.dismiss();
+
+                    Intent intent = new Intent(getApplicationContext(),SelectAnswerActivity.class);
+                    intent.putExtra("examStorage",new Gson().toJson(examStorage));
+                    startActivity(intent);
+                    finish();
                 }
             }.execute();
         }
