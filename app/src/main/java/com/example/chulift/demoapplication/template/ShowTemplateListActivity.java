@@ -9,11 +9,10 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
 
-import com.example.chulift.demoapplication.FirstMenusActivity;
-import com.example.chulift.demoapplication.adapter.RecycleAdapter;
+import com.example.chulift.demoapplication.MenusActivity;
+import com.example.chulift.demoapplication.adapter.TemplateAdapter;
 import com.example.chulift.demoapplication.classes.ConvertJSONString;
 import com.example.chulift.demoapplication.classes.Template;
-import com.example.chulift.demoapplication.MenusActivity;
 import com.example.chulift.demoapplication.R;
 import com.example.chulift.demoapplication.httpConnect.ConnectServer;
 
@@ -25,14 +24,15 @@ import butterknife.OnClick;
 
 import static com.example.chulift.demoapplication.classes.Utilities.setStrictMode;
 import static com.example.chulift.demoapplication.classes.Utilities.setToolbar;
-import static com.example.chulift.demoapplication.config.Config.projectUrl;
+import static com.example.chulift.demoapplication.config.Config.projectName;
+import static com.example.chulift.demoapplication.config.Config.serverUrl;
 
 public class ShowTemplateListActivity extends AppCompatActivity {
-    private final String url = projectUrl + "getTemplate.php";
+    private final String url = serverUrl + projectName + "getTemplate.php";
 
     private ArrayList arrayList;
     private String resp;
-    RecycleAdapter adapter;
+    private TemplateAdapter adapter;
     @BindView(R.id.image_gallery)
     RecyclerView recyclerView;
 
@@ -43,10 +43,10 @@ public class ShowTemplateListActivity extends AppCompatActivity {
         setStrictMode();
         ButterKnife.bind(this);
         setToolbar(this);
-        init();
+        initial();
     }
 
-    private void init() {
+    private void initial() {
         new LoadGalleryTask().execute();
     }
 
@@ -92,7 +92,7 @@ public class ShowTemplateListActivity extends AppCompatActivity {
                 RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getApplicationContext(), 2);
                 recyclerView.setHasFixedSize(true);
                 recyclerView.setLayoutManager(layoutManager);
-                adapter = new RecycleAdapter(ShowTemplateListActivity.this, arrayList);
+                adapter = new TemplateAdapter(ShowTemplateListActivity.this, arrayList);
                 recyclerView.setAdapter(adapter);
             } catch (Exception e) {
                 Toast.makeText(getApplicationContext(), "ผิดพลาด : ไม่สามารถโหลดข้อมูลเทมเพลทได้", Toast.LENGTH_LONG).show();
@@ -114,8 +114,8 @@ public class ShowTemplateListActivity extends AppCompatActivity {
 
     @OnClick(R.id.back_btn)
     void back() {
-        Intent mainMenusIntent = new Intent(this, FirstMenusActivity.class);
-        startActivity(mainMenusIntent);
+        Intent intent = new Intent(this, MenusActivity.class);
+        startActivity(intent);
         finish();
     }
 }

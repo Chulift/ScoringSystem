@@ -14,11 +14,10 @@ import com.example.chulift.demoapplication.R;
 import java.util.ArrayList;
 
 
-
 public class SelectAnswerAdapter extends BaseAdapter {
-    Context context;
-    ArrayList arrayList;
-    int numChoice;
+    private Context context;
+    private ArrayList arrayList;
+    private int numChoice;
 
     public SelectAnswerAdapter(Context context, ArrayList arrayList, int numChoice) {
         this.context = context;
@@ -46,17 +45,17 @@ public class SelectAnswerAdapter extends BaseAdapter {
         LayoutInflater inflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-            switch (numChoice) {
-                case 3:
-                    convertView = inflater.inflate(R.layout.answerselect_3, null);
-                    break;
-                case 4:
-                    convertView = inflater.inflate(R.layout.answerselect_4, null);
-                    break;
-                default:
-                    convertView = inflater.inflate(R.layout.answerselect_5, null);
-                    break;
-            }
+        switch (numChoice) {
+            case 3:
+                convertView = inflater.inflate(R.layout.answerselect_3, null);
+                break;
+            case 4:
+                convertView = inflater.inflate(R.layout.answerselect_4, null);
+                break;
+            default:
+                convertView = inflater.inflate(R.layout.answerselect_5, null);
+                break;
+        }
 
         return initAnswer(position, convertView);
     }
@@ -106,7 +105,7 @@ public class SelectAnswerAdapter extends BaseAdapter {
         Button button4 = (Button) convertView.findViewById(R.id.button4);
         Button button5 = (Button) convertView.findViewById(R.id.button5);
         textView1.setText("" + (position + 1));
-        final Button[] buttons = {button1, button2, button3,button4,button5};
+        final Button[] buttons = {button1, button2, button3, button4, button5};
         String[] values = {"ก", "ข", "ค", "ง", "จ"};
         for (int i = 0; i < buttons.length; i++) {
             final int finalI = i;

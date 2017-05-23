@@ -2,6 +2,8 @@ package com.example.chulift.demoapplication.template;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Rect;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -35,9 +37,9 @@ public class CropTemplateActivity extends AppCompatActivity {
 
     private Uri imageUri = null;
     private String imagePath = null;
-    private Boolean isBlockedScroll = false;
     private Bitmap photo;
-    private float startX, startY, width, height, widthOfImage, heightOfImage;
+    private float widthOfImage;
+    private float heightOfImage;
     private float templateStartXRate, templateStartYRate, templateWidthRate, templateHeightRate;
     @BindView(R.id.imageView)
     SimpleDrawingView imageView;
@@ -51,6 +53,7 @@ public class CropTemplateActivity extends AppCompatActivity {
     ImageButton reCropBtn;
     @BindView(R.id.cropConfirmBtn)
     ImageButton cropConfirmBtn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,17 +62,26 @@ public class CropTemplateActivity extends AppCompatActivity {
         imageView.setScaleType(ImageView.ScaleType.CENTER);
         Bundle extras = getIntent().getExtras();
         nextBtn.setEnabled(false);
+        nextBtn.setImageResource(R.mipmap.default_arrow_next_icon);
         reCropBtn.setEnabled(false);
+        reCropBtn.setImageResource(R.mipmap.default_redo_icon);
 
         if (extras != null) {
             imageUri = (Uri) extras.get("imageUri");
             imagePath = extras.getString("imagePath");
+            if (extras.containsKey("imagePath")) Log.e("testContains", imagePath);
             setBitmap();
+            if (extras.containsKey("templateStartXRate")) {
+                Log.e("containsKey", "has template rate:" + extras.get("templateStartXRate"));
+                templateStartXRate = (float) extras.get("templateStartXRate");
+                templateStartYRate = (float) extras.get("templateStartYRate");
+                templateWidthRate = (float) extras.get("templateWidthRate");
+                templateHeightRate = (float) extras.get("templateHeightRate");
+            }
             Log.i("Extras", imageUri.toString() + ", " + imagePath);
         }
         setToolbar(this);
     }
-
 
     private void setBitmap() {
         new AsyncTask<Void, Void, Bitmap>() {
@@ -88,6 +100,23 @@ public class CropTemplateActivity extends AppCompatActivity {
             @Override
             protected void onPostExecute(Bitmap bitmap) {
                 imageView.setImageBitmap(bitmap);
+                if (templateStartXRate != 0) {
+                    Bitmap mutableBitmap = bitmap.copy(Bitmap.Config.ARGB_8888, true);
+                    Canvas canvas = new Canvas(mutableBitmap);
+                    imageView.setImageBitmap(mutableBitmap);
+
+
+                    int imageView_width = mutableBitmap.getWidth();
+                    int imageView_height = mutableBitmap.getHeight();
+                    float startX = templateStartXRate * imageView_width;
+                    float startY = templateStartYRate * imageView_height;
+                    float endX = startX + (templateWidthRate * imageView_width);
+                    float endY = startY + (templateHeightRate * imageView_height);
+                    canvas.drawBitmap(mutableBitmap, null, new Rect(0, 0, imageView.getWidth(), imageView.getHeight()), null);
+                    canvas.drawRect(startX, startY, endX, endY, imageView.getDrawPaint());
+
+                    setCropped();
+                }
             }
         }.execute();
     }
@@ -96,10 +125,10 @@ public class CropTemplateActivity extends AppCompatActivity {
     @OnClick(R.id.cropConfirmBtn)
     void crop() {
         if (imageView.getStartX() != 0) {
-            startX = imageView.getStartX();
-            startY = imageView.getStartY();
-            width = imageView.getW();
-            height = imageView.getH();
+            float startX = imageView.getStartX();
+            float startY = imageView.getStartY();
+            float width = imageView.getW();
+            float height = imageView.getH();
 
             int widthOfImageView = imageView.getWidth();
             int heightOfImageView = imageView.getHeight();
@@ -123,19 +152,30 @@ public class CropTemplateActivity extends AppCompatActivity {
             Log.w("Values", sX + "," + sY + "," + iw + "," + ih);
 
             Toast.makeText(this, "เลือกส่วนคำตอบเรียบร้อยแล้ว", Toast.LENGTH_LONG).show();
-            imageView.setCropped(true);
-            cropConfirmBtn.setEnabled(false);
-            reCropBtn.setEnabled(true);
-            nextBtn.setEnabled(true);
+            setCropped();
         }
+    }
+
+    void setCropped() {
+        imageView.setCropped(true);
+        cropConfirmBtn.setEnabled(false);
+        cropConfirmBtn.setImageResource(R.mipmap.default_confirm_icon);
+        reCropBtn.setEnabled(true);
+        reCropBtn.setImageResource(R.mipmap.redo_icon);
+        nextBtn.setEnabled(true);
+        nextBtn.setImageResource(R.mipmap.arrow_next_icon);
     }
 
     @OnClick(R.id.reCropBtn)
     void startDraw() {
+        imageView.setImageBitmap(photo);
         imageView.setCropped(false);
         cropConfirmBtn.setEnabled(true);
+        cropConfirmBtn.setImageResource(R.mipmap.confirm_icon);
         reCropBtn.setEnabled(false);
+        reCropBtn.setImageResource(R.mipmap.default_redo_icon);
         nextBtn.setEnabled(false);
+        nextBtn.setImageResource(R.mipmap.default_arrow_next_icon);
     }
 
     @Override
@@ -157,14 +197,16 @@ public class CropTemplateActivity extends AppCompatActivity {
     @OnClick(R.id.nextBtn)
     void next() {
         if (imageUri != null && imagePath != null) {
-            Intent cropTemplate = new Intent(this, CropIDActivity.class);
-            cropTemplate.putExtra("imageUri", imageUri);
-            cropTemplate.putExtra("imagePath", imagePath);
-            cropTemplate.putExtra("templateStartXRate", templateStartXRate);
-            cropTemplate.putExtra("templateStartYRate", templateStartYRate);
-            cropTemplate.putExtra("templateWidthRate", templateWidthRate);
-            cropTemplate.putExtra("templateHeightRate", templateHeightRate);
-            startActivity(cropTemplate);
+            Intent intent = new Intent(this, CropIDActivity.class);
+            intent.putExtra("imageUri", imageUri);
+            intent.putExtra("imagePath", imagePath);
+
+            intent.putExtra("templateStartXRate", templateStartXRate);
+            intent.putExtra("templateStartYRate", templateStartYRate);
+            intent.putExtra("templateWidthRate", templateWidthRate);
+            intent.putExtra("templateHeightRate", templateHeightRate);
+
+            startActivity(intent);
             finish();
         }
     }

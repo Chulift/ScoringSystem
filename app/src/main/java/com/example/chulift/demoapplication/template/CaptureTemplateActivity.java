@@ -104,8 +104,12 @@ public class CaptureTemplateActivity extends AppCompatActivity {
 
             @Override
             protected void onPostExecute(Bitmap bitmap) {
-                imageView.setImageBitmap(bitmap);
-                resultBitmap = bitmap;
+                if (bitmap == null) {
+                    Toast.makeText(getApplicationContext(), "ไม่สามารถตัดภาพพื้นหลังได้ กรุณาถ่ายใหม่อีกครั้ง", Toast.LENGTH_SHORT).show();
+                } else {
+                    imageView.setImageBitmap(bitmap);
+                    resultBitmap = bitmap;
+                }
             }
         }.execute();
     }

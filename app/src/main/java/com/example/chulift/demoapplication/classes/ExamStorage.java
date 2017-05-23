@@ -6,21 +6,20 @@ import org.json.JSONObject;
 
 
 public class ExamStorage {
-    private String id_examStorage, numScore, id_answer,storagePath,numChoice;
-    private String id_template, exam_storage_name, user_email, user_input_template_name;
+    private String examStorageID, maxScore, answerID, examStoragePath, numberOfChoice;
+    private String templateID, examStorageName, templateName;
 
     public ExamStorage(JSONObject jsonObject) {
         if (jsonObject != null) {
             try {
-                numChoice = jsonObject.getString("num_choice");
-                storagePath = jsonObject.getString("storage_path");
-                id_answer = jsonObject.getString("id_answer");
-                user_input_template_name = jsonObject.getString("user_input_template_name");
-                id_examStorage = jsonObject.getString("id_examstorage");
-                id_template = jsonObject.getString("id_template");
-                user_email = jsonObject.getString("user_email");
-                exam_storage_name = jsonObject.getString("exam_storage_name");
-                numScore = jsonObject.getString("num_score");
+                numberOfChoice = jsonObject.getString("num_choice");
+                examStoragePath = jsonObject.getString("storage_path");
+                answerID = jsonObject.getString("id_answer");
+                templateName = jsonObject.getString("user_input_template_name");
+                examStorageID = jsonObject.getString("id_examstorage");
+                templateID = jsonObject.getString("id_template");
+                examStorageName = jsonObject.getString("exam_storage_name");
+                maxScore = jsonObject.getString("num_score");
 
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -28,41 +27,36 @@ public class ExamStorage {
         }
     }
 
-    public String getNumChoice() {
-        return numChoice;
+    public String getNumberOfChoice() {
+        return numberOfChoice;
     }
 
-    public String getStoragePath() {
-        return storagePath;
+    public String getExamStoragePath() {
+        return examStoragePath;
     }
 
-    public String getExam_storage_name() {
-        return exam_storage_name;
+    public String getExamStorageName() {
+        return examStorageName;
     }
 
-    public String getUser_input_template_name() {
-        return user_input_template_name;
+    public String getTemplateName() {
+        return templateName;
     }
 
-    public String getId_answer() {
-        return id_answer;
+    public String getAnswerID() {
+        return answerID;
     }
 
-    public String getId_examStorage() {
-        return id_examStorage;
+    public String getExamStorageID() {
+        return examStorageID;
     }
 
-
-    public String getId_template() {
-        return id_template;
+    public String getTemplateID() {
+        return templateID;
     }
 
-    public String getUser_email() {
-        return user_email;
-    }
-
-    public String getNumScore() {
-        return numScore;
+    public String getMaxScore() {
+        return maxScore;
     }
 
 }

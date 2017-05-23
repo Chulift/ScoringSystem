@@ -2,6 +2,7 @@ package com.example.chulift.demoapplication.template.Fragments;
 
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -18,12 +19,14 @@ import android.view.ViewGroup;
 import com.example.chulift.demoapplication.classes.Template;
 import com.example.chulift.demoapplication.image.ZoomableImageView;
 import com.example.chulift.demoapplication.R;
+import com.example.chulift.demoapplication.template.ShowTemplateListActivity;
 import com.google.gson.Gson;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -162,9 +165,15 @@ public class ShowTemplateFragment extends Fragment {
 
                 }
             };
-            Picasso.with(getActivity()).load(template.getTemplate_path()).into(loadTarget);
+            Picasso.with(getActivity()).load(template.getTemplatePath()).into(loadTarget);
         } else {
             Log.i("Data Error", "Don't have template");
         }
+    }
+
+    @OnClick(R.id.back_btn)
+    void back() {
+        startActivity(new Intent(getActivity(), ShowTemplateListActivity.class));
+        getActivity().finish();
     }
 }

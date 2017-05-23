@@ -1,21 +1,15 @@
 package com.example.chulift.demoapplication;
 
-import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.util.Log;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 
-import com.example.chulift.demoapplication.adapter.Adapter;
+import com.example.chulift.demoapplication.adapter.MenuAdapter;
 import com.example.chulift.demoapplication.classes.Menu;
-import com.example.chulift.demoapplication.template.ShowTemplateListActivity;
-import com.example.chulift.demoapplication.examStorage.ManageExamStorageActivity;
+import com.example.chulift.demoapplication.config.Config;
 import com.example.chulift.demoapplication.login.LoginActivity;
 
 import java.util.ArrayList;
@@ -23,79 +17,43 @@ import java.util.ArrayList;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+import static com.example.chulift.demoapplication.classes.Utilities.setToolbar;
+
 public class MenusActivity extends AppCompatActivity {
 
-    private ArrayList<Menu> menus;
-    //private String[] names = {"Manage Template", "Grading Exam","Manage Answer","Settings","About us","Log out"};
     private String[] names = {"จัดการกระดาษคำตอบ", "จัดการชุดข้อสอบ", "ตั้งค่า", "เกี่ยวกับเรา", "ออกจากระบบ"};
     private int[] images = {R.drawable.photo_camera, R.drawable.notes, R.drawable.file, R.drawable.team, R.drawable.logout_icon_256};
     private int[] colors = {R.color.colorHuman, R.color.indigo, R.color.blue, R.color.grass, R.color.accent};
-    @BindView(R.id.listView)
-    ListView listView;
-    @BindView(R.id.user)TextView user;
-    @BindView(R.id.toolbar) Toolbar toolbar;
+    @BindView(R.id.menu_gallery)
+    RecyclerView recyclerView;
+    MenuAdapter menuAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menus);
+        setContentView(R.layout.activity_first_menus_acticity);
+        setToolbar(this);
         ButterKnife.bind(this);
-        init(this);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
-        user.setText(user.getText()+LoginActivity.getUser().getName());
+        initial();
     }
 
-    @Override
-    public void onBackPressed() {
-        Intent intent = new Intent(this,LoginActivity.class);
-        startActivity(intent);
-        finish();
+    private void setUpServer() {
+        SharedPreferences sharedPreferences = getSharedPreferences("CONFIG", MODE_PRIVATE);
+        String defaultServerUrl = Config.serverUrl;
+        String defaultProjectName = Config.projectName;
+        String newServer = sharedPreferences.getString("serverUrl", defaultServerUrl);
+        String newProjectName = sharedPreferences.getString("projectName", defaultProjectName);
+        Config.setServerUrl(newServer);
+        Config.setProjectName(newProjectName);
     }
 
-    private void init(final Context context) {
-        menus = getMenus();
-        try {
-            listView.setAdapter(new Adapter(context, menus, "MenusActivity"));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-                Intent intent = null;
-                switch (position) {
-                    case 0:
-                        intent = new Intent(MenusActivity.this, ShowTemplateListActivity.class);
-
-                        break;
-                    case 1:
-                        intent = new Intent(MenusActivity.this, ManageExamStorageActivity.class);
-
-                        break;
-                    case 2:
-                        //Toast.makeText(context,"หน้านี้ยังไม่มี",Toast.LENGTH_SHORT).show();
-                        intent = new Intent(MenusActivity.this, CameraActivity.class);
-                        break;
-                    case 3:
-                        intent = new Intent(MenusActivity.this,AboutUsActivity.class);
-
-                        break;
-                    case 4:
-                        intent = new Intent(MenusActivity.this, LoginActivity.class);
-
-                        break;
-                    default:
-                        Toast.makeText(context, "ยังไม่มีหน้านี้", Toast.LENGTH_SHORT).show();
-                        break;
-                }
-                if(intent != null) {
-                    startActivity(intent);
-                    finish();
-                }
-                else Log.i("Intent","null intent");
-            }
-        });
+    private void initial() {
+        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(this, 1);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(layoutManager);
+        menuAdapter = new MenuAdapter(this, getMenus());
+        recyclerView.setAdapter(menuAdapter);
+        setUpServer();
     }
 
     private ArrayList<Menu> getMenus() {
@@ -105,4 +63,12 @@ public class MenusActivity extends AppCompatActivity {
         }
         return arrayList;
     }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
 }

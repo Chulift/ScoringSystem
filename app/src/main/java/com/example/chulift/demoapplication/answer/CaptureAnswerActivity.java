@@ -15,7 +15,6 @@ import android.widget.Toast;
 import com.example.chulift.demoapplication.classes.ExamStorage;
 import com.example.chulift.demoapplication.classes.Utilities;
 import com.example.chulift.demoapplication.config.Config;
-import com.example.chulift.demoapplication.examStorage.ManageExamStorageActivity;
 import com.example.chulift.demoapplication.image.ImagePossessing;
 import com.example.chulift.demoapplication.login.LoginActivity;
 import com.example.chulift.demoapplication.R;
@@ -33,16 +32,14 @@ import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 
 public class CaptureAnswerActivity extends AppCompatActivity {
-    private final String url = Config.projectUrl + "createAnswerFromImage.php";
-    private final String imgPath = Config.serverImagePathURL;
+    private final String url = Config.serverUrl + Config.projectName + "createAnswerFromImage.php";
+    private final String imgPath = Config.serverUrl + Config.projectName +  "uploadedimages/";
 
     private static final int REQUEST_ACTION_CAMERA = 1;
     private Uri imageUri = null;
     private String imagePath = null;
     private ExamStorage examStorage;
-    private int id_answer;
     private Bitmap photo;
-    private Bitmap resultBitmap;
     @BindView(R.id.imageView3)
     ImageView imageView;
 
@@ -82,7 +79,6 @@ public class CaptureAnswerActivity extends AppCompatActivity {
             @Override
             protected void onPostExecute(Bitmap bitmap) {
                 imageView.setImageBitmap(bitmap);
-                resultBitmap = bitmap;
                 dump(bitmap);
                 try {
                     imagePath = Utilities.getRealPathFromURI(getApplicationContext(), imageUri);
@@ -91,12 +87,11 @@ public class CaptureAnswerActivity extends AppCompatActivity {
                     Log.e("onResult", "Can't get Path.");
                 }
                 upload();
-
             }
         }.execute();
     }
 
-    void dump(Bitmap bitmap) {
+    private void dump(Bitmap bitmap) {
         File file = Utilities.saveImageFromBitmap(bitmap);
         Uri resultImg;
         if (file != null) {
@@ -118,12 +113,7 @@ public class CaptureAnswerActivity extends AppCompatActivity {
             intent = new Intent(getApplicationContext(), SelectAnswerActivity.class);
             intent.putExtra("examStorage", new Gson().toJson(examStorage));
             startActivity(intent);
-        } else if (id_answer != 0) {
-            intent = new Intent(this, SelectAnswerActivity.class);
-            intent.putExtra("previousPage", "CaptureAnswerActivity");
         }
-
-
     }
 
 
@@ -141,33 +131,22 @@ public class CaptureAnswerActivity extends AppCompatActivity {
         } else {
             String path = imgPath + sourceFile.getName();
             final MediaType MEDIA_TYPE_JPG = MediaType.parse("image/jpg");
-            Log.i("id", examStorage.getId_examStorage() + "");
+            Log.i("id", examStorage.getExamStorageID() + "");
             Log.i("email", LoginActivity.getUser().getEmail() + "");
             Log.i("image_path", path + "");
-            Log.i("max_score", examStorage.getNumScore());
+            Log.i("max_score", examStorage.getMaxScore());
             Log.i("uploaded_file", sourceFile.getName());
             RequestBody req = new MultipartBody.Builder()
                     .setType(MultipartBody.FORM)
-                    .addFormDataPart("id_examStorage", examStorage.getId_examStorage() + "")
+                    .addFormDataPart("id_examStorage", examStorage.getExamStorageID() + "")
                     .addFormDataPart("user_email", LoginActivity.getUser().getEmail() + "")
                     .addFormDataPart("image_path", path + "")
-                    .addFormDataPart("max_score", examStorage.getNumScore() + "")
+                    .addFormDataPart("max_score", examStorage.getMaxScore() + "")
                     .addFormDataPart("uploaded_file", sourceFile.getName(), RequestBody.create(MEDIA_TYPE_JPG, sourceFile)).build();
             Log.i("before start", "prepare");
 
             resp = ConnectServer.connectHttp(url, req);
 
-//            id_answer = Integer.parseInt(response);
-            //resp = response.code();
-            /*String respID = null;
-            try {
-                resp = response.code();
-                respID = response.body().string().toString();
-            } catch (Exception e) {
-                e.printStackTrace();
-                Log.e("status","fail"+e.getMessage());
-            }*/
-            //id_answer = Integer.parseInt(respID);
             Log.e("id_answer", resp + "");
             if (resp == 200) {
                 runOnUiThread(new Runnable() {
@@ -188,10 +167,6 @@ public class CaptureAnswerActivity extends AppCompatActivity {
         return resp;
     }
 
-    public void run() {
-
-    }
-
     @Override
     public void onBackPressed() {
         this.back();
@@ -204,26 +179,19 @@ public class CaptureAnswerActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-
-    void upload() {
+    private void upload() {
         if (imagePath != null) {
             final ProgressDialog progressDialog = new ProgressDialog(this, R.style.AppTheme_Dark_Dialog);
             progressDialog.setIndeterminate(false);
             progressDialog.setCancelable(false);
             progressDialog.setMessage("wait..");
-
             progressDialog.show();
-
 
             new AsyncTask<Void, Void, Integer>() {
                 @Override
                 protected Integer doInBackground(Void... voids) {
                     Log.d("PathOfImage", imagePath);
-
-
-                    int r = uploadFile(imagePath);
-
-                    return r;
+                    return uploadFile(imagePath);
                 }
 
                 @Override
@@ -231,8 +199,8 @@ public class CaptureAnswerActivity extends AppCompatActivity {
                     Log.e("response", "" + integer);
                     progressDialog.dismiss();
 
-                    Intent intent = new Intent(getApplicationContext(),SelectAnswerActivity.class);
-                    intent.putExtra("examStorage",new Gson().toJson(examStorage));
+                    Intent intent = new Intent(getApplicationContext(), SelectAnswerActivity.class);
+                    intent.putExtra("examStorage", new Gson().toJson(examStorage));
                     startActivity(intent);
                     finish();
                 }

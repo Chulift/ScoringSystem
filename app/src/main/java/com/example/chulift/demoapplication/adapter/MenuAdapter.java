@@ -1,4 +1,4 @@
-package com.example.chulift.demoapplication.adapter.Holder;
+package com.example.chulift.demoapplication.adapter;
 
 import android.app.Activity;
 import android.content.Context;
@@ -11,9 +11,10 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.chulift.demoapplication.AboutUsActivity;
-import com.example.chulift.demoapplication.CameraActivity;
-import com.example.chulift.demoapplication.MenusActivity;
+import com.example.chulift.demoapplication.CameraImageActivity;
 import com.example.chulift.demoapplication.R;
+import com.example.chulift.demoapplication.SettingActivity;
+import com.example.chulift.demoapplication.adapter.Holder.MenuHolder;
 import com.example.chulift.demoapplication.classes.Menu;
 import com.example.chulift.demoapplication.examStorage.ManageExamStorageActivity;
 import com.example.chulift.demoapplication.login.LoginActivity;
@@ -22,7 +23,7 @@ import com.example.chulift.demoapplication.template.ShowTemplateListActivity;
 import java.util.ArrayList;
 
 
-public class MenuAdapter extends RecyclerView.Adapter<MenuHolder2> {
+public class MenuAdapter extends RecyclerView.Adapter<MenuHolder> {
     private Context context;
     private ArrayList<Menu> menus;
 
@@ -32,17 +33,27 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuHolder2> {
     }
 
     @Override
-    public MenuHolder2 onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.menu_layout, parent, false);
-        return new MenuHolder2(view);
+    public MenuHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.menus, parent, false);
+        int height = parent.getMeasuredHeight() / 5;
+        view.setMinimumHeight(height);
+
+        return new MenuHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(MenuHolder2 holder, int position) {
+    public void onBindViewHolder(MenuHolder holder, int position) {
+
         Menu menu = menus.get(position);
         final int thisPosition = position;
+
+        holder.getMenuLayout().setBackgroundResource(menu.getColor());
+        holder.getImageOfMenu().getLayoutParams().height = 150;
+        holder.getImageOfMenu().getLayoutParams().width = 150;
+        holder.getImageOfMenu().setImageResource(menu.getImagePath());
         holder.getNameOfMenu().setText(menu.getMenuName());
-        holder.getCardView().setOnClickListener(new View.OnClickListener() {
+
+        holder.getMenuLayout().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = null;
@@ -56,8 +67,7 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuHolder2> {
 
                         break;
                     case 2:
-                        //Toast.makeText(context,"หน้านี้ยังไม่มี",Toast.LENGTH_SHORT).show();
-                        intent = new Intent(context, CameraActivity.class);
+                        intent = new Intent(context, SettingActivity.class);
                         break;
                     case 3:
                         intent = new Intent(context, AboutUsActivity.class);

@@ -13,6 +13,7 @@ import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -42,12 +43,11 @@ public class FillFormActivity extends AppCompatActivity {
     private Uri imageUri = null;
     private String imagePath = null;
     private Bitmap photo;
-
     private float templateStartXRate, templateStartYRate, templateWidthRate, templateHeightRate,
             idStartXRate, idStartYRate, idWidthRate, idHeightRate,
             detailStartXRate, detailStartYRate, detailWidthRate, detailHeightRate;
-    private final String url = Config.projectUrl + "uploadTemplate.php";
-    private final String imgPath = Config.serverImagePathURL;
+    private final String url = Config.serverUrl + Config.projectName + "uploadTemplate.php";
+    private final String imgPath = Config.serverUrl + Config.projectName + "uploadedimages/";
     private String templateName;
     @BindView(R.id.num_student_code_picker)
     NumberPicker studentCodePicker;
@@ -73,6 +73,7 @@ public class FillFormActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fill_form);
         ButterKnife.bind(this);
+        Utilities.hideInputSoftKeyboard(this);
         columnPicker.setMaxValue(NumberPickerConfig.MAX_COLUMN);
         columnPicker.setMinValue(NumberPickerConfig.MIN_COLUMN);
         sectionPicker.setMaxValue(NumberPickerConfig.MAX_SECTION);
@@ -88,6 +89,7 @@ public class FillFormActivity extends AppCompatActivity {
         if (extras != null) {
             imageUri = (Uri) extras.get("imageUri");
             imagePath = extras.getString("imagePath");
+
             templateStartXRate = (float) extras.get("templateStartXRate");
             templateStartYRate = (float) extras.get("templateStartYRate");
             templateWidthRate = (float) extras.get("templateWidthRate");
@@ -102,6 +104,8 @@ public class FillFormActivity extends AppCompatActivity {
             detailStartYRate = (float) extras.get("detailStartYRate");
             detailWidthRate = (float) extras.get("detailWidthRate");
             detailHeightRate = (float) extras.get("detailHeightRate");
+
+
             setBitmap();
             Log.i("Extras", imageUri.toString() + ", " + imagePath);
         }
@@ -144,14 +148,23 @@ public class FillFormActivity extends AppCompatActivity {
         if (imageUri != null && imagePath != null) {
             intent.putExtra("imageUri", imageUri);
             intent.putExtra("imagePath", imagePath);
+
             intent.putExtra("templateStartXRate", templateStartXRate);
             intent.putExtra("templateStartYRate", templateStartYRate);
             intent.putExtra("templateWidthRate", templateWidthRate);
             intent.putExtra("templateHeightRate", templateHeightRate);
+
             intent.putExtra("idStartXRate", idStartXRate);
             intent.putExtra("idStartYRate", idStartYRate);
             intent.putExtra("idWidthRate", idWidthRate);
             intent.putExtra("idHeightRate", idHeightRate);
+
+            intent.putExtra("detailStartXRate", detailStartXRate);
+            intent.putExtra("detailStartYRate", detailStartYRate);
+            intent.putExtra("detailHeightRate", detailHeightRate);
+            intent.putExtra("detailWidthRate", detailWidthRate);
+
+
             startActivity(intent);
             finish();
         }

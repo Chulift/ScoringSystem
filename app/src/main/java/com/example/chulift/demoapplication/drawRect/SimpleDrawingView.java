@@ -11,11 +11,13 @@ import android.view.MotionEvent;
 
 
 public class SimpleDrawingView extends android.support.v7.widget.AppCompatImageView {
-    private final int paintColor = Color.RED;
-    public static int MODE_SCROLL = 0;
-    public static int MODE_CROP = 1;
+    private int paintColor = Color.RED;
 
-    private int mode;
+    public void setPaintColor(int paintColor) {
+        this.paintColor = paintColor;
+        drawPaint.setColor(paintColor);
+    }
+
     private Paint drawPaint;
     float pointX = 0;
     float pointY = 0;
@@ -59,6 +61,10 @@ public class SimpleDrawingView extends android.support.v7.widget.AppCompatImageV
         drawPaint.setStrokeCap(Paint.Cap.ROUND);
     }
 
+    public Paint getDrawPaint() {
+        return drawPaint;
+    }
+
     @Override
     public void setImageBitmap(Bitmap bm) {
         super.setImageBitmap(bm);
@@ -69,7 +75,6 @@ public class SimpleDrawingView extends android.support.v7.widget.AppCompatImageV
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        //Log.w("x", event.getX() + "," + event.getY());
         if (!isCropped) {
             pointX = event.getX();
             pointY = event.getY();
@@ -94,27 +99,13 @@ public class SimpleDrawingView extends android.support.v7.widget.AppCompatImageV
         return true;
     }
 
-    public int getMode() {
-        return mode;
-    }
-
-    public void setMode(int mode) {
-        this.mode = mode;
-    }
-
     @Override
     protected void onDraw(Canvas canvas) {
 
-            if (bm != null) {
-                canvas.drawBitmap(bm, null, new Rect(0, 0, this.getWidth(), this.getHeight()), null);
-            }
-            canvas.drawRect(startX, startY, pointX, pointY, drawPaint);
-            //else canvas.drawRect(-1, -1, 1, -1, drawPaint);
-
-    }
-
-    public Boolean getCropped() {
-        return isCropped;
+        if (bm != null) {
+            canvas.drawBitmap(bm, null, new Rect(0, 0, this.getWidth(), this.getHeight()), null);
+        }
+        canvas.drawRect(startX, startY, pointX, pointY, drawPaint);
     }
 
     public void setCropped(Boolean cropped) {

@@ -3,6 +3,7 @@ package com.example.chulift.demoapplication.classes;
 import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -20,15 +21,45 @@ import com.example.chulift.demoapplication.R;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
-
 
 
 public class Utilities {
 
     public static void hideInputSoftKeyboard(Context context) {
         ((Activity) context).getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+    }
+
+    public static boolean isOverlap(float startX, float startY, float pointX, float pointY, float targetStartXRate, float targetStartYRate, float targetWidthRate, float targetHeightRate, int widthOfImage, int heightOfImage) {
+        boolean result = false;
+        float targetStartX = targetStartXRate * widthOfImage;
+        float targetStartY = targetStartYRate * heightOfImage;
+        float targetPointX = targetStartX + (targetWidthRate * widthOfImage);
+        float targetPointY = targetStartY + (targetHeightRate * heightOfImage);
+        //case left
+        if (pointX > targetStartX && pointX < targetPointX) {
+            if (pointY > targetStartY && pointY < targetPointY) {
+                //case top
+                result = true;
+            } else if (startY > targetStartY && startY < targetPointY) {
+                //case bottom
+                result = true;
+            }
+
+        }
+        //case right
+        else if (startX > targetStartX && startX < targetPointX) {
+            if (pointY > targetStartY && pointY < targetPointY) {
+                //case top
+                result = true;
+            } else if (startY > targetStartY && startY < targetPointY) {
+                //case bottom
+                result = true;
+            }
+        }
+        return result;
     }
 
     public static File saveImageFromBitmap(Bitmap bitmap) {
@@ -41,6 +72,10 @@ public class Utilities {
                 bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fOut);
                 fOut.flush();
                 fOut.close();
+            } catch (IOException e) {
+
+            } catch (OutOfMemoryError e) {
+
             } catch (Exception e) {
                 Log.e("file Error(CreateTemp)", e.toString());
             }
@@ -94,7 +129,18 @@ public class Utilities {
         ((AppCompatActivity) context).setSupportActionBar(toolbar);
         //noinspection ConstantConditions
         ((AppCompatActivity) context).getSupportActionBar().setDisplayShowTitleEnabled(false);
-        user.setText(user.getText() + LoginActivity.getUser().getName());
+        try {
+            user.setText(user.getText() + LoginActivity.getUser().getName());
+        } catch (NullPointerException e){
+            Intent intent = new Intent(context,LoginActivity.class);
+            context.startActivity(intent);
+        } catch (RuntimeException e) {
+            Intent intent = new Intent(context,LoginActivity.class);
+            context.startActivity(intent);
+        } catch (Exception e) {
+            Intent intent = new Intent(context,LoginActivity.class);
+            context.startActivity(intent);
+        }
     }
 
     public static void setStrictMode() {

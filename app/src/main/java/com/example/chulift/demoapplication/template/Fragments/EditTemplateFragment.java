@@ -36,8 +36,8 @@ import okhttp3.RequestBody;
  */
 public class EditTemplateFragment extends Fragment {
 
-    private final String url = Config.projectUrl + "updateTemplate.php";
-    private final String deleteURL = Config.projectUrl + "DeleteTemplate.php";
+    private final String url = Config.serverUrl + Config.projectName + "updateTemplate.php";
+    private final String deleteURL = Config.serverUrl + Config.projectName + "DeleteTemplate.php";
     private static String ARG_SECTION_NUMBER = "section_number";
     private static String ARG_TEMPLATE = "template";
     private int param;
@@ -91,6 +91,12 @@ public class EditTemplateFragment extends Fragment {
         init();
     }
 
+    @OnClick(R.id.back_btn)
+    void back() {
+        startActivity(new Intent(getActivity(), ShowTemplateListActivity.class));
+        getActivity().finish();
+    }
+
     private void init() {
         choicePicker.setMaxValue(NumberPickerConfig.MAX_CHOICE);
         choicePicker.setMinValue(NumberPickerConfig.MIN_CHOICE);
@@ -101,7 +107,7 @@ public class EditTemplateFragment extends Fragment {
         studentCodePicker.setMinValue(NumberPickerConfig.MIN_STUDENT_CODE);
         studentCodePicker.setMaxValue(NumberPickerConfig.MAX_STUDENT_CODE);
 
-        inputTemplateName.setText(template.getUser_input_template_name());
+        inputTemplateName.setText(template.getTemplateName());
         columnPicker.setValue(Integer.parseInt(template.getNumberOfCol()));
         choicePicker.setValue(Integer.parseInt(template.getNumberOfChoice()));
         sectionPicker.setValue(Integer.parseInt(template.getAnswerPerCol()));
@@ -112,7 +118,7 @@ public class EditTemplateFragment extends Fragment {
     void delete() {
         new AlertDialog.Builder(getContext())
                 .setTitle("Confirm delete.")
-                .setMessage("ต้องการลบเทมเพลทที่ " + template.getId_template() + " ใช่หรือไม่?")
+                .setMessage("ต้องการลบเทมเพลทที่ " + template.getTemplateID() + " ใช่หรือไม่?")
                 .setNegativeButton("ไม่ใช่", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
@@ -127,17 +133,17 @@ public class EditTemplateFragment extends Fragment {
                         progressDialog.setIndeterminate(true);
                         progressDialog.setMessage("กำลังลบเทมเพลทที่เลือก...");
                         progressDialog.show();
-                        final String postBody = "{\"" + "template_name\"" + ":\"" + template.getTemplate_name() + "\"}";
+                        final String postBody = "{\"" + "template_name\"" + ":\"" + template.getTemplateImgName() + "\"}";
                         new AsyncTask<Void, Void, String>() {
                             @Override
                             protected String doInBackground(Void... voids) {
                                 ConnectServer.getJSONObject(deleteURL, postBody);
-                                return template.getId_template();
+                                return template.getTemplateID();
                             }
 
                             @Override
                             protected void onPostExecute(String s) {
-                                Toast.makeText(getContext(), "ลบเทมเพลท " + template.getUser_input_template_name() + " เรียบร้อยแล้ว", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getContext(), "ลบเทมเพลท " + template.getTemplateName() + " เรียบร้อยแล้ว", Toast.LENGTH_SHORT).show();
                                 progressDialog.dismiss();
                                 getContext().startActivity(new Intent(getContext(), ShowTemplateListActivity.class));
                                 ((Activity) getContext()).finish();
@@ -159,12 +165,12 @@ public class EditTemplateFragment extends Fragment {
 
             final RequestBody req = new MultipartBody.Builder()
                     .setType(MultipartBody.FORM)
-                    .addFormDataPart("id_template", template.getId_template())
+                    .addFormDataPart("id_template", template.getTemplateID())
                     .addFormDataPart("input_template_name", inputTemplateName.getText().toString().trim())
                     .addFormDataPart("num_column", columnPicker.getValue() + "")
                     .addFormDataPart("num_section", sectionPicker.getValue() + "")
                     .addFormDataPart("num_choice", choicePicker.getValue() + "")
-                    .addFormDataPart("num_student_code",String.valueOf(studentCodePicker.getValue()))
+                    .addFormDataPart("num_student_code", String.valueOf(studentCodePicker.getValue()))
                     .build();
 
             int resp = ConnectServer.connectHttp(url, req);
@@ -193,7 +199,7 @@ public class EditTemplateFragment extends Fragment {
 
     @OnClick(R.id.cancel_button)
     void clear() {
-        Toast.makeText(getContext(),"เคลียร์ข้อมูล",Toast.LENGTH_SHORT).show();
+        Toast.makeText(getContext(), "เคลียร์ข้อมูล", Toast.LENGTH_SHORT).show();
         columnPicker.setValue(Integer.parseInt(template.getNumberOfCol()));
         choicePicker.setValue(Integer.parseInt(template.getNumberOfChoice()));
         sectionPicker.setValue(Integer.parseInt(template.getAnswerPerCol()));

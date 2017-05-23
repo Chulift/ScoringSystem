@@ -15,7 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.chulift.demoapplication.classes.ExamStorage;
-import com.example.chulift.demoapplication.adapter.RecycleAdapter;
+import com.example.chulift.demoapplication.adapter.TemplateAdapter;
 import com.example.chulift.demoapplication.classes.ConvertJSONString;
 import com.example.chulift.demoapplication.classes.Template;
 import com.example.chulift.demoapplication.classes.Utilities;
@@ -41,8 +41,8 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 
 public class CUExamStorageActivity extends AppCompatActivity {
-    private final String templateUrl = Config.projectUrl + "getTemplate.php";
-    private final String url = Config.projectUrl + "CreateExamSet.php";
+    private final String templateUrl = Config.serverUrl + Config.projectName + "getTemplate.php";
+    private final String createExamStorageUrl = Config.serverUrl + Config.projectName + "CreateExamSet.php";
     public static Boolean IssetTemplate = false;
     public static Template templateSet = null;
     public static String IDTemplate = null;
@@ -51,7 +51,7 @@ public class CUExamStorageActivity extends AppCompatActivity {
     ExamStorage examStorage;
     @BindView(R.id.image_gallery)
     RecyclerView gallery;
-    RecycleAdapter adapter;
+    TemplateAdapter adapter;
     RecyclerView recyclerView;
     private ArrayList arrayList;
     private String resp;
@@ -83,11 +83,11 @@ public class CUExamStorageActivity extends AppCompatActivity {
             IssetTemplate = true;
             jsonMyObject = extras.getString("examStorage");
             examStorage = new Gson().fromJson(jsonMyObject, ExamStorage.class);
-            IDTemplate = examStorage.getId_template();
+            IDTemplate = examStorage.getTemplateID();
             Log.e("IDTEmp", IDTemplate);
             mode = 1;
             header.setText("แก้ไขชุดข้อสอบ");
-            Log.i("editExamStorage", examStorage.getId_examStorage());
+            Log.i("editExamStorage", examStorage.getExamStorageID());
         }
         numScore.setFilters(new InputFilter[]{new com.example.chulift.demoapplication.classes.InputFilter(Config.minKeyboardInput, Config.maxKeyboardInput)});
         numChoice.setFilters(new InputFilter[]{new com.example.chulift.demoapplication.classes.InputFilter(Config.minChoiceOfTemplate, Config.maxChoiceOfTemplate)});
@@ -101,13 +101,13 @@ public class CUExamStorageActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(layoutManager);
         if (mode == 1) {
-            nameExamStorage.setText(examStorage.getExam_storage_name());
-            Log.i("numS", examStorage.getNumScore());
-            int n = Integer.parseInt(examStorage.getNumScore());
+            nameExamStorage.setText(examStorage.getExamStorageName());
+            Log.i("numS", examStorage.getMaxScore());
+            int n = Integer.parseInt(examStorage.getMaxScore());
             numScore.setText("" + n, TextView.BufferType.EDITABLE);
-            numChoice.setText(examStorage.getNumChoice(), TextView.BufferType.EDITABLE);
-            String postBody = "{\"num_score\":\"" + examStorage.getNumScore() + "\", " +
-                    "\"template_name\":\"" + examStorage.getId_template() + "\"}";
+            numChoice.setText(examStorage.getNumberOfChoice(), TextView.BufferType.EDITABLE);
+            String postBody = "{\"num_score\":\"" + examStorage.getMaxScore() + "\", " +
+                    "\"template_name\":\"" + examStorage.getTemplateID() + "\"}";
             GetTemplateAsync getTemplateAsync = new GetTemplateAsync(templateUrl, postBody);
             getTemplateAsync.execute();
 
@@ -125,7 +125,7 @@ public class CUExamStorageActivity extends AppCompatActivity {
                 protected void onPostExecute(ArrayList<Template> templates) {
                     try {
                         Log.i("array", "" + arrayList.size());
-                        adapter = new RecycleAdapter(CUExamStorageActivity.this, arrayList, "CUExamStorageActivity");
+                        adapter = new TemplateAdapter(CUExamStorageActivity.this, arrayList, "CUExamStorageActivity");
                         recyclerView.setAdapter(adapter);
                     } catch (Exception e) {
                         Toast.makeText(getApplicationContext(), "ผิดพลาด : ไม่สามารถโหลดข้อมูลเทมเพลทได้", Toast.LENGTH_LONG).show();
@@ -158,8 +158,8 @@ public class CUExamStorageActivity extends AppCompatActivity {
         if (!temp.equals("")) {
             if (IssetTemplate && templateSet != null) {
                 if (mode == 1) {
-                    String examStorageID = examStorage.getId_examStorage();
-                    String tempName = templateSet.getId_template();
+                    String examStorageID = examStorage.getExamStorageID();
+                    String tempName = templateSet.getTemplateID();
                     String email = LoginActivity.getUser().getEmail();
                     String editName = nameExamStorage.getText().toString();
                     String scoreExamSet = numScore.getText().toString();
@@ -172,10 +172,10 @@ public class CUExamStorageActivity extends AppCompatActivity {
                             "\"exam_storage_name\":\"" + editName + "\", " +
                             "\"mode\":\"" + mode + "\"}";
 
-                    SendDataAsync sendDataAsync = new SendDataAsync(url, postBody);
+                    SendDataAsync sendDataAsync = new SendDataAsync(createExamStorageUrl, postBody);
                     sendDataAsync.execute();
                 } else if (mode == 0) {
-                    String tempName = templateSet.getId_template();
+                    String tempName = templateSet.getTemplateID();
                     String email = LoginActivity.getUser().getEmail();
                     String editName = nameExamStorage.getText().toString();
                     String scoreExamSet = numScore.getText().toString();
@@ -187,7 +187,7 @@ public class CUExamStorageActivity extends AppCompatActivity {
                             "\"exam_storage_name\":\"" + editName + "\", " +
                             "\"mode\":\"" + mode + "\"}";
 
-                    SendDataAsync sendDataAsync = new SendDataAsync(url, postBody);
+                    SendDataAsync sendDataAsync = new SendDataAsync(createExamStorageUrl, postBody);
                     sendDataAsync.execute();
                 }
             } else {
@@ -265,7 +265,7 @@ public class CUExamStorageActivity extends AppCompatActivity {
                     arrayList = new ArrayList<>();
                     arrayList = ConvertJSONString.getTemplateArray(resp);
                     Log.i("array", "" + arrayList.size());
-                    adapter = new RecycleAdapter(CUExamStorageActivity.this, arrayList, "CUExamStorageActivity");
+                    adapter = new TemplateAdapter(CUExamStorageActivity.this, arrayList, "CUExamStorageActivity");
                     recyclerView.setAdapter(adapter);
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -347,7 +347,7 @@ public class CUExamStorageActivity extends AppCompatActivity {
                 try {
                     arrayList = ConvertJSONString.getTemplateArray(result);
                     Log.i("array", "" + arrayList.size());
-                    adapter = new RecycleAdapter(CUExamStorageActivity.this, arrayList, "CUExamStorageActivity");
+                    adapter = new TemplateAdapter(CUExamStorageActivity.this, arrayList, "CUExamStorageActivity");
                     recyclerView.setAdapter(adapter);
                 } catch (Exception e) {
                     e.printStackTrace();

@@ -7,6 +7,7 @@ import org.json.JSONObject;
 
 import java.io.UnsupportedEncodingException;
 import java.net.UnknownHostException;
+
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -21,7 +22,7 @@ public class ConnectServer {
         Response response;
         try {
             //final MediaType MEDIA_TYPE_PNG = MediaType.parse("image/png");
-            Log.i("start","connecting..");
+            Log.i("start", "connecting..");
             Request request = new Request.Builder()
                     .url(url)
                     .post(req)
@@ -29,7 +30,7 @@ public class ConnectServer {
             OkHttpClient client = new OkHttpClient();
             response = client.newCall(request).execute();
             resp = response.code();
-            Log.e("body",response.body().string());//maybe null
+            Log.e("body", response.body().string() == null ? response.body().string() : null);//maybe null
         } catch (UnknownHostException | UnsupportedEncodingException e) {
             Log.e(TAG, "Error: " + e.getLocalizedMessage());
         } catch (Exception e) {
@@ -37,7 +38,8 @@ public class ConnectServer {
         }
         return resp;
     }
-    public static JSONObject getJSONObject(String url,String postBody){
+
+    public static JSONObject getJSONObject(String url, String postBody) {
         JSONObject result;
         try {
             final MediaType Json = MediaType.parse("application/json; charset=utf-8");
@@ -51,7 +53,7 @@ public class ConnectServer {
             OkHttpClient client = new OkHttpClient();
 
             Response response = client.newCall(request).execute();
-            Log.e("data",response.body().string());
+            Log.e("data", response.body().string());
             Log.d("Status of sever", response.toString());
             try {
                 result = new JSONObject(response.body().string());

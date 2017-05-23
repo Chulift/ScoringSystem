@@ -38,9 +38,8 @@ import okhttp3.Response;
 
 public class FinishTemplateActivity extends AppCompatActivity {
     private final String TAG = "FinishActivity";
-    private final String url = Config.projectUrl + "GetTemplateInfo.php";
+    private final String url = Config.serverUrl + Config.projectName + "GetTemplateInfo.php";
     private ProgressDialog progressDialog;
-    private Target loadTarget;
     @BindView(R.id.imageView)
     ImageView imageView;
     @BindView(R.id.toolbar)
@@ -80,11 +79,11 @@ public class FinishTemplateActivity extends AppCompatActivity {
         finish();
     }
 
-    public class AsyncTaskGetData extends AsyncTask<Object, Object, JSONObject> {
+    private class AsyncTaskGetData extends AsyncTask<Object, Object, JSONObject> {
         String Url, postBody;
         JSONObject result = null;
 
-        public AsyncTaskGetData(String url, String postBody) {
+        AsyncTaskGetData(String url, String postBody) {
             this.Url = url;
             this.postBody = postBody;
         }
@@ -108,7 +107,7 @@ public class FinishTemplateActivity extends AppCompatActivity {
                 try {
                     result = new JSONObject(response.body().string());
                 } catch (Exception e) {
-                    Log.d("resultResponse",response.body().string());
+                    Log.d("resultResponse", response.body().string());
                     Log.e(TAG, "Json Error: " + e.getLocalizedMessage());
                     return null;
                 }
@@ -182,7 +181,7 @@ public class FinishTemplateActivity extends AppCompatActivity {
                 final float finalIS_startY = IS_startY;
                 final float finalIS_width = IS_width;
                 final float finalIS_height = IS_height;
-                loadTarget = new Target() {
+                Target loadTarget = new Target() {
                     @Override
                     public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
                         try {
@@ -245,7 +244,7 @@ public class FinishTemplateActivity extends AppCompatActivity {
 
                     }
                 };
-                Picasso.with(getApplicationContext()).load(template.getTemplate_path()).into(loadTarget);
+                Picasso.with(getApplicationContext()).load(template.getTemplatePath()).into(loadTarget);
             } else {
                 Log.i("Data Error", "Don't have template");
             }

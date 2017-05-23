@@ -5,33 +5,29 @@ import org.json.JSONObject;
 
 
 public class Template {
-    private String id_template, user_id_user, template_name, user_input_template_name, template_path, startXRate, startYRate, widthRate, heightRate, numberOfCol, answerPerCol;
+    private String templateID, templateImgName, templateName, templatePath, startXRate, startYRate, widthRate, heightRate, numberOfCol, answerPerCol;
     private String numberOfChoice, startXRateCode, startYRateCode, widthRateCode, heightRateCode, startXRateInfo, startYRateInfo, widthRateInfo;
-    private String heightRateInfo,numberOfStudentCode;
+    private String heightRateInfo, numberOfStudentCode;
     private Boolean dataIsSet = false;
 
     public String getNumberOfStudentCode() {
         return numberOfStudentCode;
     }
 
-    public String getId_template() {
-        return id_template;
+    public String getTemplateID() {
+        return templateID;
     }
 
-    public String getUser_id_user() {
-        return user_id_user;
+    public String getTemplateName() {
+        return templateName;
     }
 
-    public String getUser_input_template_name() {
-        return user_input_template_name;
+    public String getTemplateImgName() {
+        return templateImgName;
     }
 
-    public String getTemplate_name() {
-        return template_name;
-    }
-
-    public String getTemplate_path() {
-        return template_path;
+    public String getTemplatePath() {
+        return templatePath;
     }
 
     public String getStartXRate() {
@@ -117,11 +113,10 @@ public class Template {
     public Template(JSONObject template) {
         if (template != null) {
             try {
-                id_template = template.getString("id_template");
-                user_id_user = template.getString("user_id_user");
-                template_name = template.getString("template_name");
-                user_input_template_name = template.getString("user_input_template_name");
-                template_path = template.getString("template_path");
+                templateID = template.getString("id_template");
+                templateImgName = template.getString("template_name");
+                templateName = template.getString("template_name");
+                templatePath = template.getString("template_path");
                 startXRate = template.getString("startXRate");
                 startYRate = template.getString("startYRate");
                 widthRate = template.getString("widthRate");

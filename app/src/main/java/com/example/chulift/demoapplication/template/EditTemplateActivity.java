@@ -21,7 +21,6 @@ import com.google.gson.Gson;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 public class EditTemplateActivity extends AppCompatActivity {
 
@@ -45,10 +44,10 @@ public class EditTemplateActivity extends AppCompatActivity {
         mViewPager.setAdapter(mSectionsPagerAdapter);
         tabLayout.setupWithViewPager(mViewPager);
         Bundle b = getIntent().getExtras();
-        if (b!=null){
+        if (b != null) {
             String jsonObject = b.getString("template");
-            template = new Gson().fromJson(jsonObject,Template.class);
-            Log.i("template_path", template.getTemplate_path());
+            template = new Gson().fromJson(jsonObject, Template.class);
+            Log.i("template_path", template.getTemplatePath());
         }
         Utilities.setToolbar(this);
     }
@@ -58,7 +57,7 @@ public class EditTemplateActivity extends AppCompatActivity {
         this.back();
     }
 
-    @OnClick(R.id.back_btn)
+    //@OnClick(R.id.back_btn)
     void back() {
         startActivity(new Intent(EditTemplateActivity.this, ShowTemplateListActivity.class));
         finish();

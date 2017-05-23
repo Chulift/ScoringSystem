@@ -10,7 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.example.chulift.demoapplication.adapter.Holder.ViewHolder;
+import com.example.chulift.demoapplication.adapter.Holder.TemplateHolder;
 import com.example.chulift.demoapplication.examStorage.CUExamStorageActivity;
 import com.example.chulift.demoapplication.template.EditTemplateActivity;
 import com.example.chulift.demoapplication.classes.Template;
@@ -22,48 +22,46 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 
-public class RecycleAdapter extends RecyclerView.Adapter<ViewHolder> {
+public class TemplateAdapter extends RecyclerView.Adapter<TemplateHolder> {
     private ArrayList galleryList;
     private Context context;
     private String page;
     private int selectedRow = -1;
 
-    public RecycleAdapter(Context context, ArrayList galleryList) {
+    public TemplateAdapter(Context context, ArrayList galleryList) {
         this.galleryList = galleryList;
         this.context = context;
         this.page = "default";
     }
 
-    public RecycleAdapter(Context context, ArrayList galleryList, String page) {
+    public TemplateAdapter(Context context, ArrayList galleryList, String page) {
         this.galleryList = galleryList;
         this.context = context;
         this.page = page;
     }
 
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+    public TemplateHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.template_gallery_layout, viewGroup, false);
 
-        return new ViewHolder(view);
+        return new TemplateHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(final ViewHolder viewHolder, int position) {
+    public void onBindViewHolder(final TemplateHolder viewHolder, int position) {
         final Template template = (Template) galleryList.get(position);
-        viewHolder.getTitle().setText(template.getUser_input_template_name());
+        viewHolder.getTitle().setText(template.getTemplateName());
         viewHolder.getTemplateMaxChoice().setText("จำนวนตัวเลือก : " + ((Template) galleryList.get(position)).getNumberOfChoice());
         final int max = Integer.parseInt(template.getAnswerPerCol()) * Integer.parseInt(template.getNumberOfCol());
         String maxScore = max + "(" + template.getAnswerPerCol() + "*" + template.getNumberOfCol() + ")";
         viewHolder.getTemplateMaxScore().setText("จำนวนข้อสูงสุด : " + maxScore);
-        String imgUrl = ((Template) galleryList.get(position)).getTemplate_path();
+        String imgUrl = ((Template) galleryList.get(position)).getTemplatePath();
         Picasso.with(context).load(imgUrl).into(viewHolder.getImg());
 
         if (Objects.equals(page, "CUExamStorageActivity")) {
-            //if (CUExamStorageActivity.templateSet != null) {
             if (CUExamStorageActivity.IssetTemplate) {
                 if (CUExamStorageActivity.IDTemplate != null) {
-                    //if (CUExamStorageActivity.templateSet.getId_template().equals(template.getId_template())) {
-                    if (CUExamStorageActivity.IDTemplate.equals(template.getId_template())) {
+                    if (CUExamStorageActivity.IDTemplate.equals(template.getTemplateID())) {
                         CUExamStorageActivity.templateSet = template;
                         viewHolder.getTemplateLayout().setBackgroundResource(R.drawable.border_indigo);
                     } else {
@@ -78,14 +76,12 @@ public class RecycleAdapter extends RecyclerView.Adapter<ViewHolder> {
             @Override
             public void onClick(View v) {
                 if (Objects.equals(page, "CUExamStorageActivity")) {
-                    // v.setEnabled(false);
                     selectedRow = viewHolder.getAdapterPosition();
                     Log.i("selectedRow", selectedRow + "");
                     CUExamStorageActivity.IssetTemplate = true;
                     CUExamStorageActivity.templateSet = template;
-                    CUExamStorageActivity.IDTemplate = template.getId_template();
-                    //CUExamStorageActivity.numScore.setText(max+"");
-                    Toast.makeText(context, "เลือก " + template.getUser_input_template_name() + "    " + viewHolder.getAdapterPosition(), Toast.LENGTH_SHORT).show();
+                    CUExamStorageActivity.IDTemplate = template.getTemplateID();
+                    Toast.makeText(context, "เลือก " + template.getTemplateName() + "    " + viewHolder.getAdapterPosition(), Toast.LENGTH_SHORT).show();
 
                     notifyDataSetChanged();
                 } else {

@@ -3,37 +3,23 @@ package com.example.chulift.demoapplication.classes;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-
-
 public class Answer {
-    private String idAnswer, answer, maxScore,userEmail;
+    private String answer;
 
     public Answer(JSONObject jsonObject) {
         if (jsonObject != null) {
             try {
-                idAnswer = jsonObject.getString("id_answer");
                 answer = jsonObject.getString("answer");
-                maxScore = jsonObject.getString("max_score");
-                userEmail = jsonObject.getString("user_email");
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
     }
+    public Answer(String answer) {
+        this.answer = answer;
+    }
 
     public String getAnswer() {
         return answer;
-    }
-
-    public String getIdAnswer() {
-        return idAnswer;
-    }
-
-    public String getMaxScore() {
-        return maxScore;
-    }
-
-    public String getUserEmail() {
-        return userEmail;
     }
 }
