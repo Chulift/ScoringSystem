@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#EEEEEE">
+    android:layout_height="match_parent">
     <!-- Load the toolbar here -->
     <include
         android:id="@+id/toolbar"
         layout="@layout/toolbar_main"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content" />
 
     <!-- Rest of content for the activity -->
     <TextView
-        android:layout_below="@id/toolbar"
         android:id="@+id/header_txtView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar"
         android:text="@string/answer_sheet_list_header"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="30sp"
         android:textStyle="bold" />
+
     <LinearLayout
         android:id="@+id/table_head"
         android:layout_width="match_parent"
@@ -30,55 +30,55 @@
         android:orientation="horizontal">
 
         <TextView
-            android:gravity="center_horizontal"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.15"
+            android:gravity="center_horizontal"
             android:padding="3dp"
             android:text="@string/index"
             android:textColor="@color/white" />
 
         <TextView
-            android:gravity="center_horizontal"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.40"
+            android:gravity="center_horizontal"
             android:padding="3dp"
             android:text="@string/std_code"
             android:textColor="@color/white" />
+
         <TextView
-            android:gravity="center_horizontal"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.40"
+            android:gravity="center_horizontal"
             android:padding="3dp"
             android:text="@string/point"
             android:textColor="@color/white" />
 
 
-
         <TextView
-            android:gravity="center_horizontal"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.45"
+            android:gravity="center_horizontal"
             android:paddingStart="6dp"
             android:text="@string/status"
             android:textColor="@color/white" />
 
     </LinearLayout>
 
-    <ListView
-        android:id="@+id/listView1"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView1"
         android:layout_width="match_parent"
         android:layout_height="350dp"
         android:layout_above="@+id/btm_bar"
 
+        android:layout_below="@+id/table_head"
         android:layout_marginLeft="4dp"
         android:layout_marginRight="4dp"
         android:background="@color/white"
-        android:padding="0dp"
-        android:layout_below="@+id/table_head" />
+        android:padding="0dp" />
 
     <LinearLayout
         android:id="@+id/btm_bar"
@@ -86,24 +86,24 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:weightSum="3">
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"
             android:orientation="vertical">
 
             <ImageButton
-                android:contentDescription="@string/back"
+
                 android:id="@+id/back_btn"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
-                android:background="#EEEEEE"
+                android:contentDescription="@string/back"
                 android:src="@mipmap/back_button" />
 
             <TextView
@@ -117,48 +117,42 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="10dp"
+            android:layout_weight="1"
             android:orientation="vertical">
 
             <ImageButton
-                android:contentDescription="@string/add"
                 android:id="@+id/add_answer_sheet_btn"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
-                android:background="#EEEEEE"
+                android:contentDescription="@string/add"
                 android:src="@mipmap/file_add" />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/capture_answer_sheet"
                 android:textAlignment="center"
                 android:textColor="@color/black" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
             android:orientation="vertical">
 
             <ImageButton
-                android:contentDescription="@string/camera"
                 android:id="@+id/test_camera"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
-                android:background="#EEEEEE"
+                android:contentDescription="@string/camera"
                 android:src="@mipmap/camera_icon" />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/test_camera"
                 android:textAlignment="center"

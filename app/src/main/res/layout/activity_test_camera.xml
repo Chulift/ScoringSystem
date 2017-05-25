@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#EEEEEE"
     tools:context="com.example.chulift.demoapplication.answerSheet.TestCameraActivity">
 
     <!-- Load the toolbar here -->
@@ -12,18 +11,18 @@
         android:id="@+id/toolbar"
         layout="@layout/toolbar_main"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content" />
 
     <!-- Rest of content for the activity -->
     <ImageView
-        android:contentDescription="@string/picture"
         android:id="@+id/test_image"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:srcCompat="@mipmap/camera_icon"
         android:layout_above="@+id/btm_bar"
+        android:layout_below="@+id/toolbar"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/toolbar" />
+        android:contentDescription="@string/picture"
+        app:srcCompat="@mipmap/camera_icon" />
 
     <LinearLayout
         android:id="@+id/btm_bar"
@@ -43,11 +42,11 @@
             android:orientation="vertical">
 
             <ImageButton
-                android:contentDescription="@string/back"
                 android:id="@+id/back_btn"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#EEEEEE"
+                android:contentDescription="@string/back"
                 android:src="@mipmap/back_button" />
 
             <TextView

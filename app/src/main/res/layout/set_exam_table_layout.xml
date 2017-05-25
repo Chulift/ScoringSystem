@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/white"
-    android:orientation="horizontal"
-    >
+    android:orientation="horizontal">
 
     <TextView
-        android:paddingBottom="15dp"
-        android:paddingTop="15dp"
         android:id="@+id/sequence_exam_set"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="0.1"
+        android:paddingBottom="15dp"
+        android:paddingTop="15dp"
         android:text="@string/index"
         android:textColor="@color/black" />
 
@@ -26,12 +26,12 @@
         android:textColor="@color/black" />
 
     <TextView
-        android:textAlignment="center"
         android:id="@+id/num_score_exam_set"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="0.2"
         android:text="@string/num_section"
+        android:textAlignment="center"
         android:textColor="@color/black" />
 
     <TextView

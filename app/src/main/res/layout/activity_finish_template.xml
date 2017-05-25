@@ -2,7 +2,6 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_finish_template"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.chulift.demoapplication.template.FinishTemplateActivity">
@@ -24,7 +23,6 @@
         android:weightSum="4">
 
         <TextView
-            android:id="@+id/textView1"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -35,7 +33,6 @@
             android:textSize="16sp" />
 
         <TextView
-            android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -46,7 +43,6 @@
             android:textSize="16sp" />
 
         <TextView
-            android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -57,7 +53,6 @@
             android:textSize="16sp" />
 
         <TextView
-            android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -67,25 +62,38 @@
             android:textColor="@color/green"
             android:textSize="16sp" />
     </LinearLayout>
-    <ImageButton
-        android:src="@mipmap/home_btn"
-        style="?android:attr/buttonBarButtonStyle"
-        android:text="@string/ok"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/okBtn"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:contentDescription="@string/home" />
 
-    <ImageView
-        android:contentDescription="@string/home"
-        android:layout_below="@id/linearLayout2"
-        android:layout_above="@id/okBtn"
+    <LinearLayout
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:id="@id/linearLayout3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/picture"
-        android:layout_centerVertical="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true">
+
+        <ImageButton
+            android:id="@+id/okBtn"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/home"
+            android:src="@mipmap/home_btn"
+            android:text="@string/ok" />
+        <TextView
+            android:text="@string/home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/linearLayout3"
+        android:layout_below="@id/linearLayout2"
         android:layout_centerHorizontal="true"
-        android:id="@+id/imageView" />
+        android:layout_centerVertical="true"
+        android:contentDescription="@string/home"
+        app:srcCompat="@drawable/picture" />
 </RelativeLayout>

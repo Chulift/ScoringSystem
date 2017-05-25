@@ -3,21 +3,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#EEEEEE"
     tools:context=".examStorage.ManageExamStorageActivity">
     <!-- Load the toolbar here -->
     <include
         android:id="@+id/toolbar"
         layout="@layout/toolbar_main"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content" />
 
     <!-- Rest of content for the activity -->
     <TextView
-        android:layout_below="@id/toolbar"
         android:id="@+id/header_txtView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar"
         android:text="@string/manage_exam_storage_header"
         android:textAlignment="center"
         android:textColor="@color/black"
@@ -53,8 +52,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.2"
             android:padding="3dp"
-            android:textAlignment="center"
             android:text="@string/num_section"
+            android:textAlignment="center"
             android:textColor="@color/white" />
 
         <TextView
@@ -67,8 +66,8 @@
 
     </LinearLayout>
 
-    <ListView
-        android:id="@+id/listView1"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/btm_bar"
@@ -97,12 +96,11 @@
             android:orientation="vertical">
 
             <ImageButton
-                android:contentDescription="@string/back"
                 android:id="@+id/back_btn"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
-                android:background="#EEEEEE"
+                android:contentDescription="@string/back"
                 android:src="@mipmap/home_btn" />
 
             <TextView
@@ -123,12 +121,12 @@
             android:orientation="vertical">
 
             <ImageButton
-                android:contentDescription="@string/add"
                 android:id="@+id/add_exam_btn"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
-                android:background="#EEEEEE"
+                android:contentDescription="@string/add"
                 android:src="@mipmap/file_add" />
 
             <TextView

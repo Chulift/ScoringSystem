@@ -2,7 +2,6 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_edit_template"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
@@ -29,18 +28,17 @@
             android:layout_height="wrap_content" />
 
     </android.support.design.widget.AppBarLayout>
-
+<!--
     <android.support.design.widget.AppBarLayout
         android:id="@+id/btm_app_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
         android:layout_alignParentBottom="true"
         android:background="#EEEEEE"
         android:theme="@style/AppTheme.AppBarOverlay">
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:layout_marginLeft="20dp"
@@ -62,14 +60,14 @@
                 android:text="@string/back"
                 android:textColor="@color/black" />
         </LinearLayout>
-    </android.support.design.widget.AppBarLayout>
 
+    </android.support.design.widget.AppBarLayout>
+-->
     <android.support.v4.view.ViewPager
 
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/btm_app_bar"
         android:layout_alignParentStart="true"
         android:layout_below="@id/appbar"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />

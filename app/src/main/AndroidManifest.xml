@@ -39,11 +39,11 @@
         <activity android:name=".examStorage.CUExamStorageActivity" />
         <activity android:name=".answer.SelectAnswerActivity" />
         <activity android:name=".answerSheet.AnswerSheetListActivity" />
-        <activity android:name=".answerSheet.CaptureAnswerSheetActivity" />
         <activity android:name=".answer.CaptureAnswerActivity" />
         <activity android:name=".answerSheet.TestCameraActivity" />
-        <activity android:name=".CameraActivity" />
-        <activity android:name=".FirstMenusActivity"></activity>
+        <activity android:name=".CameraImageActivity" />
+        <activity android:name=".MenusActivity" />
+        <activity android:name=".SettingActivity"></activity>
     </application>
 
 </manifest>

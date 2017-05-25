@@ -1,50 +1,50 @@
 The target system is: Android - 21 - i686
-The host system is: Windows - 10.0.14393 - AMD64
+The host system is: Windows - 10.0.15063 - AMD64
 Determining if the C compiler works passed with the following output:
-Change Dir: C:/Users/chulift/Documents/ScoringSystem/app/.externalNativeBuild/cmake/debug/x86/CMakeFiles/CMakeTmp
+Change Dir: C:/Users/Chulift/Documents/ScoringSystem/app/.externalNativeBuild/cmake/debug/x86/CMakeFiles/CMakeTmp
 
-Run Build Command:"C:\Users\chulift\AppData\Local\Android\Sdk\cmake\3.6.3155560\bin\ninja.exe" "cmTC_8b33b"
-[1/2] Building C object CMakeFiles/cmTC_8b33b.dir/testCCompiler.c.o
-[2/2] Linking C executable cmTC_8b33b
+Run Build Command:"C:\Users\chulift\AppData\Local\Android\Sdk\cmake\3.6.3155560\bin\ninja.exe" "cmTC_660f2"
+[1/2] Building C object CMakeFiles/cmTC_660f2.dir/testCCompiler.c.o
+[2/2] Linking C executable cmTC_660f2
 
 
 Detecting C compiler ABI info compiled with the following output:
-Change Dir: C:/Users/chulift/Documents/ScoringSystem/app/.externalNativeBuild/cmake/debug/x86/CMakeFiles/CMakeTmp
+Change Dir: C:/Users/Chulift/Documents/ScoringSystem/app/.externalNativeBuild/cmake/debug/x86/CMakeFiles/CMakeTmp
 
-Run Build Command:"C:\Users\chulift\AppData\Local\Android\Sdk\cmake\3.6.3155560\bin\ninja.exe" "cmTC_3d7ed"
-[1/2] Building C object CMakeFiles/cmTC_3d7ed.dir/CMakeCCompilerABI.c.o
-[2/2] Linking C executable cmTC_3d7ed
+Run Build Command:"C:\Users\chulift\AppData\Local\Android\Sdk\cmake\3.6.3155560\bin\ninja.exe" "cmTC_6c044"
+[1/2] Building C object CMakeFiles/cmTC_6c044.dir/CMakeCCompilerABI.c.o
+[2/2] Linking C executable cmTC_6c044
 Android clang version 3.8.275480  (based on LLVM 3.8.275480)
 Target: i686-none-linux-android
 Thread model: posix
-InstalledDir: C:\Users\chulift\AppData\Local\Android\sdk\ndk-bundle\toolchains\llvm\prebuilt\windows-x86_64\bin
-Found candidate GCC installation: C:/Users/chulift/AppData/Local/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/lib/gcc/i686-linux-android\4.9.x
-Selected GCC installation: C:/Users/chulift/AppData/Local/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/lib/gcc/i686-linux-android/4.9.x
+InstalledDir: C:\Users\Chulift\AppData\Local\Android\sdk\ndk-bundle\toolchains\llvm\prebuilt\windows-x86_64\bin
+Found candidate GCC installation: C:/Users/Chulift/AppData/Local/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/lib/gcc/i686-linux-android\4.9.x
+Selected GCC installation: C:/Users/Chulift/AppData/Local/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/lib/gcc/i686-linux-android/4.9.x
 Candidate multilib: .;@m32
 Selected multilib: .;@m32
- "C:/Users/chulift/AppData/Local/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/lib/gcc/i686-linux-android/4.9.x/../../../../i686-linux-android/bin\\ld" --sysroot=C:/Users/chulift/AppData/Local/Android/sdk/ndk-bundle/platforms/android-21/arch-x86 -pie --eh-frame-hdr -m elf_i386 -dynamic-linker /system/bin/linker -o cmTC_3d7ed "C:/Users/chulift/AppData/Local/Android/sdk/ndk-bundle/platforms/android-21/arch-x86/usr/lib\\crtbegin_dynamic.o" -LC:/Users/chulift/AppData/Local/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/lib/gcc/i686-linux-android/4.9.x -LC:/Users/chulift/AppData/Local/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/lib/gcc/i686-linux-android/4.9.x/../../../../i686-linux-android/lib -LC:/Users/chulift/AppData/Local/Android/sdk/ndk-bundle/platforms/android-21/arch-x86/usr/lib --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc CMakeFiles/cmTC_3d7ed.dir/CMakeCCompilerABI.c.o -lgcc -ldl -lc -lgcc -ldl "C:/Users/chulift/AppData/Local/Android/sdk/ndk-bundle/platforms/android-21/arch-x86/usr/lib\\crtend_android.o"
+ "C:/Users/Chulift/AppData/Local/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/lib/gcc/i686-linux-android/4.9.x/../../../../i686-linux-android/bin\\ld" --sysroot=C:/Users/Chulift/AppData/Local/Android/sdk/ndk-bundle/platforms/android-21/arch-x86 -pie --eh-frame-hdr -m elf_i386 -dynamic-linker /system/bin/linker -o cmTC_6c044 "C:/Users/Chulift/AppData/Local/Android/sdk/ndk-bundle/platforms/android-21/arch-x86/usr/lib\\crtbegin_dynamic.o" -LC:/Users/Chulift/AppData/Local/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/lib/gcc/i686-linux-android/4.9.x -LC:/Users/Chulift/AppData/Local/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/lib/gcc/i686-linux-android/4.9.x/../../../../i686-linux-android/lib -LC:/Users/Chulift/AppData/Local/Android/sdk/ndk-bundle/platforms/android-21/arch-x86/usr/lib --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc CMakeFiles/cmTC_6c044.dir/CMakeCCompilerABI.c.o -lgcc -ldl -lc -lgcc -ldl "C:/Users/Chulift/AppData/Local/Android/sdk/ndk-bundle/platforms/android-21/arch-x86/usr/lib\\crtend_android.o"
 
 
 Parsed C implicit link information from above output:
   link line regex: [^( *|.*[/\])(i686-linux-android-ld\.exe|([^/\]+-)?ld|collect2)[^/\]*( |$)]
-  ignore line: [Change Dir: C:/Users/chulift/Documents/ScoringSystem/app/.externalNativeBuild/cmake/debug/x86/CMakeFiles/CMakeTmp]
+  ignore line: [Change Dir: C:/Users/Chulift/Documents/ScoringSystem/app/.externalNativeBuild/cmake/debug/x86/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"C:\Users\chulift\AppData\Local\Android\Sdk\cmake\3.6.3155560\bin\ninja.exe" "cmTC_3d7ed"]
-  ignore line: [[1/2] Building C object CMakeFiles/cmTC_3d7ed.dir/CMakeCCompilerABI.c.o]
-  ignore line: [[2/2] Linking C executable cmTC_3d7ed]
+  ignore line: [Run Build Command:"C:\Users\chulift\AppData\Local\Android\Sdk\cmake\3.6.3155560\bin\ninja.exe" "cmTC_6c044"]
+  ignore line: [[1/2] Building C object CMakeFiles/cmTC_6c044.dir/CMakeCCompilerABI.c.o]
+  ignore line: [[2/2] Linking C executable cmTC_6c044]
   ignore line: [Android clang version 3.8.275480  (based on LLVM 3.8.275480)]
   ignore line: [Target: i686-none-linux-android]
   ignore line: [Thread model: posix]
-  ignore line: [InstalledDir: C:\Users\chulift\AppData\Local\Android\sdk\ndk-bundle\toolchains\llvm\prebuilt\windows-x86_64\bin]
-  ignore line: [Found candidate GCC installation: C:/Users/chulift/AppData/Local/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/lib/gcc/i686-linux-android\4.9.x]
-  ignore line: [Selected GCC installation: C:/Users/chulift/AppData/Local/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/lib/gcc/i686-linux-android/4.9.x]
+  ignore line: [InstalledDir: C:\Users\Chulift\AppData\Local\Android\sdk\ndk-bundle\toolchains\llvm\prebuilt\windows-x86_64\bin]
+  ignore line: [Found candidate GCC installation: C:/Users/Chulift/AppData/Local/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/lib/gcc/i686-linux-android\4.9.x]
+  ignore line: [Selected GCC installation: C:/Users/Chulift/AppData/Local/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/lib/gcc/i686-linux-android/4.9.x]
   ignore line: [Candidate multilib: .]
   ignore line: [@m32]
   ignore line: [Selected multilib: .]
   ignore line: [@m32]
-  link line: [ "C:/Users/chulift/AppData/Local/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/lib/gcc/i686-linux-android/4.9.x/../../../../i686-linux-android/bin\\ld" --sysroot=C:/Users/chulift/AppData/Local/Android/sdk/ndk-bundle/platforms/android-21/arch-x86 -pie --eh-frame-hdr -m elf_i386 -dynamic-linker /system/bin/linker -o cmTC_3d7ed "C:/Users/chulift/AppData/Local/Android/sdk/ndk-bundle/platforms/android-21/arch-x86/usr/lib\\crtbegin_dynamic.o" -LC:/Users/chulift/AppData/Local/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/lib/gcc/i686-linux-android/4.9.x -LC:/Users/chulift/AppData/Local/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/lib/gcc/i686-linux-android/4.9.x/../../../../i686-linux-android/lib -LC:/Users/chulift/AppData/Local/Android/sdk/ndk-bundle/platforms/android-21/arch-x86/usr/lib --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc CMakeFiles/cmTC_3d7ed.dir/CMakeCCompilerABI.c.o -lgcc -ldl -lc -lgcc -ldl "C:/Users/chulift/AppData/Local/Android/sdk/ndk-bundle/platforms/android-21/arch-x86/usr/lib\\crtend_android.o"]
-    arg [C:/Users/chulift/AppData/Local/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/lib/gcc/i686-linux-android/4.9.x/../../../../i686-linux-android/bin\ld] ==> ignore
-    arg [--sysroot=C:/Users/chulift/AppData/Local/Android/sdk/ndk-bundle/platforms/android-21/arch-x86] ==> ignore
+  link line: [ "C:/Users/Chulift/AppData/Local/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/lib/gcc/i686-linux-android/4.9.x/../../../../i686-linux-android/bin\\ld" --sysroot=C:/Users/Chulift/AppData/Local/Android/sdk/ndk-bundle/platforms/android-21/arch-x86 -pie --eh-frame-hdr -m elf_i386 -dynamic-linker /system/bin/linker -o cmTC_6c044 "C:/Users/Chulift/AppData/Local/Android/sdk/ndk-bundle/platforms/android-21/arch-x86/usr/lib\\crtbegin_dynamic.o" -LC:/Users/Chulift/AppData/Local/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/lib/gcc/i686-linux-android/4.9.x -LC:/Users/Chulift/AppData/Local/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/lib/gcc/i686-linux-android/4.9.x/../../../../i686-linux-android/lib -LC:/Users/Chulift/AppData/Local/Android/sdk/ndk-bundle/platforms/android-21/arch-x86/usr/lib --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc CMakeFiles/cmTC_6c044.dir/CMakeCCompilerABI.c.o -lgcc -ldl -lc -lgcc -ldl "C:/Users/Chulift/AppData/Local/Android/sdk/ndk-bundle/platforms/android-21/arch-x86/usr/lib\\crtend_android.o"]
+    arg [C:/Users/Chulift/AppData/Local/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/lib/gcc/i686-linux-android/4.9.x/../../../../i686-linux-android/bin\ld] ==> ignore
+    arg [--sysroot=C:/Users/Chulift/AppData/Local/Android/sdk/ndk-bundle/platforms/android-21/arch-x86] ==> ignore
     arg [-pie] ==> ignore
     arg [--eh-frame-hdr] ==> ignore
     arg [-m] ==> ignore
@@ -52,11 +52,11 @@ Parsed C implicit link information from above output:
     arg [-dynamic-linker] ==> ignore
     arg [/system/bin/linker] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_3d7ed] ==> ignore
-    arg [C:/Users/chulift/AppData/Local/Android/sdk/ndk-bundle/platforms/android-21/arch-x86/usr/lib\crtbegin_dynamic.o] ==> ignore
-    arg [-LC:/Users/chulift/AppData/Local/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/lib/gcc/i686-linux-android/4.9.x] ==> dir [C:/Users/chulift/AppData/Local/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/lib/gcc/i686-linux-android/4.9.x]
-    arg [-LC:/Users/chulift/AppData/Local/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/lib/gcc/i686-linux-android/4.9.x/../../../../i686-linux-android/lib] ==> dir [C:/Users/chulift/AppData/Local/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/lib/gcc/i686-linux-android/4.9.x/../../../../i686-linux-android/lib]
-    arg [-LC:/Users/chulift/AppData/Local/Android/sdk/ndk-bundle/platforms/android-21/arch-x86/usr/lib] ==> dir [C:/Users/chulift/AppData/Local/Android/sdk/ndk-bundle/platforms/android-21/arch-x86/usr/lib]
+    arg [cmTC_6c044] ==> ignore
+    arg [C:/Users/Chulift/AppData/Local/Android/sdk/ndk-bundle/platforms/android-21/arch-x86/usr/lib\crtbegin_dynamic.o] ==> ignore
+    arg [-LC:/Users/Chulift/AppData/Local/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/lib/gcc/i686-linux-android/4.9.x] ==> dir [C:/Users/Chulift/AppData/Local/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/lib/gcc/i686-linux-android/4.9.x]
+    arg [-LC:/Users/Chulift/AppData/Local/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/lib/gcc/i686-linux-android/4.9.x/../../../../i686-linux-android/lib] ==> dir [C:/Users/Chulift/AppData/Local/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/lib/gcc/i686-linux-android/4.9.x/../../../../i686-linux-android/lib]
+    arg [-LC:/Users/Chulift/AppData/Local/Android/sdk/ndk-bundle/platforms/android-21/arch-x86/usr/lib] ==> dir [C:/Users/Chulift/AppData/Local/Android/sdk/ndk-bundle/platforms/android-21/arch-x86/usr/lib]
     arg [--build-id] ==> ignore
     arg [--warn-shared-textrel] ==> ignore
     arg [--fatal-warnings] ==> ignore
@@ -75,31 +75,31 @@ Parsed C implicit link information from above output:
     arg [-znow] ==> ignore
     arg [--gc-sections] ==> ignore
     arg [-znocopyreloc] ==> ignore
-    arg [CMakeFiles/cmTC_3d7ed.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [CMakeFiles/cmTC_6c044.dir/CMakeCCompilerABI.c.o] ==> ignore
     arg [-lgcc] ==> lib [gcc]
     arg [-ldl] ==> lib [dl]
     arg [-lc] ==> lib [c]
     arg [-lgcc] ==> lib [gcc]
     arg [-ldl] ==> lib [dl]
-    arg [C:/Users/chulift/AppData/Local/Android/sdk/ndk-bundle/platforms/android-21/arch-x86/usr/lib\crtend_android.o] ==> ignore
+    arg [C:/Users/Chulift/AppData/Local/Android/sdk/ndk-bundle/platforms/android-21/arch-x86/usr/lib\crtend_android.o] ==> ignore
   remove lib [gcc]
   remove lib [gcc]
-  collapse library dir [C:/Users/chulift/AppData/Local/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/lib/gcc/i686-linux-android/4.9.x] ==> [C:/Users/chulift/AppData/Local/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/lib/gcc/i686-linux-android/4.9.x]
-  collapse library dir [C:/Users/chulift/AppData/Local/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/lib/gcc/i686-linux-android/4.9.x/../../../../i686-linux-android/lib] ==> [C:/Users/chulift/AppData/Local/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/i686-linux-android/lib]
-  collapse library dir [C:/Users/chulift/AppData/Local/Android/sdk/ndk-bundle/platforms/android-21/arch-x86/usr/lib] ==> [C:/Users/chulift/AppData/Local/Android/sdk/ndk-bundle/platforms/android-21/arch-x86/usr/lib]
+  collapse library dir [C:/Users/Chulift/AppData/Local/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/lib/gcc/i686-linux-android/4.9.x] ==> [C:/Users/Chulift/AppData/Local/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/lib/gcc/i686-linux-android/4.9.x]
+  collapse library dir [C:/Users/Chulift/AppData/Local/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/lib/gcc/i686-linux-android/4.9.x/../../../../i686-linux-android/lib] ==> [C:/Users/Chulift/AppData/Local/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/i686-linux-android/lib]
+  collapse library dir [C:/Users/Chulift/AppData/Local/Android/sdk/ndk-bundle/platforms/android-21/arch-x86/usr/lib] ==> [C:/Users/Chulift/AppData/Local/Android/sdk/ndk-bundle/platforms/android-21/arch-x86/usr/lib]
   implicit libs: [dl;c;dl]
-  implicit dirs: [C:/Users/chulift/AppData/Local/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/lib/gcc/i686-linux-android/4.9.x;C:/Users/chulift/AppData/Local/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/i686-linux-android/lib;C:/Users/chulift/AppData/Local/Android/sdk/ndk-bundle/platforms/android-21/arch-x86/usr/lib]
+  implicit dirs: [C:/Users/Chulift/AppData/Local/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/lib/gcc/i686-linux-android/4.9.x;C:/Users/Chulift/AppData/Local/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/i686-linux-android/lib;C:/Users/Chulift/AppData/Local/Android/sdk/ndk-bundle/platforms/android-21/arch-x86/usr/lib]
   implicit fwks: []
 
 
 
 
 Detecting C [-std=c11] compiler features compiled with the following output:
-Change Dir: C:/Users/chulift/Documents/ScoringSystem/app/.externalNativeBuild/cmake/debug/x86/CMakeFiles/CMakeTmp
+Change Dir: C:/Users/Chulift/Documents/ScoringSystem/app/.externalNativeBuild/cmake/debug/x86/CMakeFiles/CMakeTmp
 
-Run Build Command:"C:\Users\chulift\AppData\Local\Android\Sdk\cmake\3.6.3155560\bin\ninja.exe" "cmTC_f8c50"
-[1/2] Building C object CMakeFiles/cmTC_f8c50.dir/feature_tests.c.o
-[2/2] Linking C executable cmTC_f8c50
+Run Build Command:"C:\Users\chulift\AppData\Local\Android\Sdk\cmake\3.6.3155560\bin\ninja.exe" "cmTC_54e89"
+[1/2] Building C object CMakeFiles/cmTC_54e89.dir/feature_tests.c.o
+[2/2] Linking C executable cmTC_54e89
 
 
     Feature record: C_FEATURE:1c_function_prototypes
@@ -109,11 +109,11 @@ Run Build Command:"C:\Users\chulift\AppData\Local\Android\Sdk\cmake\3.6.3155560\
 
 
 Detecting C [-std=c99] compiler features compiled with the following output:
-Change Dir: C:/Users/chulift/Documents/ScoringSystem/app/.externalNativeBuild/cmake/debug/x86/CMakeFiles/CMakeTmp
+Change Dir: C:/Users/Chulift/Documents/ScoringSystem/app/.externalNativeBuild/cmake/debug/x86/CMakeFiles/CMakeTmp
 
-Run Build Command:"C:\Users\chulift\AppData\Local\Android\Sdk\cmake\3.6.3155560\bin\ninja.exe" "cmTC_d70cb"
-[1/2] Building C object CMakeFiles/cmTC_d70cb.dir/feature_tests.c.o
-[2/2] Linking C executable cmTC_d70cb
+Run Build Command:"C:\Users\chulift\AppData\Local\Android\Sdk\cmake\3.6.3155560\bin\ninja.exe" "cmTC_49f2f"
+[1/2] Building C object CMakeFiles/cmTC_49f2f.dir/feature_tests.c.o
+[2/2] Linking C executable cmTC_49f2f
 
 
     Feature record: C_FEATURE:1c_function_prototypes
@@ -123,11 +123,11 @@ Run Build Command:"C:\Users\chulift\AppData\Local\Android\Sdk\cmake\3.6.3155560\
 
 
 Detecting C [-std=c90] compiler features compiled with the following output:
-Change Dir: C:/Users/chulift/Documents/ScoringSystem/app/.externalNativeBuild/cmake/debug/x86/CMakeFiles/CMakeTmp
+Change Dir: C:/Users/Chulift/Documents/ScoringSystem/app/.externalNativeBuild/cmake/debug/x86/CMakeFiles/CMakeTmp
 
-Run Build Command:"C:\Users\chulift\AppData\Local\Android\Sdk\cmake\3.6.3155560\bin\ninja.exe" "cmTC_98b81"
-[1/2] Building C object CMakeFiles/cmTC_98b81.dir/feature_tests.c.o
-[2/2] Linking C executable cmTC_98b81
+Run Build Command:"C:\Users\chulift\AppData\Local\Android\Sdk\cmake\3.6.3155560\bin\ninja.exe" "cmTC_5622a"
+[1/2] Building C object CMakeFiles/cmTC_5622a.dir/feature_tests.c.o
+[2/2] Linking C executable cmTC_5622a
 
 
     Feature record: C_FEATURE:1c_function_prototypes
@@ -135,50 +135,50 @@ Run Build Command:"C:\Users\chulift\AppData\Local\Android\Sdk\cmake\3.6.3155560\
     Feature record: C_FEATURE:0c_static_assert
     Feature record: C_FEATURE:0c_variadic_macros
 Determining if the CXX compiler works passed with the following output:
-Change Dir: C:/Users/chulift/Documents/ScoringSystem/app/.externalNativeBuild/cmake/debug/x86/CMakeFiles/CMakeTmp
+Change Dir: C:/Users/Chulift/Documents/ScoringSystem/app/.externalNativeBuild/cmake/debug/x86/CMakeFiles/CMakeTmp
 
-Run Build Command:"C:\Users\chulift\AppData\Local\Android\Sdk\cmake\3.6.3155560\bin\ninja.exe" "cmTC_bd76e"
-[1/2] Building CXX object CMakeFiles/cmTC_bd76e.dir/testCXXCompiler.cxx.o
-[2/2] Linking CXX executable cmTC_bd76e
+Run Build Command:"C:\Users\chulift\AppData\Local\Android\Sdk\cmake\3.6.3155560\bin\ninja.exe" "cmTC_406f4"
+[1/2] Building CXX object CMakeFiles/cmTC_406f4.dir/testCXXCompiler.cxx.o
+[2/2] Linking CXX executable cmTC_406f4
 
 
 Detecting CXX compiler ABI info compiled with the following output:
-Change Dir: C:/Users/chulift/Documents/ScoringSystem/app/.externalNativeBuild/cmake/debug/x86/CMakeFiles/CMakeTmp
+Change Dir: C:/Users/Chulift/Documents/ScoringSystem/app/.externalNativeBuild/cmake/debug/x86/CMakeFiles/CMakeTmp
 
-Run Build Command:"C:\Users\chulift\AppData\Local\Android\Sdk\cmake\3.6.3155560\bin\ninja.exe" "cmTC_b6c53"
-[1/2] Building CXX object CMakeFiles/cmTC_b6c53.dir/CMakeCXXCompilerABI.cpp.o
-[2/2] Linking CXX executable cmTC_b6c53
+Run Build Command:"C:\Users\chulift\AppData\Local\Android\Sdk\cmake\3.6.3155560\bin\ninja.exe" "cmTC_c6db9"
+[1/2] Building CXX object CMakeFiles/cmTC_c6db9.dir/CMakeCXXCompilerABI.cpp.o
+[2/2] Linking CXX executable cmTC_c6db9
 Android clang version 3.8.275480  (based on LLVM 3.8.275480)
 Target: i686-none-linux-android
 Thread model: posix
-InstalledDir: C:\Users\chulift\AppData\Local\Android\sdk\ndk-bundle\toolchains\llvm\prebuilt\windows-x86_64\bin
-Found candidate GCC installation: C:/Users/chulift/AppData/Local/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/lib/gcc/i686-linux-android\4.9.x
-Selected GCC installation: C:/Users/chulift/AppData/Local/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/lib/gcc/i686-linux-android/4.9.x
+InstalledDir: C:\Users\Chulift\AppData\Local\Android\sdk\ndk-bundle\toolchains\llvm\prebuilt\windows-x86_64\bin
+Found candidate GCC installation: C:/Users/Chulift/AppData/Local/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/lib/gcc/i686-linux-android\4.9.x
+Selected GCC installation: C:/Users/Chulift/AppData/Local/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/lib/gcc/i686-linux-android/4.9.x
 Candidate multilib: .;@m32
 Selected multilib: .;@m32
- "C:/Users/chulift/AppData/Local/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/lib/gcc/i686-linux-android/4.9.x/../../../../i686-linux-android/bin\\ld" --sysroot=C:/Users/chulift/AppData/Local/Android/sdk/ndk-bundle/platforms/android-21/arch-x86 -pie --eh-frame-hdr -m elf_i386 -dynamic-linker /system/bin/linker -o cmTC_b6c53 "C:/Users/chulift/AppData/Local/Android/sdk/ndk-bundle/platforms/android-21/arch-x86/usr/lib\\crtbegin_dynamic.o" -LC:/Users/chulift/AppData/Local/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/lib/gcc/i686-linux-android/4.9.x -LC:/Users/chulift/AppData/Local/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/lib/gcc/i686-linux-android/4.9.x/../../../../i686-linux-android/lib -LC:/Users/chulift/AppData/Local/Android/sdk/ndk-bundle/platforms/android-21/arch-x86/usr/lib --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc CMakeFiles/cmTC_b6c53.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc -lgcc -ldl -lc -lgcc -lgcc -ldl "C:/Users/chulift/AppData/Local/Android/sdk/ndk-bundle/platforms/android-21/arch-x86/usr/lib\\crtend_android.o"
+ "C:/Users/Chulift/AppData/Local/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/lib/gcc/i686-linux-android/4.9.x/../../../../i686-linux-android/bin\\ld" --sysroot=C:/Users/Chulift/AppData/Local/Android/sdk/ndk-bundle/platforms/android-21/arch-x86 -pie --eh-frame-hdr -m elf_i386 -dynamic-linker /system/bin/linker -o cmTC_c6db9 "C:/Users/Chulift/AppData/Local/Android/sdk/ndk-bundle/platforms/android-21/arch-x86/usr/lib\\crtbegin_dynamic.o" -LC:/Users/Chulift/AppData/Local/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/lib/gcc/i686-linux-android/4.9.x -LC:/Users/Chulift/AppData/Local/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/lib/gcc/i686-linux-android/4.9.x/../../../../i686-linux-android/lib -LC:/Users/Chulift/AppData/Local/Android/sdk/ndk-bundle/platforms/android-21/arch-x86/usr/lib --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc CMakeFiles/cmTC_c6db9.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc -lgcc -ldl -lc -lgcc -lgcc -ldl "C:/Users/Chulift/AppData/Local/Android/sdk/ndk-bundle/platforms/android-21/arch-x86/usr/lib\\crtend_android.o"
 
 
 Parsed CXX implicit link information from above output:
   link line regex: [^( *|.*[/\])(i686-linux-android-ld\.exe|([^/\]+-)?ld|collect2)[^/\]*( |$)]
-  ignore line: [Change Dir: C:/Users/chulift/Documents/ScoringSystem/app/.externalNativeBuild/cmake/debug/x86/CMakeFiles/CMakeTmp]
+  ignore line: [Change Dir: C:/Users/Chulift/Documents/ScoringSystem/app/.externalNativeBuild/cmake/debug/x86/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"C:\Users\chulift\AppData\Local\Android\Sdk\cmake\3.6.3155560\bin\ninja.exe" "cmTC_b6c53"]
-  ignore line: [[1/2] Building CXX object CMakeFiles/cmTC_b6c53.dir/CMakeCXXCompilerABI.cpp.o]
-  ignore line: [[2/2] Linking CXX executable cmTC_b6c53]
+  ignore line: [Run Build Command:"C:\Users\chulift\AppData\Local\Android\Sdk\cmake\3.6.3155560\bin\ninja.exe" "cmTC_c6db9"]
+  ignore line: [[1/2] Building CXX object CMakeFiles/cmTC_c6db9.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [[2/2] Linking CXX executable cmTC_c6db9]
   ignore line: [Android clang version 3.8.275480  (based on LLVM 3.8.275480)]
   ignore line: [Target: i686-none-linux-android]
   ignore line: [Thread model: posix]
-  ignore line: [InstalledDir: C:\Users\chulift\AppData\Local\Android\sdk\ndk-bundle\toolchains\llvm\prebuilt\windows-x86_64\bin]
-  ignore line: [Found candidate GCC installation: C:/Users/chulift/AppData/Local/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/lib/gcc/i686-linux-android\4.9.x]
-  ignore line: [Selected GCC installation: C:/Users/chulift/AppData/Local/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/lib/gcc/i686-linux-android/4.9.x]
+  ignore line: [InstalledDir: C:\Users\Chulift\AppData\Local\Android\sdk\ndk-bundle\toolchains\llvm\prebuilt\windows-x86_64\bin]
+  ignore line: [Found candidate GCC installation: C:/Users/Chulift/AppData/Local/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/lib/gcc/i686-linux-android\4.9.x]
+  ignore line: [Selected GCC installation: C:/Users/Chulift/AppData/Local/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/lib/gcc/i686-linux-android/4.9.x]
   ignore line: [Candidate multilib: .]
   ignore line: [@m32]
   ignore line: [Selected multilib: .]
   ignore line: [@m32]
-  link line: [ "C:/Users/chulift/AppData/Local/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/lib/gcc/i686-linux-android/4.9.x/../../../../i686-linux-android/bin\\ld" --sysroot=C:/Users/chulift/AppData/Local/Android/sdk/ndk-bundle/platforms/android-21/arch-x86 -pie --eh-frame-hdr -m elf_i386 -dynamic-linker /system/bin/linker -o cmTC_b6c53 "C:/Users/chulift/AppData/Local/Android/sdk/ndk-bundle/platforms/android-21/arch-x86/usr/lib\\crtbegin_dynamic.o" -LC:/Users/chulift/AppData/Local/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/lib/gcc/i686-linux-android/4.9.x -LC:/Users/chulift/AppData/Local/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/lib/gcc/i686-linux-android/4.9.x/../../../../i686-linux-android/lib -LC:/Users/chulift/AppData/Local/Android/sdk/ndk-bundle/platforms/android-21/arch-x86/usr/lib --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc CMakeFiles/cmTC_b6c53.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc -lgcc -ldl -lc -lgcc -lgcc -ldl "C:/Users/chulift/AppData/Local/Android/sdk/ndk-bundle/platforms/android-21/arch-x86/usr/lib\\crtend_android.o"]
-    arg [C:/Users/chulift/AppData/Local/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/lib/gcc/i686-linux-android/4.9.x/../../../../i686-linux-android/bin\ld] ==> ignore
-    arg [--sysroot=C:/Users/chulift/AppData/Local/Android/sdk/ndk-bundle/platforms/android-21/arch-x86] ==> ignore
+  link line: [ "C:/Users/Chulift/AppData/Local/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/lib/gcc/i686-linux-android/4.9.x/../../../../i686-linux-android/bin\\ld" --sysroot=C:/Users/Chulift/AppData/Local/Android/sdk/ndk-bundle/platforms/android-21/arch-x86 -pie --eh-frame-hdr -m elf_i386 -dynamic-linker /system/bin/linker -o cmTC_c6db9 "C:/Users/Chulift/AppData/Local/Android/sdk/ndk-bundle/platforms/android-21/arch-x86/usr/lib\\crtbegin_dynamic.o" -LC:/Users/Chulift/AppData/Local/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/lib/gcc/i686-linux-android/4.9.x -LC:/Users/Chulift/AppData/Local/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/lib/gcc/i686-linux-android/4.9.x/../../../../i686-linux-android/lib -LC:/Users/Chulift/AppData/Local/Android/sdk/ndk-bundle/platforms/android-21/arch-x86/usr/lib --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc --build-id --warn-shared-textrel --fatal-warnings --no-undefined -z noexecstack -z relro -z now --gc-sections -z nocopyreloc CMakeFiles/cmTC_c6db9.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc -lgcc -ldl -lc -lgcc -lgcc -ldl "C:/Users/Chulift/AppData/Local/Android/sdk/ndk-bundle/platforms/android-21/arch-x86/usr/lib\\crtend_android.o"]
+    arg [C:/Users/Chulift/AppData/Local/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/lib/gcc/i686-linux-android/4.9.x/../../../../i686-linux-android/bin\ld] ==> ignore
+    arg [--sysroot=C:/Users/Chulift/AppData/Local/Android/sdk/ndk-bundle/platforms/android-21/arch-x86] ==> ignore
     arg [-pie] ==> ignore
     arg [--eh-frame-hdr] ==> ignore
     arg [-m] ==> ignore
@@ -186,11 +186,11 @@ Parsed CXX implicit link information from above output:
     arg [-dynamic-linker] ==> ignore
     arg [/system/bin/linker] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_b6c53] ==> ignore
-    arg [C:/Users/chulift/AppData/Local/Android/sdk/ndk-bundle/platforms/android-21/arch-x86/usr/lib\crtbegin_dynamic.o] ==> ignore
-    arg [-LC:/Users/chulift/AppData/Local/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/lib/gcc/i686-linux-android/4.9.x] ==> dir [C:/Users/chulift/AppData/Local/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/lib/gcc/i686-linux-android/4.9.x]
-    arg [-LC:/Users/chulift/AppData/Local/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/lib/gcc/i686-linux-android/4.9.x/../../../../i686-linux-android/lib] ==> dir [C:/Users/chulift/AppData/Local/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/lib/gcc/i686-linux-android/4.9.x/../../../../i686-linux-android/lib]
-    arg [-LC:/Users/chulift/AppData/Local/Android/sdk/ndk-bundle/platforms/android-21/arch-x86/usr/lib] ==> dir [C:/Users/chulift/AppData/Local/Android/sdk/ndk-bundle/platforms/android-21/arch-x86/usr/lib]
+    arg [cmTC_c6db9] ==> ignore
+    arg [C:/Users/Chulift/AppData/Local/Android/sdk/ndk-bundle/platforms/android-21/arch-x86/usr/lib\crtbegin_dynamic.o] ==> ignore
+    arg [-LC:/Users/Chulift/AppData/Local/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/lib/gcc/i686-linux-android/4.9.x] ==> dir [C:/Users/Chulift/AppData/Local/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/lib/gcc/i686-linux-android/4.9.x]
+    arg [-LC:/Users/Chulift/AppData/Local/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/lib/gcc/i686-linux-android/4.9.x/../../../../i686-linux-android/lib] ==> dir [C:/Users/Chulift/AppData/Local/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/lib/gcc/i686-linux-android/4.9.x/../../../../i686-linux-android/lib]
+    arg [-LC:/Users/Chulift/AppData/Local/Android/sdk/ndk-bundle/platforms/android-21/arch-x86/usr/lib] ==> dir [C:/Users/Chulift/AppData/Local/Android/sdk/ndk-bundle/platforms/android-21/arch-x86/usr/lib]
     arg [--build-id] ==> ignore
     arg [--warn-shared-textrel] ==> ignore
     arg [--fatal-warnings] ==> ignore
@@ -209,7 +209,7 @@ Parsed CXX implicit link information from above output:
     arg [-znow] ==> ignore
     arg [--gc-sections] ==> ignore
     arg [-znocopyreloc] ==> ignore
-    arg [CMakeFiles/cmTC_b6c53.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [CMakeFiles/cmTC_c6db9.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
     arg [-lstdc++] ==> lib [stdc++]
     arg [-lm] ==> lib [m]
     arg [-lgcc] ==> lib [gcc]
@@ -219,27 +219,27 @@ Parsed CXX implicit link information from above output:
     arg [-lgcc] ==> lib [gcc]
     arg [-lgcc] ==> lib [gcc]
     arg [-ldl] ==> lib [dl]
-    arg [C:/Users/chulift/AppData/Local/Android/sdk/ndk-bundle/platforms/android-21/arch-x86/usr/lib\crtend_android.o] ==> ignore
+    arg [C:/Users/Chulift/AppData/Local/Android/sdk/ndk-bundle/platforms/android-21/arch-x86/usr/lib\crtend_android.o] ==> ignore
   remove lib [gcc]
   remove lib [gcc]
   remove lib [gcc]
   remove lib [gcc]
-  collapse library dir [C:/Users/chulift/AppData/Local/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/lib/gcc/i686-linux-android/4.9.x] ==> [C:/Users/chulift/AppData/Local/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/lib/gcc/i686-linux-android/4.9.x]
-  collapse library dir [C:/Users/chulift/AppData/Local/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/lib/gcc/i686-linux-android/4.9.x/../../../../i686-linux-android/lib] ==> [C:/Users/chulift/AppData/Local/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/i686-linux-android/lib]
-  collapse library dir [C:/Users/chulift/AppData/Local/Android/sdk/ndk-bundle/platforms/android-21/arch-x86/usr/lib] ==> [C:/Users/chulift/AppData/Local/Android/sdk/ndk-bundle/platforms/android-21/arch-x86/usr/lib]
+  collapse library dir [C:/Users/Chulift/AppData/Local/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/lib/gcc/i686-linux-android/4.9.x] ==> [C:/Users/Chulift/AppData/Local/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/lib/gcc/i686-linux-android/4.9.x]
+  collapse library dir [C:/Users/Chulift/AppData/Local/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/lib/gcc/i686-linux-android/4.9.x/../../../../i686-linux-android/lib] ==> [C:/Users/Chulift/AppData/Local/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/i686-linux-android/lib]
+  collapse library dir [C:/Users/Chulift/AppData/Local/Android/sdk/ndk-bundle/platforms/android-21/arch-x86/usr/lib] ==> [C:/Users/Chulift/AppData/Local/Android/sdk/ndk-bundle/platforms/android-21/arch-x86/usr/lib]
   implicit libs: [stdc++;m;dl;c;dl]
-  implicit dirs: [C:/Users/chulift/AppData/Local/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/lib/gcc/i686-linux-android/4.9.x;C:/Users/chulift/AppData/Local/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/i686-linux-android/lib;C:/Users/chulift/AppData/Local/Android/sdk/ndk-bundle/platforms/android-21/arch-x86/usr/lib]
+  implicit dirs: [C:/Users/Chulift/AppData/Local/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/lib/gcc/i686-linux-android/4.9.x;C:/Users/Chulift/AppData/Local/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64/i686-linux-android/lib;C:/Users/Chulift/AppData/Local/Android/sdk/ndk-bundle/platforms/android-21/arch-x86/usr/lib]
   implicit fwks: []
 
 
 
 
 Detecting CXX [-std=c++14] compiler features compiled with the following output:
-Change Dir: C:/Users/chulift/Documents/ScoringSystem/app/.externalNativeBuild/cmake/debug/x86/CMakeFiles/CMakeTmp
+Change Dir: C:/Users/Chulift/Documents/ScoringSystem/app/.externalNativeBuild/cmake/debug/x86/CMakeFiles/CMakeTmp
 
-Run Build Command:"C:\Users\chulift\AppData\Local\Android\Sdk\cmake\3.6.3155560\bin\ninja.exe" "cmTC_f678c"
-[1/2] Building CXX object CMakeFiles/cmTC_f678c.dir/feature_tests.cxx.o
-[2/2] Linking CXX executable cmTC_f678c
+Run Build Command:"C:\Users\chulift\AppData\Local\Android\Sdk\cmake\3.6.3155560\bin\ninja.exe" "cmTC_61082"
+[1/2] Building CXX object CMakeFiles/cmTC_61082.dir/feature_tests.cxx.o
+[2/2] Linking CXX executable cmTC_61082
 
 
     Feature record: CXX_FEATURE:1cxx_aggregate_default_initializers
@@ -302,11 +302,11 @@ Run Build Command:"C:\Users\chulift\AppData\Local\Android\Sdk\cmake\3.6.3155560\
 
 
 Detecting CXX [-std=c++11] compiler features compiled with the following output:
-Change Dir: C:/Users/chulift/Documents/ScoringSystem/app/.externalNativeBuild/cmake/debug/x86/CMakeFiles/CMakeTmp
+Change Dir: C:/Users/Chulift/Documents/ScoringSystem/app/.externalNativeBuild/cmake/debug/x86/CMakeFiles/CMakeTmp
 
-Run Build Command:"C:\Users\chulift\AppData\Local\Android\Sdk\cmake\3.6.3155560\bin\ninja.exe" "cmTC_4cb15"
-[1/2] Building CXX object CMakeFiles/cmTC_4cb15.dir/feature_tests.cxx.o
-[2/2] Linking CXX executable cmTC_4cb15
+Run Build Command:"C:\Users\chulift\AppData\Local\Android\Sdk\cmake\3.6.3155560\bin\ninja.exe" "cmTC_c3e27"
+[1/2] Building CXX object CMakeFiles/cmTC_c3e27.dir/feature_tests.cxx.o
+[2/2] Linking CXX executable cmTC_c3e27
 
 
     Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers
@@ -369,11 +369,11 @@ Run Build Command:"C:\Users\chulift\AppData\Local\Android\Sdk\cmake\3.6.3155560\
 
 
 Detecting CXX [-std=c++98] compiler features compiled with the following output:
-Change Dir: C:/Users/chulift/Documents/ScoringSystem/app/.externalNativeBuild/cmake/debug/x86/CMakeFiles/CMakeTmp
+Change Dir: C:/Users/Chulift/Documents/ScoringSystem/app/.externalNativeBuild/cmake/debug/x86/CMakeFiles/CMakeTmp
 
-Run Build Command:"C:\Users\chulift\AppData\Local\Android\Sdk\cmake\3.6.3155560\bin\ninja.exe" "cmTC_e7bd9"
-[1/2] Building CXX object CMakeFiles/cmTC_e7bd9.dir/feature_tests.cxx.o
-[2/2] Linking CXX executable cmTC_e7bd9
+Run Build Command:"C:\Users\chulift\AppData\Local\Android\Sdk\cmake\3.6.3155560\bin\ninja.exe" "cmTC_98d90"
+[1/2] Building CXX object CMakeFiles/cmTC_98d90.dir/feature_tests.cxx.o
+[2/2] Linking CXX executable cmTC_98d90
 
 
     Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers

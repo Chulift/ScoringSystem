@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#EEEEEE">
+    android:layout_height="match_parent">
 
     <!-- Load the toolbar here -->
     <include
@@ -48,8 +47,7 @@
                 android:id="@+id/back_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
-                android:background="#EEEEEE"
+                style="?android:attr/buttonBarButtonStyle"
                 android:src="@mipmap/back_button" />
 
             <TextView
@@ -77,6 +75,7 @@
             <ImageView
                 android:contentDescription="@string/apply"
                 android:id="@+id/img"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@mipmap/apply" />

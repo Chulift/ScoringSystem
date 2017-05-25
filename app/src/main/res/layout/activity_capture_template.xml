@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/activity_capture_template"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <!-- Load the toolbar here -->
@@ -22,7 +21,6 @@
         android:weightSum="4">
 
         <TextView
-            android:id="@+id/textView1"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -34,7 +32,6 @@
 
 
         <TextView
-            android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -45,7 +42,6 @@
             android:textSize="16sp" />
 
         <TextView
-            android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -56,7 +52,6 @@
             android:textSize="16sp" />
 
         <TextView
-            android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -98,8 +93,7 @@
                 android:id="@+id/back_btn"
                 style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_height="match_parent"
                 android:contentDescription="@string/back"
                 android:src="@mipmap/arrow_back_icon"
                 android:text="@string/back" />
@@ -109,7 +103,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
-                android:text="ย้อนกลับ" />
+                android:text="ดูกระดาษคำตอบ" />
         </LinearLayout>
 
         <LinearLayout

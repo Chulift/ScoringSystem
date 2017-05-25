@@ -1,9 +1,9 @@
 
 {
-	"buildFiles" : [ "C:/Users/chulift/Documents/ScoringSystem/app/CMakeLists.txt" ],
+	"buildFiles" : [ "C:/Users/Chulift/Documents/ScoringSystem/app/CMakeLists.txt" ],
 	"cleanCommands" : 
 	[
-		"C:\\Users\\chulift\\AppData\\Local\\Android\\Sdk\\cmake\\3.6.3155560\\bin\\cmake.exe --build C:\\Users\\chulift\\Documents\\ScoringSystem\\app\\.externalNativeBuild\\cmake\\debug\\mips64 --target clean"
+		"C:\\Users\\chulift\\AppData\\Local\\Android\\Sdk\\cmake\\3.6.3155560\\bin\\cmake.exe --build C:\\Users\\Chulift\\Documents\\ScoringSystem\\app\\.externalNativeBuild\\cmake\\debug\\mips64 --target clean"
 	],
 	"cppFileExtensions" : [ "cpp" ],
 	"libraries" : 
@@ -12,27 +12,27 @@
 		{
 			"abi" : "mips64",
 			"artifactName" : "native-lib",
-			"buildCommand" : "C:\\Users\\chulift\\AppData\\Local\\Android\\Sdk\\cmake\\3.6.3155560\\bin\\cmake.exe --build C:\\Users\\chulift\\Documents\\ScoringSystem\\app\\.externalNativeBuild\\cmake\\debug\\mips64 --target native-lib",
+			"buildCommand" : "C:\\Users\\chulift\\AppData\\Local\\Android\\Sdk\\cmake\\3.6.3155560\\bin\\cmake.exe --build C:\\Users\\Chulift\\Documents\\ScoringSystem\\app\\.externalNativeBuild\\cmake\\debug\\mips64 --target native-lib",
 			"buildType" : "debug",
 			"files" : 
 			[
 				
 				{
-					"flags" : "  --target=mips64el-none-linux-android --gcc-toolchain=C:/Users/chulift/AppData/Local/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/windows-x86_64 --sysroot=C:/Users/chulift/AppData/Local/Android/sdk/ndk-bundle/platforms/android-21/arch-mips64  -Dnative_lib_EXPORTS -isystem C:\\Users\\chulift\\AppData\\Local\\Android\\sdk\\ndk-bundle\\sources\\cxx-stl\\gnu-libstdc++\\4.9\\include -isystem C:\\Users\\chulift\\AppData\\Local\\Android\\sdk\\ndk-bundle\\sources\\cxx-stl\\gnu-libstdc++\\4.9\\libs\\mips64\\include -isystem C:\\Users\\chulift\\AppData\\Local\\Android\\sdk\\ndk-bundle\\sources\\cxx-stl\\gnu-libstdc++\\4.9\\include\\backward  -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -Wa,--noexecstack -Wformat -Werror=format-security   -O0 -fno-limit-debug-info  -fPIC    -c ",
-					"src" : "C:/Users/chulift/Documents/ScoringSystem/app/src/main/cpp/native-lib.cpp",
-					"workingDirectory" : "C:/Users/chulift/Documents/ScoringSystem/app/.externalNativeBuild/cmake/debug/mips64"
+					"flags" : "  --target=mips64el-none-linux-android --gcc-toolchain=C:/Users/Chulift/AppData/Local/Android/sdk/ndk-bundle/toolchains/mips64el-linux-android-4.9/prebuilt/windows-x86_64 --sysroot=C:/Users/Chulift/AppData/Local/Android/sdk/ndk-bundle/platforms/android-21/arch-mips64  -Dnative_lib_EXPORTS -isystem C:\\Users\\Chulift\\AppData\\Local\\Android\\sdk\\ndk-bundle\\sources\\cxx-stl\\gnu-libstdc++\\4.9\\include -isystem C:\\Users\\Chulift\\AppData\\Local\\Android\\sdk\\ndk-bundle\\sources\\cxx-stl\\gnu-libstdc++\\4.9\\libs\\mips64\\include -isystem C:\\Users\\Chulift\\AppData\\Local\\Android\\sdk\\ndk-bundle\\sources\\cxx-stl\\gnu-libstdc++\\4.9\\include\\backward  -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -Wa,--noexecstack -Wformat -Werror=format-security  -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -Wa,--noexecstack -Wformat -Werror=format-security   -O0 -fno-limit-debug-info -O0 -fno-limit-debug-info  -fPIC    -c ",
+					"src" : "C:/Users/Chulift/Documents/ScoringSystem/app/src/main/cpp/native-lib.cpp",
+					"workingDirectory" : "C:/Users/Chulift/Documents/ScoringSystem/app/.externalNativeBuild/cmake/debug/mips64"
 				}
 			],
-			"output" : "C:/Users/chulift/Documents/ScoringSystem/app/build/intermediates/cmake/debug/obj/mips64/libnative-lib.so",
-			"toolchain" : "1402149581"
+			"output" : "C:/Users/Chulift/Documents/ScoringSystem/app/build/intermediates/cmake/debug/obj/mips64/libnative-lib.so",
+			"toolchain" : "649842637"
 		}
 	},
 	"toolchains" : 
 	{
-		"1402149581" : 
+		"649842637" : 
 		{
-			"cCompilerExecutable" : "C:/Users/chulift/AppData/Local/Android/sdk/ndk-bundle/toolchains/llvm/prebuilt/windows-x86_64/bin/clang.exe",
-			"cppCompilerExecutable" : "C:/Users/chulift/AppData/Local/Android/sdk/ndk-bundle/toolchains/llvm/prebuilt/windows-x86_64/bin/clang++.exe"
+			"cCompilerExecutable" : "C:/Users/Chulift/AppData/Local/Android/sdk/ndk-bundle/toolchains/llvm/prebuilt/windows-x86_64/bin/clang.exe",
+			"cppCompilerExecutable" : "C:/Users/Chulift/AppData/Local/Android/sdk/ndk-bundle/toolchains/llvm/prebuilt/windows-x86_64/bin/clang++.exe"
 		}
 	}
 }

@@ -2,9 +2,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ScrollView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
         <!-- TODO: Update blank fragment layout -->
         <LinearLayout
             android:layout_width="match_parent"
@@ -51,7 +51,6 @@
                     </LinearLayout>
 
                     <TextView
-                        android:id="@+id/txt_num_student_code"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
@@ -83,7 +82,6 @@
                     </LinearLayout>
 
                     <TextView
-                        android:id="@+id/txt_num_column"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
@@ -119,7 +117,6 @@
                     </LinearLayout>
 
                     <TextView
-                        android:id="@+id/txt_num_section"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
@@ -155,7 +152,6 @@
                     </LinearLayout>
 
                     <TextView
-                        android:id="@+id/txt_num_choice"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
@@ -166,12 +162,43 @@
                 </RelativeLayout>
 
             </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal"
+            android:weightSum="4">
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:gravity="center"
-                android:orientation="horizontal">
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:id="@+id/back_btn"
+                    style="?android:attr/buttonBarButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/back"
+                    android:src="@mipmap/back_button" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/back"
+                    android:textColor="@color/black" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
 
                 <ImageButton
                     android:id="@+id/cancel_button"
@@ -179,8 +206,43 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:contentDescription="@string/undo"
-                    android:src="@mipmap/undo_icon"
+                    android:src="@mipmap/clear_icon"
                     android:text="@string/clear" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/clear"
+                    android:textColor="@color/black" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:id="@+id/delete_button"
+                    style="?android:attr/buttonBarNegativeButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/delete_template"
+                    android:src="@mipmap/bin_delete_icon"
+                    android:text="@string/delete_template" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/delete_template"
+                    android:textColor="@color/black" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
 
                 <ImageButton
                     android:id="@+id/update_button"
@@ -191,16 +253,14 @@
                     android:src="@mipmap/confirm_icon"
                     android:text="@string/edit" />
 
-
-                <ImageButton
-                    android:id="@+id/delete_button"
-                    style="?android:attr/buttonBarNegativeButtonStyle"
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:contentDescription="@string/delete_template"
-                    android:src="@mipmap/bin_delete_icon"
-                    android:text="@string/delete_template" />
+                    android:text="@string/update_template"
+                    android:textColor="@color/black" />
             </LinearLayout>
+
+
         </LinearLayout>
-    </ScrollView>
+    </RelativeLayout>
 </FrameLayout>

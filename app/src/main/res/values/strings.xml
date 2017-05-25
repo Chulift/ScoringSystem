@@ -1,7 +1,5 @@
 <resources>
     <string name="app_name">Scoring System</string>
-    <string name="add_template">เพิ่มเทมเพลท</string>
-    <string name="template">จัดการเทมเพลท</string>
     <string name="back">ย้อนกลับ</string>
     <string name="capture">ถ่ายเทมเพลทข้อสอบ</string>
     <string name="next">ถัดไป</string>
@@ -10,14 +8,10 @@
     <string name="ok">กลับหน้าแรก</string>
     <string name="add_exam">เพิ่มกระดาษคำตอบ</string>
     <string name="capture_exam">ถ่ายกระดาษคำตอบ</string>
-    <string name="upload_exam">อัพโหลดกระดาษคำตอบ</string>
-    <string name="grading_exam">จัดการกระดาษคำตอบ</string>
-    <string name="group_exam">เลือกกลุ่ม</string>
     <string name="home">กลับสู่หนัาหลัก</string>
-    <string name="tab">\u0009</string>
+    <string name="update_template">อัพเดท</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="ic_launcher_web">icon</string>
     <string name="apply">apply</string>
     <string name="add">add</string>
@@ -37,14 +31,14 @@
     <string name="create_exam_storage">สร้างชุดข้อสอบ</string>
     <string name="confirm">ยืนยัน</string>
     <string name="exam_storage_name">ชื่อชุดข้อสอบ</string>
-    <string name="num_section">จำนวนช้อ</string>
+    <string name="num_section">จำนวนข้อ</string>
     <string name="num_choice">จำนวนตัวเลือก</string>
     <string name="choose_template">เลือกเทมเพลท</string>
     <string name="answer_sheet_list_header">ตรวจข้อสอบ</string>
     <string name="index">#</string>
     <string name="point">คะแนน</string>
     <string name="status">สถานะการตรวจ</string>
-    <string name="capture_answer_sheet">ถ่ายกระดาษคำตอบ</string>
+    <string name="capture_answer_sheet">ตรวจข้อสอบ</string>
     <string name="test_camera">ทดสอบกล้อง</string>
     <string name="select_main_dimension">เลือกส่วนสำคัญ</string>
     <string name="fill_form">กรอกข้อมูล</string>
@@ -53,13 +47,12 @@
     <string name="select_id_zone">เลือกส่วนรหัสนักเรียน</string>
     <string name="select_detail_zone">เลือกส่วนข้อมูลนักเรียน</string>
     <string name="answer_sheet_detail_form">รายละเอียดของกระดาษคำตอบ</string>
-    <string name="template_name">ชื่อเทมเพลท</string>
+    <string name="template_name">ชื่อกระดาษคำตอบ</string>
     <string name="student_id_count">จำนวนตัวเลขรหัสประจำตัว</string>
     <string name="column_count">จำนวนคอลัมป์ของโซนคำตอบ</string>
     <string name="section_count">จำนวนข้อต่อคอลัมป์</string>
     <string name="choice_count">จำนวนตัวเลือกต่อข้อ</string>
     <string name="upload_template">อัพโหลดเทมเพลทข้อสอบ</string>
-    <string name="select_template_header">เลือกเทมเพลท</string>
     <string name="manage_template_header">จัดการกระดาษคำตอบ</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
@@ -78,7 +71,7 @@
     <string name="score">คะแนน</string>
     <string name="edit">แก้ไข</string>
     <string name="clear">เคลียร์ข้อมูล</string>
-    <string name="delete_template">ลบเทมเพลทนี้</string>
+    <string name="delete_template">ลบ</string>
     <string name="menu_name">Menu name</string>
     <string name="manage_answer">จัดการเฉลย</string>
     <string name="edit_exam_storage">แก้ไขชุดข้อสอบ</string>
@@ -86,17 +79,5 @@
     <string name="user">ผู้ใช้:</string>
     <string name="std_code">รหัสนักเรียน</string>
     <string name="undo">undo</string>
-    <string name="description_info">Info</string>
-    <string name="request_permission">This sample needs camera permission.</string>
-    <string name="camera_error">This device doesn\'t support Camera2 API.</string>
-    <string name="intro_message">
-        <![CDATA[
-
-
-            This sample demonstrates the basic use of Camera2 API. Check the source code to see how
-            you can display camera preview and take pictures.
-
-
-        ]]>
-    </string>
+    <string name="capture_student_answer_sheet">ถ่ายข้อสอบ</string>
 </resources>

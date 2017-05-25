@@ -2,12 +2,20 @@
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_about_us"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
     tools:context="com.example.chulift.demoapplication.AboutUsActivity">
+    <!-- Load the toolbar here -->
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <!-- Rest of content for the activity -->
     <LinearLayout
+        android:layout_below="@id/toolbar"
         android:id="@+id/l1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -22,18 +30,51 @@
             android:paddingTop="20dp"
             android:text="@string/about_us"
             android:textColor="@color/black"
-            android:textSize="20sp"
-            android:id="@+id/textView" />
+            android:textSize="20sp" />
     </LinearLayout>
 
 
-
-    <ScrollView
-        android:background="@color/white"
-        android:id="@+id/s1"
+    <LinearLayout
+        android:id="@+id/btm_app_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/l1">
+        android:background="@color/grass"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:contentDescription="@string/home"
+                android:padding="5dp"
+                android:id="@+id/home_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/grass"
+                android:src="@mipmap/home_btn" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/home"
+                android:textAlignment="center"
+                android:textColor="@color/black" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/btm_app_bar"
+        android:layout_below="@id/l1"
+        android:background="@color/white">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -59,10 +100,9 @@
                         android:textSize="16sp" />
 
                     <ImageView
-                        android:id="@+id/imageView2"
-                        android:contentDescription="@string/ic_launcher_web"
                         android:layout_width="match_parent"
                         android:layout_height="200dp"
+                        android:contentDescription="@string/ic_launcher_web"
                         android:src="@mipmap/ic_launcher_web" />
                 </LinearLayout>
 
@@ -137,38 +177,4 @@
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/grass"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true">
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="10dp"
-            android:orientation="vertical">
-
-            <ImageButton
-                android:contentDescription="@string/home"
-                android:padding="5dp"
-                android:id="@+id/home_btn"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/grass"
-                android:src="@mipmap/home_btn" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/home"
-                android:textAlignment="center"
-                android:textColor="@color/black" />
-        </LinearLayout>
-    </LinearLayout>
 </RelativeLayout>

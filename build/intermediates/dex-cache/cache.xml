@@ -7,7 +7,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="510aa6efc159983dfbffa676a0dae37568c0a46f">
+        sha1="caff8e51a24901cfc9cd7e1cf83d84f4cb0c103b">
         <dex dex="C:\Users\chulift\Documents\ScoringSystem\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_c9ea9a1ab61573035a8af20544b2b022a92805fd\classes.dex" />
     </item>
     <item
@@ -16,7 +16,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="5ceeb858438f3bdd4b6c74dae63fdad204ee5295">
+        sha1="5dbbdbca1912b7aa260438792ff52da65b06dc2d">
         <dex dex="C:\Users\chulift\Documents\ScoringSystem\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_43c4e9402333f79c4059f289def6d00aea5acbbc\classes.dex" />
     </item>
 
